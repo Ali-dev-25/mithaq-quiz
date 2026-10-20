@@ -1,0 +1,2781 @@
+﻿<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ميثاق للتهيئة الزوجية (Copy) (Copy)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* ===================================================================
+   DESIGN PLAN
+   Layout: a single travelled "charter" — fixed slim top bar (overall
+   progress as a filling line), a centered column of cards the user
+   moves through screen by screen, and a 13-medallion map between
+   chapters. The certificate closes the journey as an ornamented
+   charter page with a drawn geometric border.
+   Color:  --bg --surface --surface-2 --fg --muted --border --accent
+           --accent-strong --gold --gold-soft --danger --danger-bg
+           --success --success-bg
+   Type:   --font-display (Aref Ruqaa, headings + certificate)
+           --font-body    (IBM Plex Sans Arabic, everything else)
+   =================================================================== */
+:root{
+  --bg:#F2EDDE; --surface:#FFFCF5; --surface-2:#E8DFC4; --fg:#20352F;
+  --muted:#5C6B61; --border:#D7C89C; --accent:#1F6F5C; --accent-strong:#113E33;
+  --gold:#9C7A2C; --gold-soft:#E2D2A0; --danger:#8B3A2B; --danger-bg:#F3E1D6;
+  --success:#2E6B4F; --success-bg:#E2EEE0; --shadow:0 1px 2px rgba(32,40,30,.06),0 6px 20px -8px rgba(32,40,30,.18);
+  --font-display:'IBM Plex Sans Arabic',Tahoma,Arial,sans-serif; --font-body:'IBM Plex Sans Arabic',Tahoma,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14201B; --surface:#1B2B24; --surface-2:#24362C; --fg:#ECE6D4;
+    --muted:#A6B3A8; --border:#3A4D40; --accent:#4FBE9B; --accent-strong:#86DCBB;
+    --gold:#D8BA66; --gold-soft:#5B4A24; --danger:#E6977C; --danger-bg:#3A251E;
+    --success:#86D1A6; --success-bg:#1F342A; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px -10px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14201B; --surface:#1B2B24; --surface-2:#24362C; --fg:#ECE6D4;
+  --muted:#A6B3A8; --border:#3A4D40; --accent:#4FBE9B; --accent-strong:#86DCBB;
+  --gold:#D8BA66; --gold-soft:#5B4A24; --danger:#E6977C; --danger-bg:#3A251E;
+  --success:#86D1A6; --success-bg:#1F342A; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px -10px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); direction:rtl; font-family:var(--font-body); line-height:1.75; -webkit-font-smoothing:antialiased;}
+html,body{height:100%}
+h1,h2,h3,.disp{font-family:var(--font-body); font-weight:700;}
+::selection{background:var(--gold-soft)}
+.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
+a{color:var(--accent-strong)}
+button{font-family:inherit}
+
+#app{min-height:100%; display:flex; flex-direction:column;}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--bg); border-bottom:1px solid var(--border);}
+.topbar-inner{max-width:760px; margin:0 auto; padding:10px 18px; display:flex; align-items:center; gap:12px;}
+.brand{font-family:var(--font-body); font-size:1.15rem; color:var(--accent-strong); white-space:nowrap;}
+.topbar-track{flex:1; height:6px; border-radius:4px; background:var(--surface-2); overflow:hidden;}
+.topbar-fill{height:100%; background:linear-gradient(90deg,var(--accent),var(--gold)); border-radius:4px; transition:width .5s ease;}
+.topbar-pct{font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap;}
+.map-btn{border:1px solid var(--border); background:var(--surface); color:var(--fg); border-radius:8px; padding:6px 10px; font-size:.78rem; cursor:pointer;}
+.map-btn:hover{border-color:var(--accent)}
+
+/* ---------- shell / screens ---------- */
+.wrap{max-width:760px; margin:0 auto; width:100%; padding-inline:18px; padding-block:28px; flex:1; display:flex; flex-direction:column; gap:18px;}
+.screen{display:flex; flex-direction:column; gap:18px; animation:rise .35s ease both;}
+@keyframes rise{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){.screen{animation:none}}
+
+.card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px 22px; box-shadow:var(--shadow);}
+.card + .card{margin-top:0}
+.eyebrow{font-size:.78rem; letter-spacing:.04em; color:var(--gold); text-transform:none; font-weight:600;}
+.h-title{font-size:1.5rem; margin:4px 0 2px; text-wrap:balance;}
+.h-sub{color:var(--muted); font-size:.95rem; margin:0 0 6px;}
+.lede{font-size:1.02rem; max-width:65ch;}
+.p{margin:0 0 10px; max-width:66ch;}
+.p:last-child{margin-bottom:0}
+
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:11px; padding:13px 20px; font-size:.98rem; font-weight:600; cursor:pointer; border:1px solid transparent; transition:transform .12s ease, filter .15s ease;}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--accent); color:#fff;}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-primary:disabled{opacity:.45; cursor:not-allowed;}
+.btn-ghost{background:transparent; border-color:var(--border); color:var(--fg);}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn-gold{background:var(--gold); color:#2b2310;}
+.btn-row{display:flex; gap:10px; flex-wrap:wrap;}
+.btn-block{width:100%}
+
+/* ---------- intro ---------- */
+.intro-badge{width:58px; height:58px; border-radius:50%; background:var(--surface-2); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-size:1.6rem; color:var(--accent-strong);}
+.tagline{color:var(--gold); font-weight:600; letter-spacing:.03em;}
+.disclaimer-box{background:var(--surface-2); border:1px dashed var(--border); border-radius:12px; padding:14px 16px; font-size:.88rem; color:var(--muted);}
+
+/* ---------- registration ---------- */
+.field{display:flex; flex-direction:column; gap:7px;}
+.field label{font-size:.88rem; font-weight:600;}
+.field input[type=text]{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:11px 13px; font-size:1rem; color:var(--fg); font-family:inherit;}
+.field input:focus{outline:2px solid var(--accent); outline-offset:1px;}
+.choice-grid{display:flex; flex-wrap:wrap; gap:8px;}
+.choice-chip{border:1px solid var(--border); background:var(--surface); color:var(--fg); border-radius:999px; padding:9px 16px; font-size:.88rem; cursor:pointer;}
+.choice-chip[aria-pressed="true"]{background:var(--accent); color:#fff; border-color:var(--accent);}
+.optional-toggle{background:none; border:none; color:var(--accent-strong); font-weight:600; font-size:.88rem; cursor:pointer; padding:4px 0; text-align:right; display:flex; align-items:center; gap:6px;}
+.optional-body{display:flex; flex-direction:column; gap:14px; padding-top:6px;}
+.optional-body[hidden]{display:none}
+
+/* ---------- chapter map ---------- */
+.medallion-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px;}
+.medallion{display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; padding:16px 10px; border-radius:14px; border:1px solid var(--border); background:var(--surface); cursor:pointer; min-width:0;}
+.medallion:disabled{cursor:not-allowed; opacity:.55;}
+.medallion[data-state="current"]{border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);}
+.medallion[data-state="done"]{border-color:var(--gold);}
+.med-num{width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-size:1.15rem; background:var(--surface-2); color:var(--fg); font-variant-numeric:tabular-nums;}
+.medallion[data-state="done"] .med-num{background:var(--gold); color:#2b2310;}
+.medallion[data-state="current"] .med-num{background:var(--accent); color:#fff;}
+.med-title{font-size:.8rem; font-weight:600; line-height:1.4; max-width:100%;}
+.med-badge{font-size:.68rem; color:var(--muted);}
+.med-badge.ok{color:var(--success)}
+.med-badge.warn{color:var(--danger)}
+
+/* ---------- reading / story ---------- */
+.dots{display:flex; gap:6px; justify-content:center;}
+.dot{width:7px; height:7px; border-radius:50%; background:var(--border);}
+.dot.active{background:var(--accent); width:18px; border-radius:4px; transition:width .2s;}
+.story-kicker{display:flex; align-items:center; gap:8px; color:var(--gold); font-weight:700; font-size:.85rem;}
+
+/* ---------- quiz ---------- */
+.q-text{font-size:1.08rem; font-weight:600; margin:0;}
+.choice-btn{display:flex; align-items:flex-start; gap:10px; width:100%; text-align:right; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 14px; font-size:.95rem; cursor:pointer; color:var(--fg);}
+.choice-btn:hover:not(:disabled){border-color:var(--accent)}
+.choice-btn .mark{flex:0 0 22px; width:22px; height:22px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.75rem; font-weight:700; margin-top:1px;}
+.choice-btn[data-mark="correct"]{border-color:var(--success); background:var(--success-bg);}
+.choice-btn[data-mark="correct"] .mark{background:var(--success); color:#fff; border-color:var(--success);}
+.choice-btn[data-mark="wrong"]{border-color:var(--danger); background:var(--danger-bg);}
+.choice-btn[data-mark="wrong"] .mark{background:var(--danger); color:#fff; border-color:var(--danger);}
+.choice-btn:disabled{cursor:default;}
+.feedback{border-radius:12px; padding:14px 16px; font-size:.92rem; display:flex; gap:10px; align-items:flex-start;}
+.feedback.ok{background:var(--success-bg); color:var(--fg);}
+.feedback.bad{background:var(--danger-bg); color:var(--fg);}
+.feedback b{font-family:var(--font-body); font-weight:700;}
+.quiz-progress{font-size:.8rem; color:var(--muted); font-variant-numeric:tabular-nums;}
+
+/* ---------- safety ---------- */
+.safety-banner{border:1px solid var(--danger); background:var(--danger-bg); border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:8px;}
+.safety-banner h3{margin:0; font-size:1.05rem; color:var(--danger);}
+.safety-banner ul{margin:0; padding-inline-start:20px; display:flex; flex-direction:column; gap:4px; font-size:.9rem;}
+.safety-banner .foot{font-size:.78rem; color:var(--muted);}
+
+/* ---------- reflection / plan ---------- */
+.scale-row{display:flex; flex-direction:column; gap:10px;}
+.scale-stmt{font-size:.96rem; font-weight:600;}
+.scale-opts{display:flex; gap:7px; flex-wrap:wrap;}
+.scale-opt{flex:1; min-width:70px; border:1px solid var(--border); background:var(--surface); border-radius:10px; padding:9px 6px; font-size:.78rem; text-align:center; cursor:pointer; color:var(--fg);}
+.scale-opt[aria-pressed="true"]{background:var(--accent); color:#fff; border-color:var(--accent);}
+.plan-topic{font-size:.78rem; color:var(--gold); font-weight:700;}
+.plan-option{display:block; width:100%; text-align:right; border:1px solid var(--border); background:var(--surface); border-radius:12px; padding:12px 14px; font-size:.92rem; cursor:pointer; margin-top:8px; color:var(--fg);}
+.plan-option[aria-pressed="true"]{border-color:var(--accent); background:var(--success-bg);}
+
+/* ---------- key messages / summary ---------- */
+.quote{border-right:3px solid var(--gold); padding-right:14px; font-size:1.02rem; font-family:var(--font-body); color:var(--accent-strong);}
+.quote + .quote{margin-top:10px}
+.rubric-pill{display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:6px 14px; font-size:.82rem; font-weight:600;}
+.rubric-pill.strength{background:var(--success-bg); color:var(--success);}
+.rubric-pill.growth{background:var(--gold-soft); color:#5b4718;}
+.rubric-pill.clarity{background:var(--danger-bg); color:var(--danger);}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .rubric-pill.growth{color:var(--gold)} }
+:root[data-theme="dark"] .rubric-pill.growth{color:var(--gold)}
+
+/* ---------- completion / certificate ---------- */
+.summary-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.stat-tile{background:var(--surface-2); border-radius:12px; padding:14px; text-align:center;}
+.stat-num{font-family:var(--font-body); font-size:1.8rem; color:var(--accent-strong); font-variant-numeric:tabular-nums;}
+.stat-lbl{font-size:.76rem; color:var(--muted);}
+
+.cert-frame{position:relative; background:var(--surface); border-radius:4px; padding:34px 28px; overflow:hidden;}
+.cert-border{position:absolute; inset:10px; border:2px solid var(--gold); border-radius:2px; pointer-events:none;}
+.cert-border::before, .cert-border::after{content:""; position:absolute; width:22px; height:22px; border:2px solid var(--gold);}
+.cert-border::before{top:-2px; right:-2px; border-width:2px 2px 0 0;}
+.cert-border::after{bottom:-2px; left:-2px; border-width:0 0 2px 2px;}
+.cert-inner{position:relative; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px;}
+.cert-eyebrow{font-size:.8rem; color:var(--gold); letter-spacing:.06em; font-weight:700;}
+.cert-title{font-size:2.1rem; margin:0; color:var(--accent-strong);}
+.cert-sub{font-size:.95rem; color:var(--muted); margin-top:-4px;}
+.cert-name{font-size:1.7rem; margin:10px 0 0; border-bottom:2px solid var(--gold-soft); padding-bottom:6px; display:inline-block;}
+.cert-body{max-width:46ch; font-size:.95rem; color:var(--fg);}
+.cert-meta{display:flex; gap:18px; flex-wrap:wrap; justify-content:center; font-size:.82rem; color:var(--muted); font-variant-numeric:tabular-nums;}
+.cert-tagline{font-family:var(--font-body); font-size:1.1rem; color:var(--gold); letter-spacing:.05em;}
+.cert-disclaimer{font-size:.76rem; color:var(--muted); max-width:50ch;}
+.copy-row{display:flex; align-items:center; gap:8px; justify-content:center; flex-wrap:wrap;}
+.copy-chip{font-family:ui-monospace,monospace; font-variant-numeric:tabular-nums; background:var(--surface-2); border-radius:8px; padding:5px 10px; font-size:.82rem;}
+.print-hint{font-size:.84rem; color:var(--muted); background:var(--surface-2); border-radius:10px; padding:12px 14px;}
+
+footer.foot-note{text-align:center; color:var(--muted); font-size:.76rem; padding:10px 0 20px;}
+
+@media print{
+  .topbar, .no-print{display:none !important;}
+  body{background:#fff;}
+  .cert-frame{box-shadow:none; border:none;}
+}
+@media (max-width:480px){
+  .cert-title{font-size:1.6rem}
+  .summary-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<div id="app"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------------------------------------------------------------- */
+/* state                                                             */
+/* ---------------------------------------------------------------- */
+var STORE_KEY = "mithaq_journey_v1";
+var CONTENT = null;
+
+function freshState(){
+  return {
+    registered:false,
+    registration:{},
+    route:{name:"intro"},
+    chapters:{},           // id -> per-chapter progress
+    certificateId:null,
+    startedAt:null,
+    completedAt:null
+  };
+}
+function freshChapterState(){
+  return {
+    status:"locked",            // locked | available | done
+    stage:"story",              // story | reading | quiz | remedial | reflection | plan | summary
+    readingIdx:0,
+    quizIdx:0,
+    quizOrder:[],                // indices of questions still to ask this round
+    answered:{},                 // qIndex -> chosenIndex
+    wrongOnce:{},                 // qIndex -> true if missed on the very first pass
+    firstPassScore:null,
+    reflectionAns:[],
+    planAns:[],
+    dangerFlagged:false
+  };
+}
+
+function loadState(){
+  try{
+    var raw = localStorage.getItem(STORE_KEY);
+    if(!raw) return freshState();
+    var parsed = JSON.parse(raw);
+    if(!parsed || typeof parsed !== "object") return freshState();
+    return parsed;
+  }catch(e){ return freshState(); }
+}
+var state = loadState();
+function saveState(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){ /* ignore */ }
+}
+function nav(route){ state.route = route; saveState(); render(); window.scrollTo(0,0); }
+
+/* ---------------------------------------------------------------- */
+/* helpers                                                            */
+/* ---------------------------------------------------------------- */
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+  });
+}
+function el(html){ var t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstElementChild; }
+function qs(sel,root){ return (root||document).querySelector(sel); }
+function qsa(sel,root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
+function on(elm, ev, fn){ if(elm) elm.addEventListener(ev, fn); }
+function chapterById(id){ return CONTENT.chapters.find(function(c){return c.id===id;}); }
+function chState(id){
+  if(!state.chapters[id]) state.chapters[id] = freshChapterState();
+  return state.chapters[id];
+}
+function totalChapters(){ return CONTENT.chapters.length; }
+function completedCount(){
+  return CONTENT.chapters.filter(function(c){ return chState(c.id).status==="done"; }).length;
+}
+function overallPct(){ return Math.round((completedCount()/totalChapters())*100); }
+function isUnlocked(id){
+  if(id===1) return true;
+  var prev = chState(id-1);
+  return prev.status==="done";
+}
+function syncLocks(){
+  CONTENT.chapters.forEach(function(c){
+    var cs = chState(c.id);
+    if(cs.status==="done") return;
+    cs.status = isUnlocked(c.id) ? "available" : "locked";
+  });
+}
+function shuffleCopy(arr){
+  var a = arr.slice();
+  for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+function genCertId(){
+  var n = "";
+  for(var i=0;i<6;i++) n += Math.floor(Math.random()*10);
+  return CONTENT.meta.certificate.idPrefix + "-" + n;
+}
+function fmtDate(iso){
+  try{
+    var d = new Date(iso);
+    return d.toLocaleDateString("ar-SA", {year:"numeric", month:"long", day:"numeric"});
+  }catch(e){ return ""; }
+}
+function addressHonorific(){
+  var g = state.registration.gender;
+  if(g==="امرأة") return "أختي الكريمة";
+  if(g==="رجل") return "أخي الكريم";
+  return "صاحب الميثاق";
+}
+
+/* ---------------------------------------------------------------- */
+/* top bar                                                           */
+/* ---------------------------------------------------------------- */
+function renderTopbar(){
+  var showMap = state.registered && state.route.name!=="intro" && state.route.name!=="register";
+  return (
+    '<div class="topbar"><div class="topbar-inner">'+
+      '<span class="brand">ميثاق</span>'+
+      (state.registered ? '<div class="topbar-track" role="progressbar" aria-valuenow="'+overallPct()+'" aria-valuemin="0" aria-valuemax="100"><div class="topbar-fill" style="width:'+overallPct()+'%"></div></div><span class="topbar-pct">'+overallPct()+'%</span>' : '<div style="flex:1"></div>')+
+      (showMap ? '<button class="map-btn" id="btn-map" type="button">الخريطة</button>' : '')+
+    '</div></div>'
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* SCREEN: intro                                                     */
+/* ---------------------------------------------------------------- */
+function screenIntro(){
+  var m = CONTENT.meta;
+  return (
+    '<div class="screen">'+
+      '<div class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px;">'+
+        '<div class="intro-badge">م</div>'+
+        '<h1 class="h-title disp" style="font-size:2.1rem;">'+esc(m.programTitle)+'</h1>'+
+        '<div class="tagline">'+esc(m.tagline)+'</div>'+
+        '<p class="h-sub" style="margin-top:4px;">'+esc(m.programSubtitle)+'</p>'+
+      '</div>'+
+      '<div class="card"><p class="p lede">'+esc(m.intro.summary)+'</p></div>'+
+      '<div class="disclaimer-box">'+esc(m.intro.disclaimer)+'</div>'+
+      '<button class="btn btn-primary btn-block" id="btn-start" type="button">ابدأ الرحلة</button>'+
+    '</div>'
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* SCREEN: registration                                              */
+/* ---------------------------------------------------------------- */
+function screenRegister(){
+  var reg = CONTENT.meta.registration;
+  var data = state.registration;
+  function chipGroup(field){
+    return '<div class="choice-grid" data-field="'+field.key+'">' +
+      field.options.map(function(opt){
+        var pressed = data[field.key]===opt;
+        return '<button type="button" class="choice-chip" aria-pressed="'+pressed+'" data-value="'+esc(opt)+'">'+esc(opt)+'</button>';
+      }).join("") + '</div>';
+  }
+  var requiredHtml = reg.required.map(function(f){
+    if(f.type==="text"){
+      return '<div class="field"><label for="f-'+f.key+'">'+esc(f.label)+'</label>'+
+        '<input type="text" id="f-'+f.key+'" data-field="'+f.key+'" placeholder="'+esc(f.placeholder||"")+'" value="'+esc(data[f.key]||"")+'"></div>';
+    }
+    return '<div class="field"><label>'+esc(f.label)+'</label>'+chipGroup(f)+'</div>';
+  }).join("");
+  var optionalHtml = reg.optional.map(function(f){
+    return '<div class="field"><label>'+esc(f.label)+'</label>'+chipGroup(f)+'</div>';
+  }).join("");
+
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+
+        '<div class="eyebrow">قبل أن تبدأ</div>'+
+        '<h2 class="h-title">بياناتك الأساسية</h2>'+
+        '<p class="h-sub">معلومات مختصرة تُستخدم لتخصيص خطابك وشهادتك، وتبقى محفوظة في متصفحك فقط على هذا الجهاز.</p>'+
+        '<div style="display:flex; flex-direction:column; gap:16px; margin-top:6px;">'+requiredHtml+'</div>'+
+      '</div>'+
+      '<div class="card">'+
+        '<button type="button" class="optional-toggle" id="btn-optional" aria-expanded="'+!!state._optOpen+'">'+
+          '<span>'+ (state._optOpen? "▲":"▼") +'</span> تفاصيل إضافية (اختياري)'+
+        '</button>'+
+        '<div class="optional-body" id="optional-body" '+(state._optOpen?'':'hidden')+'>'+optionalHtml+'</div>'+
+      '</div>'+
+      '<button class="btn btn-primary btn-block" id="btn-register-continue" type="button">دخول البرنامج</button>'+
+    '</div>'
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* SCREEN: chapter map                                                */
+/* ---------------------------------------------------------------- */
+function screenMap(){
+  syncLocks();
+  var items = CONTENT.chapters.map(function(c){
+    var cs = chState(c.id);
+    var state_ = cs.status; // locked|available|done
+    var disabled = state_==="locked";
+    var badge = "";
+    if(state_==="done"){
+      if(c.isSafetyChapter) badge = '<span class="med-badge ok">اكتمل</span>';
+      else if(c.isFinalChapter) badge = '<span class="med-badge ok">اكتملت الخطة</span>';
+      else{
+        var pct = Math.round((cs.firstPassScore||0)*100);
+        badge = '<span class="med-badge '+(pct>=80?"ok":(pct>=50?"":"warn"))+'">'+pct+'%</span>';
+      }
+    } else if(state_==="available"){
+      badge = '<span class="med-badge">متاح</span>';
+    } else {
+      badge = '<span class="med-badge">مقفل</span>';
+    }
+    var visState = state_==="done" ? "done" : (state_==="available" ? "current" : "locked");
+    return '<button type="button" class="medallion" data-ch="'+c.id+'" data-state="'+visState+'" '+(disabled?"disabled":"")+'>'+
+      '<span class="med-num">'+(state_==="done"?"✓":c.id)+'</span>'+
+      '<span class="med-title">'+esc(c.title)+'</span>'+
+      badge+
+    '</button>';
+  }).join("");
+
+  var allDone = completedCount()===totalChapters();
+
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+
+        '<div class="eyebrow">مرحبًا، '+esc(addressHonorific())+'</div>'+
+        '<h2 class="h-title">خريطة البرنامج</h2>'+
+        '<p class="h-sub">ثلاثة عشر فصلًا، كل فصل يُفتح بعد إكمال الذي قبله. '+completedCount()+' من '+totalChapters()+' مكتمل.</p>'+
+      '</div>'+
+      '<div class="medallion-grid">'+items+'</div>'+
+      (allDone ? '<button class="btn btn-gold btn-block" id="btn-goto-completion" type="button">عرض ملخص الإتمام والشهادة</button>' : '')+
+    '</div>'
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* chapter flow                                                      */
+/* ---------------------------------------------------------------- */
+function screenChapter(chId){
+  var c = chapterById(chId);
+  var cs = chState(chId);
+  if(cs.status==="locked"){ return screenMap(); }
+
+  switch(cs.stage){
+    case "story": return chapterStory(c, cs);
+    case "reading": return chapterReading(c, cs);
+    case "quiz": return chapterQuiz(c, cs, false);
+    case "remedial": return chapterQuiz(c, cs, true);
+    case "reflection": return chapterReflection(c, cs);
+    case "plan": return chapterPlan(c, cs);
+    case "summary": return chapterSummary(c, cs);
+    default: cs.stage="story"; return chapterStory(c, cs);
+  }
+}
+
+function chapterHeader(c, label){
+  return '<div class="eyebrow">الفصل '+c.id+' من '+totalChapters()+' · '+esc(label)+'</div>'+
+         '<h2 class="h-title">'+esc(c.title)+'</h2>'+
+         '<p class="h-sub">'+esc(c.purpose)+'</p>';
+}
+
+function chapterStory(c, cs){
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+chapterHeader(c,"القصة الافتتاحية")+
+        '<div class="story-kicker">✦ موقف من الحياة</div>'+
+        c.story.map(function(p){ return '<p class="p">'+esc(p)+'</p>'; }).join("")+
+      '</div>'+
+      '<div class="btn-row">'+
+        '<button class="btn btn-ghost" id="btn-back-map" type="button">الخريطة</button>'+
+        '<button class="btn btn-primary" id="btn-story-next" type="button" style="flex:1">المادة العلمية والشرعية</button>'+
+      '</div>'+
+    '</div>'
+  );
+}
+
+function chapterReading(c, cs){
+  var n = c.reading.length;
+  var i = Math.min(cs.readingIdx, n-1);
+  var card = c.reading[i];
+  var dots = c.reading.map(function(_,idx){ return '<span class="dot '+(idx===i?"active":"")+'"></span>'; }).join("");
+  var isLast = i===n-1;
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+chapterHeader(c,"القراءة ("+(i+1)+"/"+n+")")+
+        '<h3 style="margin:10px 0 4px; font-size:1.1rem;">'+esc(card.heading)+'</h3>'+
+        card.paragraphs.map(function(p){ return '<p class="p">'+esc(p)+'</p>'; }).join("")+
+      '</div>'+
+      '<div class="dots">'+dots+'</div>'+
+      '<div class="btn-row">'+
+        (i>0 ? '<button class="btn btn-ghost" id="btn-read-prev" type="button">السابق</button>' : '<button class="btn btn-ghost" id="btn-back-map" type="button">الخريطة</button>')+
+        '<button class="btn btn-primary" id="btn-read-next" type="button" style="flex:1">'+(isLast? "ابدأ الأسئلة" : "التالي")+'</button>'+
+      '</div>'+
+    '</div>'
+  );
+}
+
+function currentQuizList(c, cs, remedial){
+  if(!remedial) return c.quiz.map(function(_,idx){return idx;});
+  return Object.keys(cs.wrongOnce).filter(function(k){return cs.wrongOnce[k];}).map(Number);
+}
+
+function chapterQuiz(c, cs, remedial){
+  if(!cs.quizOrder || !cs.quizOrder.length){
+    cs.quizOrder = remedial ? currentQuizList(c,cs,true) : c.quiz.map(function(_,idx){return idx;});
+    cs.quizIdx = 0;
+    // clear any previous answer for this round's questions so they can be answered fresh
+    // (matters for remedial rounds, which re-ask previously missed questions)
+    cs.quizOrder.forEach(function(idx){ delete cs.answered[idx]; });
+  }
+  if(cs.quizIdx >= cs.quizOrder.length){
+    // round finished
+    if(remedial){
+      var stillWrong = Object.keys(cs.wrongOnce).filter(function(k){return cs.wrongOnce[k];});
+      if(stillWrong.length===0){ cs.stage = c.isFinalChapter ? "plan" : "reflection"; cs.quizOrder=[]; }
+      else { cs.quizOrder=[]; /* will rebuild remedial list */ }
+    } else {
+      var total = c.quiz.length;
+      var wrongCount = Object.keys(cs.wrongOnce).length;
+      cs.firstPassScore = (total-wrongCount)/total;
+      if(cs.firstPassScore >= CONTENT.meta.masteryThreshold || wrongCount===0){
+        cs.stage = c.isFinalChapter ? "plan" : "reflection";
+      } else {
+        cs.stage = "remedial";
+      }
+      cs.quizOrder=[];
+    }
+    saveState();
+    return screenChapter(c.id);
+  }
+
+  var qIndex = cs.quizOrder[cs.quizIdx];
+  var q = c.quiz[qIndex];
+  var chosen = cs.answered[qIndex];
+  var answered = chosen!==undefined;
+  var isDangerWrong = answered && q.danger && chosen!==q.correct;
+
+  var choicesHtml = q.choices.map(function(choice,idx){
+    var mark = "";
+    if(answered){
+      if(idx===q.correct) mark = "correct";
+      else if(idx===chosen) mark = "wrong";
+    }
+    var markGlyph = mark==="correct" ? "✓" : (mark==="wrong" ? "✕" : (idx+1));
+    return '<button type="button" class="choice-btn" data-idx="'+idx+'" '+(answered?"disabled":"")+' '+(mark?'data-mark="'+mark+'"':"")+'>'+
+      '<span class="mark">'+markGlyph+'</span><span>'+esc(choice)+'</span>'+
+    '</button>';
+  }).join("");
+
+  var feedback = "";
+  if(answered){
+    var correct = chosen===q.correct;
+    feedback = '<div class="feedback '+(correct?"ok":"bad")+'">'+
+      '<span>'+(correct?"✓":"✕")+'</span>'+
+      '<span><b>'+(correct?"صحيحة. ":"غير دقيقة. ")+'</b>'+esc(q.explain)+'</span>'+
+    '</div>';
+    if(isDangerWrong){
+      feedback += renderSafetyBanner(true);
+    }
+  }
+
+  var progressLabel = remedial ? "مراجعة مركّزة: سؤال "+(cs.quizIdx+1)+" من "+cs.quizOrder.length
+                                : "سؤال "+(cs.quizIdx+1)+" من "+cs.quizOrder.length;
+
+  return (
+    '<div class="screen">'+
+      (c.isSafetyChapter ? renderSafetyBanner(false) : '')+
+      '<div class="card">'+
+        '<div class="eyebrow">الفصل '+c.id+' · '+(remedial?"مراجعة مركّزة":"اختبار الفهم")+'</div>'+
+        '<div class="quiz-progress">'+progressLabel+'</div>'+
+        '<p class="q-text">'+esc(q.q)+'</p>'+
+        '<div style="display:flex; flex-direction:column; gap:9px; margin-top:12px;">'+choicesHtml+'</div>'+
+        (feedback? '<div style="margin-top:14px">'+feedback+'</div>' : '')+
+      '</div>'+
+      '<div class="btn-row">'+
+        '<button class="btn btn-ghost" id="btn-quiz-prev" type="button" '+(cs.quizIdx===0?'disabled':'')+'>رجوع</button>'+
+        '<button class="btn '+(answered?'btn-primary':'btn-ghost')+'" id="btn-quiz-next" type="button" style="flex:1" '+(answered?'':'disabled')+'>'+(cs.quizIdx+1>=cs.quizOrder.length?"استمر":"التالي")+'</button>'+
+      '</div>'+
+    '</div>'
+  );
+}
+
+function renderSafetyBanner(isAlert){
+  var s = CONTENT.meta.safetyHotline;
+  var sc = chapterById(12).safetyNotice;
+  return '<div class="safety-banner">'+
+    '<h3>'+(isAlert?"ملاحظة مهمة قبل الاستمرار":esc(sc.title))+'</h3>'+
+    '<p style="margin:0; font-size:.9rem;">'+esc(sc.body)+'</p>'+
+    '<ul>'+ sc.points.map(function(p){return '<li>'+esc(p)+'</li>';}).join("") +'</ul>'+
+    '<div class="foot">'+esc(sc.footer)+'</div>'+
+  '</div>';
+}
+
+function chapterReflection(c, cs){
+  if(!cs.reflectionAns || cs.reflectionAns.length!==c.reflection.length){
+    cs.reflectionAns = c.reflection.map(function(){return null;});
+  }
+  var scaleLabels = ["لا ينطبق عليّ", "ينطبق قليلًا", "ينطبق غالبًا", "ينطبق عليّ تمامًا"];
+  var rows = c.reflection.map(function(stmt, idx){
+    var val = cs.reflectionAns[idx];
+    var opts = scaleLabels.map(function(lbl, oi){
+      return '<button type="button" class="scale-opt" data-stmt="'+idx+'" data-val="'+oi+'" aria-pressed="'+(val===oi)+'">'+esc(lbl)+'</button>';
+    }).join("");
+    return '<div class="scale-row"><div class="scale-stmt">'+esc(stmt)+'</div><div class="scale-opts">'+opts+'</div></div>';
+  }).join('<hr style="border:none;border-top:1px solid var(--border); margin:4px 0;">');
+
+  var allAnswered = cs.reflectionAns.every(function(v){return v!==null;});
+
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+
+        '<div class="eyebrow">تمرين تأملي · غير مُحتسب</div>'+
+        '<h2 class="h-title">قبل أن نغلق الفصل</h2>'+
+        '<p class="h-sub">لا توجد إجابة صحيحة أو خاطئة هنا؛ هذا فقط لمساعدتك على التفكير.</p>'+
+        '<div style="display:flex; flex-direction:column; gap:16px; margin-top:8px;">'+rows+'</div>'+
+      '</div>'+
+      '<button class="btn btn-primary btn-block" id="btn-reflection-continue" type="button" '+(allAnswered?'':'disabled')+'>خلاصة الفصل</button>'+
+    '</div>'
+  );
+}
+
+function chapterPlan(c, cs){
+  if(!cs.planAns || cs.planAns.length!==c.plan.length){
+    cs.planAns = c.plan.map(function(){return null;});
+  }
+  var items = c.plan.map(function(item, idx){
+    var chosen = cs.planAns[idx];
+    var opts = item.options.map(function(opt, oi){
+      return '<button type="button" class="plan-option" data-topic="'+idx+'" data-opt="'+oi+'" aria-pressed="'+(chosen===oi)+'">'+esc(opt)+'</button>';
+    }).join("");
+    return '<div class="card"><div class="plan-topic">'+esc(item.topic)+'</div><p class="p" style="font-weight:600; margin-top:4px;">'+esc(item.prompt)+'</p>'+opts+'</div>';
+  }).join("");
+
+  var allChosen = cs.planAns.every(function(v){return v!==null;});
+
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+
+        '<div class="eyebrow">خطتنا للحياة الزوجية</div>'+
+        '<h2 class="h-title">اختر الأقرب إلى تصورك في كل محور</h2>'+
+        '<p class="h-sub">هذه الاختيارات تتحول إلى ملخص خطتك الشخصية في نهاية البرنامج، ويمكنك مراجعتها لاحقًا.</p>'+
+      '</div>'+
+      items+
+      '<button class="btn btn-primary btn-block" id="btn-plan-continue" type="button" '+(allChosen?'':'disabled')+'>خلاصة الفصل</button>'+
+    '</div>'
+  );
+}
+
+function chapterSummary(c, cs){
+  cs.status = "done";
+  saveState();
+  var rubric = null;
+  if(!c.isSafetyChapter && !c.isFinalChapter && cs.firstPassScore!=null){
+    var r = CONTENT.meta.feedbackRubric;
+    if(cs.firstPassScore >= r[0].min) rubric = r[0];
+    else if(cs.firstPassScore >= r[1].min) rubric = r[1];
+    else rubric = r[2];
+  }
+  var nextId = c.id+1;
+  var hasNext = nextId <= totalChapters();
+
+  return (
+    '<div class="screen">'+
+      '<div class="card">'+
+        '<div class="eyebrow">خلاصة الفصل '+c.id+'</div>'+
+        '<h2 class="h-title">'+esc(c.title)+'</h2>'+
+        (rubric ? '<span class="rubric-pill '+rubric.key+'">'+esc(rubric.label)+'</span><p class="h-sub" style="margin-top:8px;">'+esc(rubric.desc)+'</p>' : '')+
+        '<div style="margin-top:14px; display:flex; flex-direction:column; gap:6px;">'+
+          c.keyMessages.map(function(m){ return '<div class="quote">'+esc(m)+'</div>'; }).join("")+
+        '</div>'+
+      '</div>'+
+      '<div class="btn-row">'+
+        '<button class="btn btn-ghost" id="btn-back-map" type="button">الخريطة</button>'+
+        (hasNext ? '<button class="btn btn-primary" id="btn-next-chapter" data-next="'+nextId+'" type="button" style="flex:1">الفصل التالي</button>'
+                 : '<button class="btn btn-gold" id="btn-goto-completion" type="button" style="flex:1">عرض ملخص الإتمام والشهادة</button>')+
+      '</div>'+
+    '</div>'
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* SCREEN: completion + certificate                                  */
+/* ---------------------------------------------------------------- */
+function collectCompletionData(){
+  var weak = [];
+  var strong = [];
+  var anyDanger = false;
+  CONTENT.chapters.forEach(function(c){
+    var cs = chState(c.id);
+    if(c.isSafetyChapter){ if(cs.dangerFlaggedEver) anyDanger = true; return; }
+    if(c.isFinalChapter) return;
+    if(cs.firstPassScore!=null){
+      if(cs.firstPassScore < 0.8) weak.push(c.title);
+      else strong.push(c.title);
+    }
+  });
+  var planChapter = chapterById(13);
+  var planCs = chState(13);
+  var planSummary = planChapter.plan.map(function(item, idx){
+    var choice = planCs.planAns && planCs.planAns[idx];
+    return {topic:item.topic, text: choice!=null ? item.options[choice] : null};
+  });
+  return {weak:weak, strong:strong, anyDanger:anyDanger, planSummary:planSummary};
+}
+
+function screenCompletion(){
+  var data = collectCompletionData();
+  if(!state.completedAt) state.completedAt = new Date().toISOString();
+  if(!state.certificateId) state.certificateId = genCertId();
+  saveState();
+
+  return (
+    '<div class="screen">'+
+      '<div class="card" style="text-align:center;">'+
+        '<div class="eyebrow">تم بحمد الله</div>'+
+        '<h2 class="h-title">ملخص إتمام ميثاق</h2>'+
+        '<p class="h-sub">'+esc(addressHonorific())+'، أكملت الفصول الثلاثة عشر. هذا ملخصك قبل الشهادة.</p>'+
+      '</div>'+
+      '<div class="summary-grid">'+
+        '<div class="stat-tile"><div class="stat-num">13/13</div><div class="stat-lbl">فصول مكتملة</div></div>'+
+        '<div class="stat-tile"><div class="stat-num">'+data.strong.length+'</div><div class="stat-lbl">مواضيع قوة</div></div>'+
+      '</div>'+
+      (data.weak.length ? '<div class="card"><h3 style="margin-top:0; font-size:1rem;">مواضيع تستحق نقاشًا إضافيًا</h3>'+
+        '<p class="h-sub">أداؤك الأول في هذه الفصول كان أقل من 80%، ويُنصح بمراجعتها مع شريك حياتك:</p>'+
+        '<div class="btn-row">'+data.weak.map(function(t){return '<span class="rubric-pill clarity">'+esc(t)+'</span>';}).join("")+'</div></div>' : '')+
+      (data.anyDanger ? ('<div class="safety-banner"><h3>مسار الأمان متاح لك دائمًا</h3><p style="margin:0;font-size:.9rem;">لاحظنا في فصل العلامات الخطرة إجابات تستدعي مزيدًا من الانتباه. تذكّر أن طلب المساعدة ليس ضعفًا.</p>'+
+        '<ul><li>'+esc(CONTENT.meta.safetyHotline.emergency)+'</li><li>'+esc(CONTENT.meta.safetyHotline.familyProtection)+'</li></ul></div>') : '')+
+      '<div class="card">'+
+        '<h3 style="margin-top:0; font-size:1rem;">خطتنا للحياة الزوجية</h3>'+
+        '<div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">'+
+          data.planSummary.map(function(p){
+            return '<div><div class="plan-topic">'+esc(p.topic)+'</div><div class="p" style="margin-top:2px;">'+esc(p.text||"—")+'</div></div>';
+          }).join("")+
+        '</div>'+
+      '</div>'+
+      '<button class="btn btn-gold btn-block" id="btn-goto-cert" type="button">عرض شهادة الإتمام</button>'+
+    '</div>'
+  );
+}
+
+function screenCertificate(){
+  var cert = CONTENT.meta.certificate;
+  var name = state.registration.name || "صاحب الميثاق";
+  var durationDays = "—";
+  if(state.startedAt && state.completedAt){
+    var d = Math.max(1, Math.round((new Date(state.completedAt)-new Date(state.startedAt))/86400000));
+    durationDays = d;
+  }
+  return (
+    '<div class="screen">'+
+      '<div class="cert-frame">'+
+        '<div class="cert-border"></div>'+
+        '<div class="cert-inner">'+
+          '<div class="cert-eyebrow">شهادة إتمام</div>'+
+          '<h1 class="cert-title">ميثاق</h1>'+
+          '<div class="cert-sub">'+esc(CONTENT.meta.programSubtitle)+'</div>'+
+          '<p class="p" style="margin-top:10px;">'+esc(cert.issuerLine)+'</p>'+
+          '<div class="cert-name disp">'+esc(name)+'</div>'+
+          '<p class="cert-body p">'+esc(cert.bodyTemplate)+'</p>'+
+          '<div class="cert-meta">'+
+            '<span>رقم الشهادة: '+esc(state.certificateId)+'</span>'+
+            '<span>تاريخ الإتمام: '+esc(fmtDate(state.completedAt))+'</span>'+
+            '<span>مدة البرنامج: '+durationDays+' يومًا</span>'+
+          '</div>'+
+          '<div class="cert-tagline">'+esc(CONTENT.meta.tagline)+'</div>'+
+          '<p class="cert-disclaimer">'+esc(cert.disclaimer)+'</p>'+
+        '</div>'+
+      '</div>'+
+      '<div class="copy-row no-print">'+
+        '<span class="copy-chip">'+esc(state.certificateId)+'</span>'+
+        '<button class="btn btn-ghost" id="btn-copy-cert" type="button">نسخ رقم الشهادة</button>'+
+      '</div>'+
+      '<div class="print-hint no-print">لطباعة الشهادة أو حفظها PDF: افتح هذه الصفحة في نافذتها المستقلة ثم استخدم خاصية الطباعة في متصفحك (Ctrl+P أو Cmd+P)، واختر «حفظ كملف PDF».</div>'+
+      '<button class="btn btn-ghost btn-block no-print" id="btn-back-map" type="button">الرجوع إلى الخريطة</button>'+
+    '</div>'
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* main render + event wiring                                        */
+/* ---------------------------------------------------------------- */
+function render(){
+  var app = qs("#app");
+  var body = "";
+  switch(state.route.name){
+    case "intro": body = screenIntro(); break;
+    case "register": body = screenRegister(); break;
+    case "map": body = screenMap(); break;
+    case "chapter": body = screenChapter(state.route.chId); break;
+    case "completion": body = screenCompletion(); break;
+    case "certificate": body = screenCertificate(); break;
+    default: body = screenIntro();
+  }
+  app.innerHTML = renderTopbar() + '<div class="wrap">' + body + '<footer class="foot-note">ميثاق · '+esc(CONTENT.meta.programSubtitle)+'</footer></div>';
+  wire();
+}
+
+function wire(){
+  on(qs("#btn-map"), "click", function(){ nav({name:"map"}); });
+  on(qs("#btn-start"), "click", function(){ nav(state.registered ? {name:"map"} : {name:"register"}); });
+
+  // registration
+  qsa('[data-field]').forEach(function(group){
+    if(group.tagName==="INPUT"){
+      on(group, "input", function(){ state.registration[group.getAttribute("data-field")] = group.value; saveState(); });
+      return;
+    }
+    qsa(".choice-chip", group).forEach(function(chip){
+      on(chip, "click", function(){
+        state.registration[group.getAttribute("data-field")] = chip.getAttribute("data-value");
+        saveState(); render();
+      });
+    });
+  });
+  on(qs("#btn-optional"), "click", function(){ state._optOpen = !state._optOpen; render(); });
+  on(qs("#btn-register-continue"), "click", function(){
+    var req = CONTENT.meta.registration.required;
+    var missing = req.filter(function(f){ return !state.registration[f.key]; });
+    if(missing.length){
+      alertInline("فضلًا أكمل: " + missing.map(function(f){return f.label;}).join("، "));
+      return;
+    }
+    state.registered = true;
+    state.startedAt = state.startedAt || new Date().toISOString();
+    CONTENT.chapters.forEach(function(c){ chState(c.id); });
+    syncLocks();
+    nav({name:"map"});
+  });
+
+  // map
+  qsa(".medallion").forEach(function(btn){
+    on(btn, "click", function(){
+      var id = Number(btn.getAttribute("data-ch"));
+      nav({name:"chapter", chId:id});
+    });
+  });
+  on(qs("#btn-goto-completion"), "click", function(){ nav({name:"completion"}); });
+  on(qs("#btn-goto-cert"), "click", function(){ nav({name:"certificate"}); });
+  on(qs("#btn-back-map"), "click", function(){ nav({name:"map"}); });
+
+  // chapter: story
+  on(qs("#btn-story-next"), "click", function(){
+    var cs = chState(state.route.chId); cs.stage="reading"; cs.readingIdx=0; saveState(); render();
+  });
+
+  // chapter: reading
+  on(qs("#btn-read-next"), "click", function(){
+    var c = chapterById(state.route.chId); var cs = chState(c.id);
+    if(cs.readingIdx < c.reading.length-1){ cs.readingIdx++; }
+    else { cs.stage="quiz"; cs.quizOrder=[]; cs.quizIdx=0; cs.answered={}; cs.wrongOnce={}; }
+    saveState(); render();
+  });
+  on(qs("#btn-read-prev"), "click", function(){
+    var cs = chState(state.route.chId); if(cs.readingIdx>0) cs.readingIdx--; saveState(); render();
+  });
+
+  // chapter: quiz choice
+  qsa(".choice-btn").forEach(function(btn){
+    on(btn, "click", function(){
+      var c = chapterById(state.route.chId); var cs = chState(c.id);
+      var remedial = cs.stage==="remedial";
+      var qIndex = cs.quizOrder[cs.quizIdx];
+      var q = c.quiz[qIndex];
+      var chosen = Number(btn.getAttribute("data-idx"));
+      cs.answered[qIndex] = chosen;
+      if(chosen!==q.correct){
+        cs.wrongOnce[qIndex] = true;
+        if(q.danger) cs.dangerFlaggedEver = true;
+      } else if(remedial){
+        cs.wrongOnce[qIndex] = false;
+      }
+      saveState(); render();
+    });
+  });
+  on(qs("#btn-quiz-prev"), "click", function(){
+    var cs = chState(state.route.chId);
+    if(cs.quizIdx > 0){ cs.quizIdx--; saveState(); render(); }
+  });
+  on(qs("#btn-quiz-next"), "click", function(){
+    var c = chapterById(state.route.chId);
+    var cs = chState(c.id);
+    var qIndex = cs.quizOrder[cs.quizIdx];
+    if(cs.answered[qIndex] === undefined) return;
+    cs.quizIdx++;
+    saveState();
+    render();
+  });
+
+  // reflection
+  qsa(".scale-opt").forEach(function(btn){
+    on(btn, "click", function(){
+      var cs = chState(state.route.chId);
+      cs.reflectionAns[Number(btn.getAttribute("data-stmt"))] = Number(btn.getAttribute("data-val"));
+      saveState(); render();
+    });
+  });
+  on(qs("#btn-reflection-continue"), "click", function(){
+    var cs = chState(state.route.chId); cs.stage="summary"; saveState(); render();
+  });
+
+  // plan (chapter 13)
+  qsa(".plan-option").forEach(function(btn){
+    on(btn, "click", function(){
+      var cs = chState(state.route.chId);
+      cs.planAns[Number(btn.getAttribute("data-topic"))] = Number(btn.getAttribute("data-opt"));
+      saveState(); render();
+    });
+  });
+  on(qs("#btn-plan-continue"), "click", function(){
+    var cs = chState(state.route.chId); cs.stage="reflection"; saveState(); render();
+  });
+
+  // summary -> next
+  on(qs("#btn-next-chapter"), "click", function(){
+    var nextId = Number(qs("#btn-next-chapter").getAttribute("data-next"));
+    syncLocks();
+    nav({name:"chapter", chId:nextId});
+  });
+
+  // certificate
+  on(qs("#btn-copy-cert"), "click", function(){
+    var txt = state.certificateId;
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = txt; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); }catch(e){}
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).catch(fallback);
+    } else { fallback(); }
+    var b = qs("#btn-copy-cert"); if(b){ var old=b.textContent; b.textContent="تم النسخ ✓"; setTimeout(function(){ b.textContent=old; },1500); }
+  });
+}
+
+function alertInline(msg){
+  var app = qs("#app");
+  var existing = qs("#inline-alert");
+  if(existing) existing.remove();
+  var box = el('<div id="inline-alert" style="position:fixed;bottom:16px;left:16px;right:16px;max-width:400px;margin:0 auto;background:var(--danger-bg);border:1px solid var(--danger);color:var(--fg);padding:12px 16px;border-radius:10px;font-size:.9rem;z-index:50;box-shadow:var(--shadow);">'+esc(msg)+'</div>');
+  app.appendChild(box);
+  setTimeout(function(){ box.remove(); }, 3200);
+}
+
+/* ---------------------------------------------------------------- */
+/* boot                                                               */
+/* ---------------------------------------------------------------- */
+function boot(){
+  CONTENT = {
+ "meta": {
+  "programTitle": "ميثاق",
+  "programSubtitle": "برنامج التهيئة للحياة الزوجية",
+  "tagline": "سكن • مودة • رحمة • وعي",
+  "intro": {
+   "summary": "برنامج تفاعلي يهيئ المقبلين على الزواج معرفيًا وسلوكيًا قبل بدء الحياة الزوجية. يدخل المستخدم بياناته الأساسية، ثم ينتقل عبر ثلاثة عشر فصلًا مترابطة: كل فصل يبدأ بقصة واقعية من البيئة السعودية، ثم أسئلة اختيار من متعدد مع تغذية راجعة، ثم مادة علمية وشرعية، ثم خلاصة. لا توجد إجابات كتابية حرة، ولا يمكن تجاوز الفصل قبل إكمال عناصره.",
+   "disclaimer": "لا يقدّم البرنامج درجة تقول إن شخصين مناسبان أو غير مناسبين لبعضهما، ولا يدّعي التنبؤ بالطلاق. وظيفته رفع الوعي، وكشف الموضوعات التي تحتاج إلى حوار، وتعليم المهارات، وفصل مؤشرات الخطر عن اختلافات التفضيل العادية. وهو برنامج تعليمي، وليس بديلًا عن الاستشارة الطبية أو النفسية أو الشرعية المتخصصة عند الحاجة."
+  },
+  "masteryThreshold": 0.8,
+  "registration": {
+   "required": [
+    {
+     "key": "name",
+     "label": "الاسم الذي يظهر في الشهادة",
+     "type": "text",
+     "placeholder": "مثال: عبدالله الحربي"
+    },
+    {
+     "key": "gender",
+     "label": "أنا",
+     "type": "choice",
+     "options": [
+      "رجل",
+      "امرأة"
+     ]
+    },
+    {
+     "key": "status",
+     "label": "حالتي الحالية",
+     "type": "choice",
+     "options": [
+      "قبل الخطوبة",
+      "مخطوب / مخطوبة",
+      "تم عقد القران",
+      "متزوج / متزوجة حديثًا"
+     ]
+    },
+    {
+     "key": "joinReason",
+     "label": "سبب التحاقي بالبرنامج",
+     "type": "choice",
+     "options": [
+      "الاستعداد العام للزواج",
+      "فهم نفسي بشكل أفضل",
+      "فهم شريك حياتي",
+      "التعامل مع خلاف قائم",
+      "موضوعات المال",
+      "موضوعات الأهل",
+      "العلاقة الحميمية",
+      "موضوعات الأبناء",
+      "غير محدد"
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "key": "ageBracket",
+     "label": "الفئة العمرية",
+     "type": "choice",
+     "options": [
+      "أقل من 20",
+      "20-25",
+      "26-30",
+      "31-35",
+      "36-40",
+      "أكثر من 40"
+     ]
+    },
+    {
+     "key": "education",
+     "label": "التعليم",
+     "type": "choice",
+     "options": [
+      "ثانوي أو أقل",
+      "دبلوم",
+      "جامعي",
+      "دراسات عليا"
+     ]
+    },
+    {
+     "key": "work",
+     "label": "العمل",
+     "type": "choice",
+     "options": [
+      "يعمل / تعمل",
+      "لا يعمل / لا تعمل",
+      "طالب / طالبة",
+      "عمل حر",
+      "متقاعد / متقاعدة"
+     ]
+    },
+    {
+     "key": "previousMarriage",
+     "label": "الزواج السابق",
+     "type": "choice",
+     "options": [
+      "لم يسبق",
+      "سبق دون أبناء",
+      "سبق مع أبناء"
+     ]
+    },
+    {
+     "key": "healthNote",
+     "label": "الحالة الصحية",
+     "type": "choice",
+     "options": [
+      "لا توجد حالة مؤثرة",
+      "توجد حالة مزمنة معروفة",
+      "أحتاج إلى مناقشة صحية مع مختص"
+     ]
+    },
+    {
+     "key": "previousCourse",
+     "label": "هل سبق حضور برنامج تهيئة للزواج؟",
+     "type": "choice",
+     "options": [
+      "نعم",
+      "لا"
+     ]
+    }
+   ]
+  },
+  "feedbackRubric": [
+   {
+    "key": "strength",
+    "label": "قوة حالية",
+    "desc": "لديك سلوكيات مفيدة في هذا المجال؛ حافظ عليها وطوّرها.",
+    "min": 0.8
+   },
+   {
+    "key": "growth",
+    "label": "مجال للنمو",
+    "desc": "هناك بعض النقاط التي تستحق مزيدًا من التعلم والمناقشة.",
+    "min": 0.5
+   },
+   {
+    "key": "clarity",
+    "label": "موضوع يحتاج إلى وضوح",
+    "desc": "يوجد اختلاف أو نقص معلومات يستحق نقاشًا قبل الانتقال إلى قرار كبير.",
+    "min": 0
+   },
+   {
+    "key": "danger",
+    "label": "علامة أمان",
+    "desc": "لا تُدمج في الدرجة؛ يبقى مسار السلامة والمساعدة متاحًا دائمًا.",
+    "min": null
+   }
+  ],
+  "certificate": {
+   "idPrefix": "MTHQ",
+   "issuerLine": "يشهد برنامج «ميثاق» للتهيئة للحياة الزوجية بأن",
+   "bodyTemplate": "قد أتم جميع متطلبات برنامج «ميثاق» للتثقيف والتهيئة للحياة الزوجية، وأكمل الفصول التعليمية التفاعلية الثلاثة عشر والخطة الختامية لحياته الزوجية.",
+   "disclaimer": "هذه شهادة إتمام تعليمية ذاتية، ولا تمثل ترخيصًا مهنيًا أو تقرير توافق أو ضمانًا لنجاح الزواج.",
+   "requirements": [
+    "إكمال جميع الفصول الثلاثة عشر.",
+    "بلوغ حد إتقان 80% في اختبارات كل فصل (مع إعادة مركّزة عند الحاجة).",
+    "إكمال خطة الحياة الزوجية في الفصل الأخير.",
+    "الموافقة على إقرار أن الشهادة تعني إتمام البرنامج التعليمي فقط."
+   ]
+  },
+  "safetyHotline": {
+   "emergency": "911 (الرياض، مكة المكرمة، المدينة المنورة) أو 999",
+   "familyProtection": "1919 - الخط الموحد للحماية الاجتماعية، وزارة الموارد البشرية والتنمية الاجتماعية، متاح 24 ساعة",
+   "source": "hrsd.gov.sa"
+  }
+ },
+ "chapters": [
+  {
+   "id": 1,
+   "title": "هل أنا مستعد للزواج؟",
+   "purpose": "الاستعداد والمسؤولية والتوقعات الواقعية.",
+   "story": [
+    "في بيت أهلها، اعتادت ريم، 24 عامًا، أن يتولى غيرها الطبخ والتنظيف، وكان والدها يلبي كثيرًا من طلباتها. أحبّت خالدًا، وظنت أن حياتهما الزوجية ستبقى على النمط نفسه. وقبل العقد سألت أمها: «إذا لم أعرف الطبخ، فسنتفق على مساعدة منزلية، أليس كذلك؟» فأجابتها: «سيتدبر زوجك الأمر». لم تسأل خالدًا، وهو بدوره افترض أنها ستدير معظم أعمال المنزل، ولم يخبرها أن دخله بعد الإيجار والالتزامات لا يسمح بمساعدة منزلية منتظمة.",
+    "بعد شهر من الزواج، عاد خالد متعبًا فوجد الصحون متراكمة ولم يُعد العشاء. قال بضيق: «كنت أظن أن هذا دورك». أجابته ريم: «وأنا ظننت أنك ستعينني أو توفر مساعدة، كما في بيت أهلي». شعرت أنها انتقلت من بيت يراعيها إلى بيت تُلقى عليها فيه الأوامر، وشعر هو أنها تنتظر منه أن يؤدي دور الأب الذي يلبي كل طلب. زاد الخلاف حين وصفتها أسرته بأنها مدللة، ووصفته صديقاتها بأنه متحكم."
+   ],
+   "reading": [
+    {
+     "heading": "قبل أن تقول: أنا مستعد للزواج",
+     "paragraphs": [
+      "الحب بداية جميلة، لكنه وحده لا يدير ميزانية، ولا يوزع مسؤوليات المنزل، ولا يحدد حدود تدخل الأهل، ولا يعلّم الزوجين كيف يختلفان دون تجريح. والاستعداد للزواج لا يعني أن يعرف الإنسان كل شيء، بل أن يكون مستعدًا للتعلم، وتحمل المسؤولية، ومناقشة ما قد يختلف عليه مع شريك حياته.",
+      "كثير من المشكلات الزوجية لا تبدأ من سوء النية، وإنما من توقعات صامتة. قد تدخل الزوجة الزواج وهي تتوقع نمطًا قريبًا من بيت أهلها، ويدخل الزوج وهو يتوقع أن تسير الحياة كما اعتادها في أسرته. لم يخدع أحدهما الآخر، لكن كليهما ظن أن ما يتوقعه «بديهي» ولا يحتاج إلى نقاش.",
+      "الأسئلة التي يؤجلها الاندفاع العاطفي قبل الزواج لا تختفي بعده، بل قد تعود في صورة لوم أو غضب أو شعور بالخذلان: كيف سندير المال؟ كيف نقسم مسؤوليات المنزل؟ ما حدود تدخل الأهل؟ أين سنسكن؟ وما موقفنا من الأطفال وتربيتهم والإنفاق عليهم؟"
+     ]
+    },
+    {
+     "heading": "هل يتحدث الرجال والنساء بلغتين مختلفتين؟",
+     "paragraphs": [
+      "اشتهر كتاب «الرجال من المريخ والنساء من الزهرة» بتشبيه الرجل والمرأة وكأنهما قادمان من عالمين مختلفين؛ لكل منهما طريقة في التعبير عن المشاعر وفهم الطرف الآخر. هذا التشبيه قد يكون مفيدًا للتذكير بأن شريك الحياة ليس نسخة مني، لكنه لا ينبغي أن يؤخذ على أنه قانون علمي صارم.",
+      "فقد وجدت التحليلات العلمية بعض الفروق المتوسطة بين الرجال والنساء في أنماط الحديث، لكن متوسط حجم هذه الفروق كان صغيرًا، وحجمها واتجاهها يتغيران بحسب السياق والشخصية والتنشئة والخبرة السابقة. فقد يبحث أحد الزوجين عند الضيق عن الاستماع والاحتواء، بينما يتجه الآخر مباشرة إلى تقديم الحلول.",
+      "ومن أجمل الأسئلة التي يمكن تعلمها بين الزوجين: «هل تريد أن أستمع إليك، أم تريد أن نبحث عن حل معًا؟» فربما كان الطرف الآخر لا يريد حلًا في تلك اللحظة، وإنما يريد أولًا أن يشعر بأنه مسموع ومفهوم."
+     ]
+    },
+    {
+     "heading": "عندما يريد أحدهما الحديث والآخر الانسحاب",
+     "paragraphs": [
+      "من الأنماط المعروفة في علم العلاقات ما يسمى المطالبة والانسحاب: يلح أحد الطرفين على مناقشة المشكلة، بينما ينسحب الآخر أو يحاول إنهاء الحوار. عندها قد يزداد الأول إلحاحًا، فيزداد الآخر انسحابًا، ويدخل الزوجان في دائرة متكررة ترتبط في الدراسات بانخفاض جودة حل الخلافات وبانخفاض الرضا عن العلاقة.",
+      "وهذا السلوك ليس حكرًا على جنس معين؛ فقد يكون الزوج هو المطالب والزوجة المنسحبة أو العكس. الهدف ليس أن نقول «هكذا الرجال» أو «هذه طبيعة النساء»، بل أن يعرف كل زوج نمطه ونمط شريكه، وأن يتعلم كيف يوقف الحلقة قبل أن تتحول إلى صراع مزمن."
+     ]
+    },
+    {
+     "heading": "الزواج يحتاج إلى خصوصية لا إلى عزلة",
+     "paragraphs": [
+      "من علامات النضج أن يتعلم الزوجان حل أكبر قدر ممكن من خلافاتهما بينهما، وألا يتحول الأهل أو الأصدقاء إلى قضاة أو حلفاء كلما حدث اختلاف؛ فإدخال الآخرين في كل مشكلة صغيرة قد يضاعفها، لأن الزوجين قد يتصالحان بينما تبقى الكلمات في ذاكرة الأقارب والأصدقاء.",
+      "لكن الخصوصية لا تعني الصمت عن الأذى. فإذا تكرر الخلاف بصورة يصعب إدارتها، يمكن الاستعانة بشخص حكيم محايد أو مختص. وعند وجود عنف أو تهديد أو إكراه، فإن طلب المساعدة والحماية لا يعد إفشاءً لأسرار البيت، بل حفاظًا على السلامة."
+     ]
+    },
+    {
+     "heading": "قبل الزواج اسأل نفسك",
+     "paragraphs": [
+      "هل أستطيع أن أشرح احتياجاتي بدل أن أنتظر من شريكي أن يخمنها؟ هل أستطيع سماع رأي مخالف دون أن أعتبره تقليلًا مني؟ هل أستطيع الاعتذار إذا أخطأت؟ هل أعرف حدود دخلي والتزاماتي ومسؤوليتي المالية؟",
+      "هل أتوقع من شريك حياتي أن يعيد لي الحياة التي كنت أعيشها في بيت والدي؟ هل أستطيع أن أتعلم مهارات جديدة لم أتعلمها في أسرتي؟ وهل أستطيع بعد الخلاف أن أعود إلى الحوار، بدل أن أجعل كل مشكلة اختبارًا لصلاحية الزواج؟",
+      "الحب يقول: أريد أن أعيش معك. أما النضج فيقول: سأتعلم كيف أبني معك حياة واقعية."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الاستعداد الحقيقي للزواج ليس أن تجد شخصًا لا تختلف معه، بل أن تعرف نفسك، وتناقش قبل الزواج ما قد تختلفان عليه، وتتحمل مسؤوليتك، وتضبط انفعالك، وتتعلم لغة شريكك الخاصة بدل أن تفترض أنها تشبه لغتك.",
+    "الحب يقول: أريد أن أعيش معك. أما النضج فيقول: سأتعلم كيف أبني معك حياة واقعية."
+   ],
+   "reflection": [
+    "أستطيع أن أشرح احتياجاتي بدل انتظار أن يخمنها شريكي.",
+    "أتوقع أن تسير حياتي الزوجية تمامًا كما كانت في بيت والدي."
+   ],
+   "quiz": [
+    {
+     "q": "ما أحد الأسباب الجوهرية التي أدت إلى الخلاف بين خالد وريم؟",
+     "choices": [
+      "يجب أن يكون الزوج بديلًا عن الأب في تلبية كل الطلبات.",
+      "خالد رجل يريد السيطرة على زوجته.",
+      "تدبير المنزل بمفرده ليس شرطًا لنجاح الزواج.",
+      "عدم مناقشة الطرفين لتوقعاتهما والاتفاق عليها قبل الزواج."
+     ],
+     "correct": 3,
+     "explain": "كثير من الخلافات الزوجية لا تبدأ من سوء نية، بل من توقعات صامتة لم يُتفق عليها قبل الزواج. لم يخدع خالد وريم أحدهما الآخر، لكن كلاهما ظن أن ما يتوقعه بديهي ولا يحتاج إلى نقاش."
+    },
+    {
+     "q": "أي العبارات أقرب إلى الاستعداد الحقيقي للزواج؟",
+     "choices": [
+      "أن أجد شخصًا لا أختلف معه أبدًا.",
+      "أن يفهمني شريكي دون أن أشرح له.",
+      "أن أكون مستعدًا لتحمل المسؤولية وإدارة الاختلاف بنضج.",
+      "أن تكون قوة الحب كافية وحدها."
+     ],
+     "correct": 2,
+     "explain": "كثير من الأزواج صغار السن والخبرة يدخلون الزواج دون تهيئة لمعرفة أن الاختلاف سنّة في الحياة الزوجية، وأن النجاح في إدارته لا في إنكاره."
+    },
+    {
+     "q": "هل للرجل والمرأة لغة مختلفة تمامًا في إدارة النقاش؟",
+     "choices": [
+      "لا توجد أي أنماط مختلفة بين الجنسين في النقاش.",
+      "يميل الرجل عادة إلى الشكوى أكثر.",
+      "قد تميل المرأة عند الضيق إلى إصدار الأحكام، ويميل الرجل إلى تقديم الحلول السريعة.",
+      "لا علاقة بين التنشئة وإدارة النقاش."
+     ],
+     "correct": 2,
+     "explain": "وجدت بعض الدراسات فروقًا متوسطة بين الجنسين في أنماط الحديث، لكن حجمها صغير ويتغير بحسب السياق والشخصية والتنشئة. السؤال الذي يفتح الحوار: «هل تريد أن أستمع إليك، أم تريد أن نبحث عن حل معًا؟»"
+    },
+    {
+     "q": "ماذا ينبغي أن يفعل أحد الزوجين إذا شعر أن النقاش أصبح حادًا جدًا؟",
+     "choices": [
+      "يواصل الحوار حتى ينتهي الموضوع كاملًا.",
+      "يرفع صوته ليوضح موقفه بقوة.",
+      "يطلب توقفًا مؤقتًا واضحًا ثم يعود للحوار.",
+      "يغادر دون تحديد وقت للعودة."
+     ],
+     "correct": 2,
+     "explain": "«أنا منزعج الآن وأخشى أن أقول كلامًا غير مناسب، أحتاج إلى نصف ساعة ثم نعود للحديث» - هذه مهارة في تنظيم الانفعال، وليست هروبًا من الحوار."
+    },
+    {
+     "q": "ما الخطأ في عبارة: «إذا كان يحبني فعلًا، فسيفهم ما أريد دون أن أقول»؟",
+     "choices": [
+      "الحب يمنع سوء الفهم تمامًا.",
+      "التوقعات الصامتة تحتاج إلى تواصل واضح لا إلى تخمين.",
+      "الزواج الناجح يقوم على الحدس المتبادل.",
+      "الصمت أفضل من كثرة الحوار."
+     ],
+     "correct": 1,
+     "explain": "هذا هو جوهر قصة خالد وريم: كل واحد منهما افترض أن توقعه بديهي، فتحول الصمت إلى خلاف. التوقعات التي لا تُقال لا تختفي، بل تعود لاحقًا في صورة لوم أو خذلان."
+    },
+    {
+     "q": "أي سؤال ينبغي أن يسأله الإنسان نفسه قبل الزواج؟",
+     "choices": [
+      "هل سيحقق شريكي كل توقعاتي؟",
+      "هل سأعيش بعد الزواج تمامًا كما عشت في بيت أهلي؟",
+      "هل أستطيع المشاركة والتكيف والتعلم؟",
+      "هل نستطيع أن نتجنب كل المشكلات؟"
+     ],
+     "correct": 2,
+     "explain": "الاستعداد للزواج لا يعني أن تعرف كل شيء مسبقًا، بل أن تكون مستعدًا للتعلم وتحمل المسؤولية ومناقشة ما قد تختلفان عليه."
+    },
+    {
+     "q": "ما حدود إشراك الأهل والأصدقاء عند حدوث خلاف بين الزوجين؟",
+     "choices": [
+      "مشاركة الأصدقاء بكل تفاصيل الخلاف فور حدوثه.",
+      "ترك الأهل يتخذون القرار بدلًا عن الزوجين.",
+      "أن يحاول الزوجان حل خلافهما بينهما أولًا، مع الاستعانة بشخص حكيم محايد عند الحاجة.",
+      "كتمان الخلاف دائمًا مهما بلغت شدته."
+     ],
+     "correct": 2,
+     "explain": "مشاركة الأصدقاء قد تزيد التحيز وتنشر الخصوصية، وترك القرار للأهل قد يضعف استقلال الزوجين، أما الكتمان المطلق فغير آمن عند وجود عنف أو إكراه. الأصل أن يدير الزوجان خلافهما بنفسيهما، ويستعينا بحكيم أو مختص عند الحاجة."
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "title": "اختيار شريك الحياة",
+   "purpose": "السؤال والتحقق والرؤية الشرعية والمعلومات الجوهرية.",
+   "story": [
+    "تقدّم عبدالله للزواج من مريم. كانت الإجابات الأولى عنه عامة: شاب محترم، وظيفته جيدة، وأسرته طيبة. تساءل أخو مريم: هل عرفنا كيف يتحمل المسؤولية؟ هل عليه ديون مؤثرة؟ كيف يتعامل مع الغضب؟ هل توجد معلومات جوهرية ينبغي أن يعرفها الطرف الآخر؟ هنا تحولت الأسرة من جمع المديح العام إلى السؤال عما سيؤثر فعلًا في الحياة الزوجية."
+   ],
+   "reading": [
+    {
+     "heading": "السمعة مهمة، والأسئلة الجوهرية أهم",
+     "paragraphs": [
+      "السمعة نقطة بداية مهمة، لكنها قد تقوم على الانطباع العام أو حسن تعامل الشخص خارج البيت. وقد يكون الإنسان محبوبًا وناجحًا، مع وجود ديون أو ضعف في تحمل المسؤولية لا يعرفه المحيطون به.",
+      "لا يمكن معرفة الشخص معرفة كاملة، لكن يمكن تقليل المجهول بالسؤال المنظم، وملاحظة ثبات سلوكه، والتحقق من المعلومات المهمة، ومناقشة مواقف واقعية تتعلق بالغضب والمال والمسؤولية والأهل. والوظيفة الجيدة تعطي فكرة عن الاستقرار المالي، لكنها لا تكشف وحدها عن الأخلاق أو النضج أو طريقة إدارة المال.",
+      "الخلاصة: لا تبحثوا عن إنسان بلا نقص، ولا تحولوا السؤال عنه إلى تحقيق؛ ابحثوا عن معلومات صادقة تساعد الطرفين على اتخاذ قرار واعٍ. فالسمعة تخبرنا كيف يراه الناس، أما الأسئلة الجوهرية فتساعدنا على معرفة كيف سيعيش شريكًا طوال السنين."
+     ]
+    },
+    {
+     "heading": "لماذا نسأل عن أسرة الطرف الآخر؟",
+     "paragraphs": [
+      "أنت لا تتزوج أسرة فقط، ولكنك لا تتزوج بمعزل عنها. ينشأ كل إنسان في بيت يتعلم منه - بقصد أو بغير قصد - كيف يُعبّر عن الحب، وكيف يغضب، ومن يتخذ القرار، وكيف يُدار المال، وما حدود تدخل الوالدين. معرفة الأسرة لا تعني البحث عن أسرة كاملة، بل فهم البيئة التي شكّلت الشخص.",
+      "وتشير الدراسات إلى انتقال بعض أنماط التواصل وإدارة الخلاف عبر الأجيال، لكن هذا التأثير احتمالي لا قدر محتوم؛ فالإنسان الواعي يستطيع مراجعة ما تعلّمه وبناء طريقة مختلفة مع شريك حياته.",
+      "لذلك لا يكفي أن نسأل: هل أسرته طيبة؟ بل نسأل بلطف: ما حدود تدخل الأهل؟ كيف تُحل الخلافات؟ هل يتوقع أحد الطرفين السكن مع أسرته؟ والتكافؤ المادي والاجتماعي قد يسهّل التفاهم، لكنه لا يضمن النجاح، كما أن اختلاف المستوى لا يعني فشل الزواج."
+     ]
+    },
+    {
+     "heading": "الرؤية الشرعية: قبول أولي لا حكم نهائي",
+     "paragraphs": [
+      "شرع الإسلام النظر إلى من يُراد الزواج بها قبل اتخاذ القرار. ولما خطب المغيرة بن شعبة امرأة، قال له النبي ﷺ: «انظر إليها؛ فإنه أحرى أن يؤدم بينكما»؛ أي أقرب إلى حصول الألفة والوفاق. والنظرة حق للطرفين، وليست اختبارًا للجمال ولا مجلسًا للمقارنة، وتكون مع جدية نية الزواج ومن غير خلوة أو لمس، مع حفظ الخصوصية.",
+      "ومع أهمية النظرة، فإنها لا تكشف الأخلاق أو تحمل المسؤولية أو إدارة الغضب والمال. وقد يجعل القبول القوي الإنسان يرى الصفات الإيجابية ويغفل الأسئلة الصعبة. فالراحة في اللقاء لا تعني أن الشخصيتين متوافقتان تمامًا، ولا أن الزواج سينجح حتمًا، وإنما تعني فقط: يوجد قبول أولي يستحق أن نستكمل بعده السؤال والتثبت والحوار.",
+      "النظرة تفتح باب القبول، والسؤال يكشف الواقع، والحوار يوضح التوقعات، ثم تأتي الاستخارة والاستشارة قبل القرار."
+     ]
+    },
+    {
+     "heading": "الاستخارة لا تلغي الأسباب",
+     "paragraphs": [
+      "بعد الرؤية الشرعية والسؤال والتحقق، تأتي الاستخارة طلبًا للتوفيق من الله مع الأخذ بالأسباب، لا بديلًا عنها. فالاستخارة ليست انتظارًا لرؤيا حاسمة أو شعور مفاجئ يحسم القرار، بل دعاء يصاحب السؤال والاستشارة والتفكر الهادئ فيما عُرف من معلومات جوهرية."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "لا تبحثوا عن إنسان بلا نقص، ولا تحولوا السؤال عنه إلى تحقيق؛ ابحثوا عن معلومات صادقة تساعد على قرار واعٍ.",
+    "تعرف إلى الأسرة لتفهم شريكك لا لتحاكمه بها."
+   ],
+   "reflection": [
+    "أسأل عن الجوانب المؤثرة في الحياة الزوجية (المسؤولية، الديون، إدارة الغضب) ولا أكتفي بالسمعة العامة.",
+    "أفهم أن الرؤية الشرعية والاستخارة بداية طريق لا قرار نهائي جاهز."
+   ],
+   "quiz": [
+    {
+     "q": "ما الموقف الأكثر حكمة عند التعرف إلى شريك الحياة؟",
+     "choices": [
+      "السمعة الطيبة وحدها تكفي لاتخاذ القرار.",
+      "لا يمكن معرفة الإنسان قبل الزواج إطلاقًا.",
+      "السمعة مهمة، ويضاف إليها السؤال عن الجوانب المؤثرة في الحياة الزوجية.",
+      "الوظيفة الجيدة أهم من بقية المعلومات."
+     ],
+     "correct": 2,
+     "explain": "السمعة نقطة بداية مهمة لكنها لا تكفي وحدها. يمكن تقليل المجهول بالسؤال المنظم ومراقبة ثبات السلوك ومناقشة مواقف واقعية تتعلق بالغضب والمال والمسؤولية والأهل."
+    },
+    {
+     "q": "هل يفيد معرفة أسرة الطرف الآخر عند اختيار شريك الحياة؟",
+     "choices": [
+      "الزواج ينجح إذا توافق الشخصان فقط، بصرف النظر عن أسرتيهما.",
+      "للأسرة التي نشأ فيها الإنسان تأثير حقيقي يستحق الفهم.",
+      "التكافؤ المادي والنسب لا قيمة له إطلاقًا.",
+      "خلافات الأسر القديمة لا تستحق أي اعتبار."
+     ],
+     "correct": 1,
+     "explain": "ينشأ كل إنسان في بيت يتعلم منه كيف يُعبّر عن الحب والغضب، ومن يتخذ القرار، وكيف يُدار المال. معرفة الأسرة لا تعني البحث عن أسرة كاملة، بل فهم البيئة التي شكّلت الشخص."
+    },
+    {
+     "q": "بعد الرؤية الشرعية شعر الطرفان بقبول مبدئي جيد. ما معنى ذلك؟",
+     "choices": [
+      "الزواج سينجح غالبًا بسبب هذا القبول.",
+      "هذا دليل كافٍ على توافق الشخصيتين.",
+      "هناك قبول أولي مهم، وما زالت بقية عناصر الاختيار تحتاج إلى معرفة.",
+      "لا قيمة للرؤية إذا وافقت الأسرتان على الزواج."
+     ],
+     "correct": 2,
+     "explain": "النظرة حق للطرفين لا اختبار جمال، وغايتها التحقق من وجود قبول مبدئي يسمح باستكمال التعارف المنضبط. فهي لا تكشف الأخلاق أو إدارة الغضب والمال، بل تعني أن هناك قبولًا أوليًا يستحق أن يُستكمل بعده السؤال والتثبت."
+    },
+    {
+     "q": "ما دور الاستخارة بعد الرؤية الشرعية في قرار الزواج؟",
+     "choices": [
+      "الاستخارة بديل عن السؤال والتحقق.",
+      "تأتي الاستخارة مع الأخذ بالأسباب من السؤال والاستشارة، لا بديلًا عنها.",
+      "الاستخارة تعني انتظار رؤيا حاسمة.",
+      "الاستخارة تُلغي ضرورة التحقق من المعلومات الجوهرية."
+     ],
+     "correct": 1,
+     "explain": "الاستخارة طلب توفيق من الله مع اتخاذ الأسباب، لا تعليق القرار على رؤيا أو شعور لحظي. يستخير المسلم بعد أن يسأل ويستشير ويتحقق، لا بدلًا من ذلك."
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "title": "اعرف نفسك قبل أن تعرف شريكك",
+   "purpose": "أثر الأسرة والطباع والاحتياجات الشخصية.",
+   "story": [
+    "فهد هادئ وقليل الكلام، نشأ في بيت يعبّر عن الاهتمام بالأفعال لا بالكلام. هدى نشأت في بيت كثير الحوار والتعبير بالكلمات. عندما يعود فهد متعبًا من العمل ويصمت، تفسر هدى صمته على أنه غضب منها، بينما يراه هو حاجة طبيعية إلى الهدوء."
+   ],
+   "reading": [
+    {
+     "heading": "اعرف نفسك قبل أن تفسر شريكك",
+     "paragraphs": [
+      "عاد فهد من عمله مرهقًا، فاحتاج إلى بعض الصمت ليستعيد هدوءه. أما هدى فكانت تنتظر الحديث معه، ففسرت سكوته بأنه تجاهل لها. لم يكن فهد قليل الحب، ولم تكن هدى كثيرة الأسئلة؛ لكن لكل منهما طريقة مختلفة في التعامل مع الضغط وطلب القرب.",
+      "الذكاء العاطفي يبدأ بأن يعرف الإنسان ما يحدث داخله قبل أن يحكم على شريكه: هل أنا غاضب، أم مرهق، أم خائف من الرفض؟ وماذا أحتاج الآن: هدوءًا، أم استماعًا، أم طمأنة، أم حلًا؟ وتشير الدراسات إلى ارتباط تنظيم الانفعال والتواصل الإيجابي بدرجة أفضل من الرضا الزوجي، بينما يرتبط الانسحاب المتكرر غير المفسر بانخفاض الرضا عن العلاقة.",
+      "يستطيع فهد أن يقول: «أنا سعيد برؤيتك، لكنني مرهق وأحتاج إلى نصف ساعة من الهدوء، ثم أجلس معك ونتحدث». وتستطيع هدى أن تقول: «أتفهم تعبك، لكن صمتك يجعلني أشعر بالابتعاد؛ يطمئنني أن نحدد وقتًا نتحدث فيه». هنا يتحول الصمت من رسالة غامضة إلى حاجة مفهومة، ويتحول طلب الحديث من ضغط إلى رغبة واضحة في القرب.",
+      "والهدوء المؤقت ليس هجرًا إذا شرح الطرف سببه، وحدد وقتًا للعودة، ثم وفى بوعده. أما الانسحاب الطويل بقصد العقاب، أو تجاهل الشريك دون تفسير، فليس تنظيمًا صحيًا للانفعال."
+     ]
+    },
+    {
+     "heading": "أثر البيت الذي نشأت فيه",
+     "paragraphs": [
+      "كل إنسان يحمل إلى الزواج أثر البيت الذي نشأ فيه: طريقة التعبير عن الحب والغضب، وإدارة المال، واتخاذ القرار، وعلاقة الأسرة بالخصوصية. وقد يكون ما تراه أنت طبيعيًا مختلفًا تمامًا عما تعوّد عليه شريكك.",
+      "معرفة النفس تبدأ بسؤال: ماذا تعلّمت في بيت أهلي عن التعبير، والغضب، والمال، والخصوصية؟ وهل أريد أن أكرر هذا النمط، أم أن أغيّر منه ما لا يناسب حياتي الجديدة؟"
+     ]
+    },
+    {
+     "heading": "ما احتياجاتي الحقيقية؟",
+     "paragraphs": [
+      "من أهم مهارات معرفة النفس أن يحدد الإنسان ما يحتاجه فعلًا حين يضطرب: هل يحتاج إلى الاستماع، أم إلى الحل، أم إلى الوقت والهدوء، أم إلى الطمأنة؟ كثير من سوء الفهم بين الزوجين يبدأ من أن كل طرف يفترض أن احتياج الآخر يشبه احتياجه هو.",
+      "فالإنسان الذي يحتاج إلى الهدوء بعد يوم متعب لا يشبه بالضرورة من يحتاج إلى الحديث فورًا، وكلاهما طبيعي، والمطلوب أن يعرف كل طرف نفسه ويخبر شريكه بوضوح بدل أن ينتظر منه أن يخمّن."
+     ]
+    },
+    {
+     "heading": "كيف تتعلق بالآخرين؟",
+     "paragraphs": [
+      "يختلف الناس في الطريقة التي يطلبون بها القرب أو يتعاملون بها مع القلق في العلاقة. بعضهم يميل إلى طلب التأكيد والقرب كثيرًا عند الشك، وبعضهم يميل إلى الانسحاب والاستقلال عندما يشعر بالضغط.",
+      "وهذا النمط يتأثر بالتنشئة والخبرات السابقة، وهو ليس عيبًا ثابتًا، بل سلوك يمكن فهمه وتطويره بالوعي والتدريب، ولا يُستخدم تشخيصًا نفسيًا لأحد الطرفين."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "معرفة النفس جزء من الوعي بالذات، ومن عرف نقاط ضعفه أصبح أقدر على ضبطها.",
+    "الهدوء المؤقت ليس هجرًا إذا شرح الطرف سببه وحدد وقتًا للعودة، ثم وفى بوعده."
+   ],
+   "reflection": [
+    "أعرف ما أحتاجه فعلًا حين أضطرب: استماع، أم حل، أم وقت؟",
+    "أعرف كيف تعاملت أسرتي مع الغضب والمال والخصوصية، وأي من ذلك أريد أن أكرره أو أغيّره."
+   ],
+   "quiz": [
+    {
+     "q": "عندما يحتاج فهد إلى الصمت والهدوء بعد يوم متعب، تفسر هدى ذلك على أنه تهميش لها. ما التفسير الأصح؟",
+     "choices": [
+      "فهد لا يهتم بها ولا يحبها.",
+      "هدى كثيرة الأسئلة بلا سبب.",
+      "لكل منهما طريقة مختلفة في التعامل مع الضغط والتعبير عن القرب.",
+      "اختلافهما في هذا الأمر دليل على عدم التوافق."
+     ],
+     "correct": 2,
+     "explain": "لم يكن فهد قليل الحب، ولم تكن هدى كثيرة الأسئلة؛ لكن لكل منهما طريقة مختلفة في التعامل مع الضغط وطلب القرب. حين يشرح كل طرف حاجته بوضوح، يتحول الاختلاف من غموض إلى تفاهم."
+    },
+    {
+     "q": "ما أول خطوة في الذكاء العاطفي عند الشعور بالانزعاج من موقف ما؟",
+     "choices": [
+      "الحكم فورًا على نية الطرف الآخر.",
+      "أن أسأل نفسي: ماذا أشعر الآن فعلًا، وماذا أحتاج؟",
+      "الصمت الكامل حتى تنتهي المشكلة من تلقاء نفسها.",
+      "انتظار أن يبدأ الطرف الآخر بالحديث."
+     ],
+     "correct": 1,
+     "explain": "يبدأ الذكاء العاطفي بأن يعرف الإنسان ما يحدث داخله قبل أن يحكم على شريكه: هل أنا غاضب، أم مرهق، أم خائف من الرفض؟ وماذا أحتاج الآن: هدوءًا، أم استماعًا، أم طمأنة، أم حلًا؟"
+    },
+    {
+     "q": "يرى فهد أن طريقة أسرته في التعبير عن الحب كانت بالأفعال لا بالكلام، وتتوقع هدى عبارات لفظية مباشرة. ما الأنسب؟",
+     "choices": [
+      "أن يتوقع كل طرف أن يتغير الآخر تلقائيًا ليشبهه.",
+      "أن يتعرف كل طرف إلى طريقة الآخر في التعبير، ويتعلم أن يضيف إليها ما يحتاج إليه شريكه.",
+      "أن يتم تجاهل الفرق لأنه لن يتغير أبدًا.",
+      "أن يُعتبر هذا الفرق دليلًا على ضعف المشاعر."
+     ],
+     "correct": 1,
+     "explain": "لا يُطلب من الإنسان أن ينسخ طريقة أسرته الأصلية حرفيًا، لكن يمكنه أن يتعلم لغة جديدة تناسب شريكه، كما يمكن لشريكه أن يتعلم قراءة لغته. النضج أن نتعلم لغة الآخر، لا أن ننتظر منه أن يتكلم بلغتنا فقط."
+    },
+    {
+     "q": "إذا كان أحد الزوجين يميل إلى طلب التأكيد والقرب المتكرر عند أي شك، وشريكه يميل إلى الانسحاب والصمت عند الضغط، فما الفهم الأنسب؟",
+     "choices": [
+      "أحدهما مريض نفسيًا والآخر سليم.",
+      "هذان نمطان مختلفان في التعامل مع القلق، يمكن فهمهما وتطويرهما دون تشخيص أحد الطرفين.",
+      "يجب أن يتوقف الطرفان عن الزواج فورًا.",
+      "هذا لا يستحق أي اهتمام لأنه لن يؤثر على العلاقة."
+     ],
+     "correct": 1,
+     "explain": "تختلف طريقة الناس في طلب القرب أو الاستقلال عند الضغط، ويتأثر ذلك بالتنشئة والخبرات السابقة. الوعي بهذا النمط - دون تشخيص أحد الطرفين - يساعد الزوجين على طلب ما يحتاجانه بوضوح بدل الدخول في حلقة مطالبة وانسحاب متكررة."
+    },
+    {
+     "q": "ما الفائدة الحقيقية من معرفة النفس قبل الزواج؟",
+     "choices": [
+      "أن تجد شريكًا مطابقًا لك في كل شيء.",
+      "أن تعرف ما تحتاجه وما تعلمته من أسرتك، فتخبر شريكك بوضوح بدل أن تفترض أنه يعرف.",
+      "أن تتجنب كل اختلاف مع شريكك مستقبلًا.",
+      "أن تحكم على شريكك من أول لقاء."
+     ],
+     "correct": 1,
+     "explain": "معرفة النفس لا تعني البحث عن نسخة مطابقة لك، بل أن تفهم احتياجاتك وأثر تنشئتك، فتستطيع أن تعبر عنها بوضوح، بدل أن تنتظر من شريكك أن يخمنها."
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "title": "فهم المشاعر وإدارتها",
+   "purpose": "الفصل بين الشعور والسلوك وتنظيم الانفعال.",
+   "story": [
+    "عاد مازن من العمل متوترًا بسبب التزام مالي، ثم وجد مشتريات منزلية أعلى مما توقع. قال لليان: «أنت لا تعرفين قيمة المال». تحولت مخاوفه المالية وشعورها بعدم التقدير إلى غضب متبادل."
+   ],
+   "reading": [
+    {
+     "heading": "الغضب ميل، وليس حكمًا على شخصيتك",
+     "paragraphs": [
+      "قد يكون بعض الناس أسرع استثارة من غيرهم بسبب الطبع أو التنشئة أو الضغوط، لكن سرعة ظهور الغضب لا تعني فقدان القدرة على التحكم في السلوك. فالغضب شعور، أما الصراخ والإهانة والتهديد فهي أفعال يتحمل الإنسان مسؤوليتها.",
+      "وتؤكد الدراسات أن مهارات ملاحظة الأفكار، وإعادة تفسير الموقف، والاسترخاء، وحل المشكلات، تستطيع خفض الغضب والسلوك العدواني. وهذا يعني أن عبارة «هذه شخصيتي» قد تفسر الميل إلى الغضب، لكنها لا تبرر إيذاء الآخرين.",
+      "ماذا أفعل عندما يبدأ الغضب؟ أولًا: تعرّف إلى الإشارة المبكرة (ارتفاع صوتك، تسارع نبضك، شد عضلاتك). ثانيًا: اطلب توقفًا واضحًا: «أنا غاضب الآن وأخشى أن أقول كلامًا مؤذيًا، أحتاج أن أهدأ، وسنعود للحديث بعد نصف ساعة». ثالثًا: اخفض استثارتك الجسدية بالتنفس البطيء والوضوء والمشي الهادئ. رابعًا: راجع الفكرة التي أشعلت غضبك: هل يوجد تفسير آخر؟ خامسًا: عد إلى الحوار، وصف الموقف دون اتهام، واعتذر إن صدر منك أذى."
+     ]
+    },
+    {
+     "heading": "خلف الغضب مشاعر تحتاج إلى اسم",
+     "paragraphs": [
+      "لاحظت ليان أن مازن يصبح أكثر توترًا كلما اقترب موعد سداد القرض، ويرفع صوته عند الحديث عن المصروف. قد يكون داخله خائفًا من العجز، أو خجلًا من عدم قدرته على تلبية التوقعات، أو قلقًا من المستقبل، وليس غاضبًا منها حقيقة.",
+      "الغضب أحيانًا يكون الشعور الظاهر، وتحته مشاعر أقل وضوحًا مثل الخوف والعجز والخجل والإحباط. والبحث عما سبقه يساعد على فهم المشكلة بدل الاكتفاء بمواجهة الصوت المرتفع. وتبين الدراسات أن الضغط المالي يرتبط بزيادة التواصل السلبي، وأن تعاون الزوجين في مواجهة الضغوط يساعد على حماية العلاقة.",
+      "لا تفترض ليان ما يشعر به مازن، بل تلاحظ وتسأل: «لاحظت أنك تتوتر عندما نتحدث عن المصروف. هل تشعر بالقلق من الالتزامات؟» والفهم لا يعني التبرير: يمكنها أن تقول: «أتفهم أنك قلق من المال، لكن رفع الصوت يجرحني. دعنا نهدأ ثم نراجع الأرقام معًا»."
+     ]
+    },
+    {
+     "heading": "كبت المشاعر ليس هو ضبط المشاعر",
+     "paragraphs": [
+      "قد يصمت أحد الزوجين حتى لا يبدأ خلافًا، فيظن أن المشكلة انتهت. لكن الشعور الذي لم يُفهم أو يُعبَّر عنه قد يظهر لاحقًا في صورة فتور، أو انسحاب، أو حساسية زائدة، أو انفجار بسبب موقف صغير. وتشير الدراسات إلى ارتباط الإفراط في كبت التعبير العاطفي بانخفاض شعور القرب والرضا عن العلاقة.",
+      "لكن الكبت يختلف عن التنظيم العاطفي؛ فقد يكون من الحكمة ألا يتحدث الإنسان وهو شديد الغضب، وأن يؤجل النقاش حتى يهدأ، بشرط أن يعود إليه فعلًا. أما أن يقول دائمًا: «لا يوجد شيء» بينما يتراكم داخله الألم، فهذا يقطع الطريق أمام الفهم والحل.",
+      "كيف أعبّر عن مشاعري بطريقة صحية؟ تحدث عن الشعور: «أنا قلق» بدلًا من «أنت لا تهتم». اذكر الموقف المحدد. وضح حاجتك. وقدّم طلبًا قابلًا للتنفيذ. المشاعر ليست عيبًا يجب إخفاؤه، وليست أوامر يجب تنفيذها، بل رسائل تساعدنا على معرفة ما يحدث داخلنا."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "المشاعر لا نحاكمها، لكن السلوك مسؤوليتنا.",
+    "الغضب شعور مشروع، أما الإيذاء فليس أسلوبًا مشروعًا للتعبير عنه."
+   ],
+   "reflection": [
+    "عندما أغضب أستطيع أن ألاحظ إشارتي المبكرة (ارتفاع صوتي، تسارع نبضي) قبل أن أفقد السيطرة.",
+    "أعبّر عن مشاعري بصيغة «أنا أشعر بـ...» بدل توجيه اللوم للطرف الآخر."
+   ],
+   "quiz": [
+    {
+     "q": "إذا كنت سريع الغضب بطبيعتك، فما الفكرة الأدق؟",
+     "choices": [
+      "هذه شخصيتي وعلى الآخر أن يتقبلها كما هي.",
+      "لا أستطيع التغيير أبدًا.",
+      "قد أميل إلى الغضب بسرعة، لكن يمكنني تعلم ضبط استجابتي.",
+      "الأفضل أن أتجنب كل نقاش حتى لا أغضب."
+     ],
+     "correct": 2,
+     "explain": "سرعة ظهور الغضب لا تعني فقدان القدرة على التحكم في السلوك؛ فالغضب شعور، أما الصراخ والإهانة والتهديد فأفعال يتحمل الإنسان مسؤوليتها. تؤكد الدراسات أن مهارات إعادة تفسير الموقف والاسترخاء تخفض الغضب والسلوك العدواني."
+    },
+    {
+     "q": "ما الذي حدث غالبًا في موقف مازن وليان؟",
+     "choices": [
+      "المشكلة كلها في المال نفسه.",
+      "مازن عصبي بطبيعته فقط.",
+      "تحول القلق المالي وشعور ليان بعدم التقدير إلى غضب واتهام متبادل.",
+      "الخلاف المالي يعني أنهما غير متوافقين."
+     ],
+     "correct": 2,
+     "explain": "الغضب أحيانًا شعور ظاهر، وتحته مشاعر أقل وضوحًا كالخوف والعجز والخجل والقلق من المستقبل. البحث عما سبق الغضب يساعد على فهم المشكلة بدل الاكتفاء بمواجهة الصوت المرتفع."
+    },
+    {
+     "q": "هل من المفيد أن تربط ليان غضب مازن بضغطه المالي؟",
+     "choices": [
+      "ليس من شأنها معرفة شؤونه المالية إطلاقًا.",
+      "يجب أن ترفض أي طلب منه بعد الآن.",
+      "فهمها لمشاعره قد يساعد في حل المشكلة، دون أن يجعلها مسؤولة عن غضبه أو يبرر إساءته.",
+      "الأفضل إشراك الأسرتين فورًا لحل الخلاف."
+     ],
+     "correct": 2,
+     "explain": "الفهم لا يعني التبرير: تستطيع ليان أن تقول: «أتفهم أنك قلق من المال، لكن رفع الصوت يجرحني. دعنا نهدأ ثم نراجع الأرقام معًا». بهذا فهمت شعوره، ووضعت حدًا للسلوك المؤذي، ونقلت النقاش إلى المشكلة الحقيقية."
+    },
+    {
+     "q": "ماذا قد ينتج عن كبت المشاعر باستمرار دون التعبير عنها؟",
+     "choices": [
+      "يجعل الإنسان أكثر تحملًا مع مرور الوقت فقط.",
+      "يضعف التوازن والتواصل بين الطرفين تدريجيًا.",
+      "يمنع حدوث الخلافات نهائيًا.",
+      "لا يوجد أي تأثير يُذكر."
+     ],
+     "correct": 1,
+     "explain": "الشعور الذي لا يُفهم أو يُعبَّر عنه قد يظهر لاحقًا في صورة فتور أو انسحاب أو حساسية زائدة أو انفجار بسبب موقف صغير. التعبير الصحي: تحدث عن الشعور، اذكر الموقف المحدد، وضح حاجتك، وقدّم طلبًا قابلًا للتنفيذ."
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "title": "فن التواصل بين الزوجين",
+   "purpose": "الاستماع والتعبير والطلب الواضح وعدم افتراض النية.",
+   "story": [
+    "تعود نوف من العمل منزعجة من موقف مع مديرتها. يرد بدر مباشرة بحلول ونصائح، فتشعر أنها لم تُفهم. هو أراد المساعدة، وهي احتاجت أولًا أن تشعر أن أحدًا سمعها وفهمها."
+   ],
+   "reading": [
+    {
+     "heading": "التوقيت والمكان: نصف الرسالة",
+     "paragraphs": [
+      "قد تكون الفكرة صحيحة، لكن توقيتها خاطئ. عندما يكون أحد الزوجين شديد الغضب، أو مرهقًا جدًا، أو جائعًا، أو مستعجلًا، تنخفض قدرته على الاستماع والتفكير الهادئ. القاعدة العملية: لا تناقش المشكلة عندما تكون قدرتك على ضبط نفسك أقل من قدرتك على الدفاع عن موقفك.",
+      "والمكان جزء من الحوار أيضًا؛ فبعض الموضوعات الزوجية تحتاج إلى الخصوصية، لأن وجود الآخرين قد يحول الحوار من محاولة للفهم إلى محاولة لحفظ الكرامة. لذلك يفضل عدم النقاش أمام الأبناء أو الأهل، واختيار مكان هادئ تقل فيه المشتتات، وإبعاد الهواتف."
+     ]
+    },
+    {
+     "heading": "ابدأ بوصف الموقف لا بالاتهام",
+     "paragraphs": [
+      "إذا بدأ الحوار باتهام («أنت لا تهتم أبدًا»)، فإن الطرف الآخر غالبًا يبدأ بالدفاع («بل أنت التي لا تقدر ما أفعله»). أما إذا بدأ الحديث بوصف موقف محدد («عندما تأخرت ولم تخبرني، شعرت بالقلق»)، فهذا يفتح مساحة أكبر للنقاش.",
+      "الصيغة المفضلة: وصف الحدث ← التعبير عن الشعور ← توضيح الحاجة ← طلب محدد. مثال: «عندما تغير الموعد دون أن أعرف، شعرت أنني غير مستعدة. أتمنى مستقبلًا أن تخبرني قبل تغيير الخطة». هذه الطريقة تقلل الهجوم الشخصي وتجعل المشكلة أكثر قابلية للحل."
+     ]
+    },
+    {
+     "heading": "استمع لتفهم، لا لترد",
+     "paragraphs": [
+      "المقاطعة المستمرة تعطي رسالة ضمنية: «ما سأقوله أهم مما تقول». الاستماع لا يعني الموافقة، بل يعني السماح للطرف الآخر بأن يكمل فكرته قبل الرد.",
+      "من أخطاء الحوار أن ينشغل الإنسان أثناء حديث شريكه بإعداد الرد بدلًا من فهم ما يقوله. الاستماع الجيد يتضمن النظر للطرف الآخر، وعدم الانشغال بالهاتف، وإعادة صياغة ما فهمته، وسؤاله إن كان فهمك صحيحًا: «أفهم من كلامك أنك لم تنزعجي من القرار نفسه، بل لأنك شعرت أن القرار اتخذ دونك. هل فهمتك بشكل صحيح؟»"
+     ]
+    },
+    {
+     "heading": "نبرتك جزء من رسالتك",
+     "paragraphs": [
+      "الكلمات نفسها قد يكون لها معنيان مختلفان بحسب النبرة. ارتفاع الصوت والسخرية والتنهد المتكرر قد تجعل الطرف الآخر يشعر بالإهانة حتى لو كانت الكلمات في ظاهرها عادية. قاعدة مهمة: كلما ارتفع صوتك، انخفضت غالبًا قدرة الطرف الآخر على سماع المعنى الذي تريد إيصاله.",
+      "واحذر أن تحوّل المشكلة إلى حكم على الشخصية؛ فهناك فرق بين «تأخرت اليوم» (تصف سلوكًا يمكن مناقشته) و«أنت إنسان غير مسؤول» (حكم على الشخصية كاملة). وكلمات مثل «دائمًا» و«أبدًا» و«أنت لا تتغير» تجعل الطرف الآخر يدافع عن نفسه بدل التفكير في المشكلة."
+     ]
+    },
+    {
+     "heading": "موضوع واحد، وراقب درجة انفعالك",
+     "paragraphs": [
+      "من الأخطاء الشائعة ما يمكن تسميته «تجميع الملفات القديمة»: يبدأ الحوار حول التأخر اليوم، ثم ينتقل إلى «وحتى الأسبوع الماضي فعلت كذا»، فتتحول مشكلة واحدة إلى محاكمة شاملة للعلاقة. الحوار الأكثر فاعلية يبقى حول القضية الحالية فقط.",
+      "وإذا وصل أحد الطرفين إلى درجة عالية من الغضب (ارتفاع الصوت، سرعة التنفس، تكرار الجمل نفسها، عدم القدرة على الاستماع)، فإن الاستراحة الواضحة والمحددة أفضل من الاستمرار: «أنا منزعج الآن وأخشى أن أقول كلامًا غير مناسب. أحتاج إلى نصف ساعة، ثم نعود للحديث». هذه مهارة في تنظيم الانفعال، لا ضعف أو هروب."
+     ]
+    },
+    {
+     "heading": "تعلم إصلاح الحوار أثناء حدوثه",
+     "paragraphs": [
+      "حتى الحوار الجيد قد ينحرف. والأزواج الأكثر مهارة ليسوا الذين لا يخطئون، بل الذين يستطيعون إصلاح المسار. من عبارات الإصلاح: «أعتقد أن طريقتي كانت قاسية»، «دعني أقولها بطريقة أفضل»، «أنا لا أحاول مهاجمتك»، «نحن مختلفان في الرأي، لكنني لا أريد أن نخسر احترامنا لبعضنا». مثل هذه العبارات تخفض التوتر وتعيد الحوار إلى هدفه الحقيقي."
+     ]
+    },
+    {
+     "heading": "ليس كل خلاف يحتاج إلى حل فوري",
+     "paragraphs": [
+      "بعض الاختلافات لا تختفي تمامًا لأنها مرتبطة باختلاف الشخصية أو الأولويات؛ فقد يكون أحد الزوجين أكثر اجتماعية والآخر أكثر هدوءًا. الهدف ليس تغيير شخصية الطرف الآخر بالكامل، بل الوصول إلى طريقة يمكن للطرفين أن يعيشا معها باحترام. الحياة الزوجية الناجحة لا تعني التطابق، بل إدارة الاختلاف دون الإضرار بالعلاقة.",
+      "قبل أي حوار مهم، اسأل نفسك: هل الوقت مناسب؟ هل المكان مناسب؟ هل أنا قادر على الحديث باحترام؟ وهل هدفي أن أفهم وأحل المشكلة، أم أن أثبت أنني على حق؟"
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الحوار الزوجي الناضج يقوم على أربع مهارات: توقيت مناسب + مكان مناسب + إنصات جيد + سلوك محترم.",
+    "عندما يختلف الزوجان، فالسؤال الأهم ليس «من انتصر؟» بل «هل خرجنا من الحوار ونحن نفهم بعضنا أكثر ونحافظ على كرامة العلاقة؟»"
+   ],
+   "reflection": [
+    "أبدأ حديثي الحساس بوصف الموقف وشعوري، لا بجملة اتهام مباشرة.",
+    "أستطيع طلب توقف مؤقت عند اشتداد غضبي، وأعود للحديث كما وعدت."
+   ],
+   "quiz": [
+    {
+     "q": "أين حدث الخلل في موقف نوف وبدر؟",
+     "choices": [
+      "نوف لا تقبل النصيحة من زوجها.",
+      "بدر لا يهتم بمشاعرها.",
+      "انتقل بدر إلى تقديم الحل قبل أن يفهم ما تحتاجه نوف.",
+      "الأفضل عدم الحديث عن العمل بينهما إطلاقًا."
+     ],
+     "correct": 2,
+     "explain": "هو أراد المساعدة، وهي احتاجت أولًا أن تشعر أن أحدًا سمعها وفهمها. سؤال بسيط مثل: «هل تريدين أن أسمعك، أم نبحث عن حل معًا؟» يفتح الطريق الصحيح."
+    },
+    {
+     "q": "أي جملة أكثر قابلية لفتح حوار صحي؟",
+     "choices": [
+      "أنت أناني.",
+      "أنت لا تفكر إلا بنفسك.",
+      "عندما اتخذت القرار دون أن تخبرني، شعرت أن رأيي لم يؤخذ في الاعتبار.",
+      "لا فائدة من الحديث معك."
+     ],
+     "correct": 2,
+     "explain": "الصيغة: وصف الحدث ← التعبير عن الشعور ← توضيح الحاجة ← طلب محدد، تقلل الهجوم الشخصي وتجعل المشكلة أكثر قابلية للحل، بخلاف الاتهام المباشر."
+    },
+    {
+     "q": "هل يؤثر وقت الحوار على نتيجته؟",
+     "choices": [
+      "في الغالب لا تأثير للوقت.",
+      "الحوار مباشرة بعد العودة من العمل هو الأفضل دائمًا.",
+      "من الأفضل مناقشة المشكلة في ذروة الغضب لإنهائها بسرعة.",
+      "تأجيل الحوار الحساس إلى وقت يستطيع فيه الطرفان الانتباه الهادئ."
+     ],
+     "correct": 3,
+     "explain": "عندما يكون أحد الزوجين شديد الغضب أو مرهقًا أو مستعجلًا، تنخفض قدرته على الاستماع والتفكير الهادئ. لا تناقش المشكلة عندما تكون قدرتك على ضبط نفسك أقل من قدرتك على الدفاع عن موقفك."
+    },
+    {
+     "q": "هل يؤثر مكان الحوار على نتيجته؟",
+     "choices": [
+      "أمام الأبناء ليكونوا شاهدين على الموضوع.",
+      "أمام الأهل ليحكموا من المحق.",
+      "في مكان هادئ خاص، بعيدًا عن الهاتف والمشتتات.",
+      "لا يحدد المكان من المخطئ، فلا فرق فيه."
+     ],
+     "correct": 2,
+     "explain": "بعض الموضوعات الزوجية تحتاج إلى خصوصية، لأن وجود الآخرين قد يحول الحوار من محاولة للفهم إلى محاولة لحفظ الكرامة. النقاش أمام الأبناء، خاصة إذا كان حادًا، قد يجعلهم يشعرون بعدم الأمان."
+    },
+    {
+     "q": "كيف تؤثر المقاطعة المستمرة على نتيجة الحوار؟",
+     "choices": [
+      "يمتد الحوار ويطول فقط.",
+      "تزيد فرصة رفع الصوت والكلمات الجارحة.",
+      "قد تصل في أسوأ الحالات إلى الإيذاء اللفظي أو الجسدي.",
+      "كل ما سبق صحيح."
+     ],
+     "correct": 3,
+     "explain": "المقاطعة المستمرة تصعّد الحوار تدريجيًا؛ فهي تعطي رسالة ضمنية بأن ما يقوله الطرف الآخر غير مهم، وقد تتسع دائرة التصعيد حتى تصل إلى ما هو أخطر من الكلام."
+    },
+    {
+     "q": "هل يساعد الاستماع والهدوء فعلًا على نجاح الحوار؟",
+     "choices": [
+      "لا أستطيع أن أهدأ، فأنا أشعر بالإهانة.",
+      "الصمت نوع من الضعف.",
+      "أصمت لكنني أحتفظ بالحقد داخليًا.",
+      "المطلوب ليس الصمت، بل الاستماع الحقيقي الذي يخفف حدة النقاش ويقود إلى الفهم."
+     ],
+     "correct": 3,
+     "explain": "الاستماع لا يعني الموافقة، بل يعني السماح للطرف الآخر بإكمال فكرته، وإعادة صياغة ما فُهم، والتأكد من صحة الفهم قبل الرد."
+    },
+    {
+     "q": "هل يمكن لعبارة واحدة أن تقلب موازين الحوار، كالفرق بين «أنت تتأخر دائمًا» و«تأخرت اليوم»؟",
+     "choices": [
+      "لا ينتبه أغلب الأزواج لهذا الفرق.",
+      "عبارة «تأخرت اليوم» تصف حالة محددة يمكن مناقشتها.",
+      "عبارة «أنت دائمًا متأخر» تصف صفة ثابتة وتشعر الطرف الآخر بأنه محكوم عليه.",
+      "ب و ج معًا صحيحان."
+     ],
+     "correct": 3,
+     "explain": "وصف السلوك المحدد يفتح بابًا للنقاش، أما تعميم الصفة بكلمات مثل «دائمًا» فيغلق الحوار ويدفع إلى الدفاع عن النفس بدل التفكير في حل."
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "title": "إدارة الخلاف بين الزوجين",
+   "purpose": "بروتوكول ثابت للخلاف ومنع التصعيد.",
+   "story": [
+    "يختلف سلطان وريم على زيارة أي من أسرتيهما يوم الجمعة. وبدل أن يتحول الخلاف إلى نقاش وحل، يصرّ أحدهما على تذكير الآخر بمواقف قديمة بين العائلتين."
+   ],
+   "reading": [
+    {
+     "heading": "تذكر أن للشيطان مصلحة في اتساع الخلاف",
+     "paragraphs": [
+      "قال الله تعالى: «إن الشيطان لكم عدو فاتخذوه عدوا». وفي الحديث الصحيح أخبر النبي ﷺ أن إبليس يبعث جنوده لإحداث الفتنة، ويكون أعظمهم عنده من يفرّق بين الزوجين. قد لا يصنع الشيطان المشكلة من الصفر، لكنه يستغل الغضب وسوء الظن والعناد واستدعاء الماضي حتى تتسع المشكلة. لذلك تذكر دائمًا: زوجي ليس عدوي.",
+      "من الهدي أن يستعيذ الإنسان بالله من الشيطان الرجيم عند اشتداد الغضب. والاستعاذة تمنح الإنسان لحظة فاصلة بين الشعور والتصرف: بدلًا من «غضب ← كلمة جارحة ← رد أقسى ← تصعيد»، اجعلها «غضب ← استعاذة ← توقف ← اختيار أفضل للكلام»."
+     ]
+    },
+    {
+     "heading": "هدّئ نفسك قبل أن تحاول حل المشكلة",
+     "paragraphs": [
+      "عند الغضب الشديد يرتفع النبض ويتسارع الكلام ويقل الاستماع ويزداد الميل للدفاع والهجوم. لذلك لا تحاول حل المشكلة وأنت في ذروة الغضب؛ يمكن أن تستعيذ بالله، وتسكت قليلًا، وتغير المكان، وتتوضأ، وتبتعد فترة قصيرة، ثم تعود للحوار. والتأجيل هنا ليس هروبًا، بل تنظيم للانفعال، على أن يعود الزوجان لاحقًا إلى الموضوع."
+     ]
+    },
+    {
+     "heading": "اعرف نمطك في الخلاف قبل أن تحاكم شريكك",
+     "paragraphs": [
+      "لكل إنسان نمط في الخلاف؛ بعضهم يرفع صوته، وبعضهم ينسحب، وبعضهم يستدعي الماضي، وبعضهم يحتاج دائمًا إلى الكلمة الأخيرة. معرفة النفس جزء من الوعي بالذات، ومن عرف نقاط ضعفه أصبح أقدر على ضبطها.",
+      "واحذر رغبة النفس في الانتصار: قد يبدأ الحوار بحثًا عن حل ثم يتحول إلى محاولة لإثبات من المخطئ. اسأل نفسك أثناء الخلاف: هل أريد حلًا أم أريد الانتصار؟ قد ينتصر الإنسان في النقاش ويخسر شيئًا من المودة."
+     ]
+    },
+    {
+     "heading": "لا تُدخل العائلتين في مشكلة صغيرة",
+     "paragraphs": [
+      "من أخطر الأخطاء أن يتحول خلاف بين زوجين إلى خلاف بين أسرتين. قد تبدأ المشكلة بـ «أين ستكون زيارة الجمعة؟» ثم تصبح «أهلك لا يقدرونني». عندما تدخل الأسرة في النقاش، يشعر الإنسان أنه يدافع عن أبيه وأمه وكرامة عائلته، فيصبح التراجع أصعب. قل: «أريد أن يكون توزيع الزيارات أكثر توازنًا»، ولا تقل: «أهلك يستحوذون عليك». قاعدة ميثاق: لا تدخل الأسماء الكبيرة في الخلافات الصغيرة."
+     ]
+    },
+    {
+     "heading": "لا تفتح الملفات القديمة",
+     "paragraphs": [
+      "ابدأ بمشكلة اليوم وابقَ معها. لا تحول خلاف اليوم إلى مراجعة شاملة لسنوات الزواج. في قصة سلطان وريم، المشكلة هي: أين ستكون زيارة الجمعة؟ فإذا كانت هناك مشكلة أخرى مع إحدى العائلتين، تناقش في وقت مستقل. قاعدة ميثاق: مشكلة واحدة في كل حوار."
+     ]
+    },
+    {
+     "heading": "افصل بين الشخص والسلوك، واجعل المشكلة أمامكما لا بينكما",
+     "paragraphs": [
+      "هناك فرق بين «هذا التصرف أزعجني» و«أنت شخص أناني». الأولى تناقش سلوكًا يمكن تغييره، والثانية تهاجم شخصية الإنسان. استخدم الصيغة: عندما حدث كذا، شعرت بكذا، وأحتاج إلى كذا.",
+      "لا تجعل العلاقة: سلطان ضد ريم، بل: سلطان وريم ضد مشكلة توزيع الزيارات. يقول سلطان: «زيارة والدي مهمة لي». وتقول ريم: «وأنا أريد أن يكون هناك توازن في زيارة أسرتي». ثم يسألان: ما الحل الذي يراعي الحاجتين؟"
+     ]
+    },
+    {
+     "heading": "تطبيق ميثاق: استعذ - اهدأ - صغّر المشكلة - افهم - حل",
+     "paragraphs": [
+      "استعذ: قل «أعوذ بالله من الشيطان الرجيم»، وتذكر أن هدفك حماية البيت لا الانتصار في اللحظة. اهدأ: إذا ارتفع الغضب، توقف قليلًا. صغّر المشكلة: اسأل «ما القضية التي نختلف عليها الآن فقط؟» ولا تدخل الأهل والماضي في المشكلة. افهم: اسأل الطرف الآخر «لماذا هذا الأمر مهم لك؟» حل: ابحثا عن خيار يحفظ احتياجات الطرفين.",
+      "في قصة سلطان وريم: يمكن لأحدهما أن يوقف المسار قائلًا: «أعوذ بالله من الشيطان الرجيم. واضح أننا بدأنا نغضب وندخل أهلنا في الموضوع. القضية فقط أين نذهب الجمعة. دعنا نهدأ ثم نتفق على ترتيب عادل». ثم يقول سلطان: «زيارة والدي مهمة لي لأنني لم أرهم منذ فترة». وتقول ريم: «وأنا أحتاج أن أشعر أن أسرتي أيضًا لها مكان في جدولنا». عندها تظهر الحاجات الحقيقية، ويصبح الحل ممكنًا."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الزواج لا يُبنى على عدد مرات الانتصار على الشريك، بل على عدد مرات الانتصار معًا على الغضب والكبرياء وسوء الظن.",
+    "عندما يبدأ الخلاف، لا تسأل: كيف أنتصر؟ بل اسأل: كيف أحمي علاقتنا ونحن نحل المشكلة؟"
+   ],
+   "reflection": [
+    "عند الخلاف أستطيع أن أقول «أعوذ بالله من الشيطان الرجيم» وأتوقف قبل أن أتصاعد في الغضب.",
+    "لا أستخدم أهل شريكي أو أهلي سلاحًا في الخلاف."
+   ],
+   "quiz": [
+    {
+     "q": "ما الخطأ إذا تحول خلاف بسيط حول زيارة إلى التذكير بمشكلات عائلية قديمة؟",
+     "choices": [
+      "الحديث عن الأسرتين أمر اعتيادي لا ضرر فيه.",
+      "فتح الملفات القديمة يفتح جروحًا مزمنة ويوسع خلافًا صغيرًا.",
+      "هذا يعالج جوهر المشكلة فعلًا.",
+      "لا يؤثر قول الحقائق القديمة على الحوار."
+     ],
+     "correct": 1,
+     "explain": "ابدأ بمشكلة اليوم وابقَ معها؛ لا تحوّل خلاف اليوم إلى مراجعة شاملة لسنوات الزواج. قاعدة ميثاق: مشكلة واحدة في كل حوار."
+    },
+    {
+     "q": "أي عبارة تساعد على حفظ نبرة الحوار عند الخلاف حول الزيارات؟",
+     "choices": [
+      "أنت لا تفكر إلا بنفسك وأهلك.",
+      "أنت لا تحب أهلي.",
+      "أريد أن أفهم موقفك، ونناقش معًا ما يزعجنا.",
+      "أنت دائمًا تفعل ذلك."
+     ],
+     "correct": 2,
+     "explain": "اجعل المشكلة أمامكما لا بينكما: سلطان وريم ضد مشكلة توزيع الزيارات، لا سلطان ضد ريم. ثم يسألان معًا: ما الحل الذي يراعي الحاجتين؟"
+    },
+    {
+     "q": "ما التصرف الذي قد يساعد في حل خلاف سلطان وريم؟",
+     "choices": [
+      "الذهاب مباشرة لأسرة سلطان دون التفاهم.",
+      "ترك ريم عند أهلها دون مرافقتها.",
+      "تأجيل الزيارة، والانتقال إلى مكان أهدأ، وتأجيل النقاش حتى يهدآ.",
+      "البقاء في البيت دون الحديث عن الموضوع إطلاقًا."
+     ],
+     "correct": 2,
+     "explain": "عند الغضب الشديد يرتفع النبض ويقل الاستماع. التأجيل هنا ليس هروبًا، بل تنظيم للانفعال، على أن يعود الزوجان لاحقًا إلى الموضوع بهدوء."
+    },
+    {
+     "q": "هل للشيطان دور في تصاعد الخلافات بين الزوجين؟",
+     "choices": [
+      "الشيطان موجود في كل خلاف بالضرورة.",
+      "هو عدو لكل ما يسعد الإنسان ويسعى إلى إثارة الصراع بينه وبين شريكه.",
+      "تذكّر هذا الأمر والاستعاذة منه يقلّص اتساع الخلاف.",
+      "ب و ج معًا صحيحان."
+     ],
+     "correct": 3,
+     "explain": "قال الله تعالى: «إن الشيطان لكم عدو فاتخذوه عدوا». الاستعاذة عند اشتداد الغضب تمنح الإنسان لحظة فاصلة بين الشعور والتصرف."
+    },
+    {
+     "q": "هل تؤثر طبيعة الشخصية في طريقة إدارة الخلاف؟",
+     "choices": [
+      "الشخصية الحساسة لا تتأثر بالنقد أبدًا.",
+      "الشخصية العنيدة قد تميل إلى طلب الانتصار دائمًا في كل نقاش.",
+      "الشخصية المرنة تميل دائمًا إلى الانسحاب الكامل.",
+      "الشخصية لا تؤثر غالبًا في طريقة الخلاف."
+     ],
+     "correct": 1,
+     "explain": "لكل إنسان نمط في الخلاف؛ بعضهم يرفع صوته، وبعضهم ينسحب، وبعضهم يستدعي الماضي. معرفة نمطك الخاص جزء من الوعي بالذات الذي يساعدك على ضبطه."
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "title": "المال والمسؤوليات داخل الأسرة",
+   "purpose": "الدخل والديون والميزانية والعمل وتوزيع المهام.",
+   "story": [
+    "راشد يحب التخطيط المالي، ومها اعتادت مرونة أكبر في الإنفاق. عندما ارتفعت مصروفات أحد الأشهر من جهة مها، شعر راشد أن الإنفاق بلا خطة، وشعرت مها أنه يراقبها."
+   ],
+   "reading": [
+    {
+     "heading": "المال في الزواج أعمق من الأرقام",
+     "paragraphs": [
+      "قد يبدو الخلاف حول المال في ظاهره خلافًا حول مبلغ أو فاتورة، لكنه في كثير من الأحيان أعمق من ذلك؛ فالمال داخل الزواج يرتبط بمعانٍ نفسية مهمة: الأمان، والاستقلال، والعدل، والتقدير، والثقة. فقد يقول الزوج: «مصروفاتنا مرتفعة»، بينما تسمع الزوجة في داخلها: «أنتِ غير مسؤولة». وهنا يبدأ الخلاف المالي يتحول إلى خلاف في القيمة والكرامة.",
+      "إن نجاح الأسرة ماليًا لا يعني أن يكون دخلها مرتفعًا، وإنما أن تتعلم كيف تتحدث عن المال دون أن يتحول إلى معركة."
+     ]
+    },
+    {
+     "heading": "النفقة حق، لكن الحياة الزوجية أكبر من لغة الحقوق",
+     "paragraphs": [
+      "قال الله تعالى: «لينفق ذو سعة من سعته ومن قدر عليه رزقه فلينفق مما آتاه الله». فالنفقة مرتبطة بالقدرة، لا بمستوى إنفاق الأقارب أو ما تعرضه وسائل التواصل. ويؤكد الفقه الإسلامي أن نفقة الزوجة والأولاد مسؤولية الزوج بالمعروف وبحسب قدرته، من غير إسراف ولا تقتير.",
+      "ويقول الله تعالى: «والذين إذا أنفقوا لم يسرفوا ولم يقتروا وكان بين ذلك قواما». وهذه قاعدة مالية عظيمة: فلا التقتير مع وجود القدرة مطلوب، ولا الإسراف الذي يحمّل الأسرة الديون من أجل الكماليات مطلوب، بل المطلوب القوام: التوازن بين الكفاية وحفظ المستقبل."
+     ]
+    },
+    {
+     "heading": "راتب الزوجة: استقلال مالي وتعاون أسري",
+     "paragraphs": [
+      "إذا كانت الزوجة موظفة، فإن راتبها في الأصل مال لها، ولا يصبح تلقائيًا جزءًا من دخل الزوج، ولا تصبح ملزمة لمجرد عملها بتحمل نصف مصروفات المنزل. وإذا ساهمت برضاها في منزلها أو تحقيق هدف مشترك، فهذا تعاون واتفاق لا انتقال تلقائي لمسؤولية النفقة.",
+      "وفي الوقت نفسه، من الحكمة ألا يتحول الاستقلال المالي إلى حياة مالية منفصلة تمامًا. فهناك فرق بين الاستقلال المالي (أن يبقى لكل طرف حقه في ماله) والسرية المالية (أن يخفي أحد الزوجين التزامات كبيرة قد يفاجأ بها الآخر). الأول حق، أما الثاني فقد يهدم الثقة."
+     ]
+    },
+    {
+     "heading": "لا تجعل المقارنة تدخل بيتك",
+     "paragraphs": [
+      "من أكثر الأخطاء خطورة أن تتحول حياة الأسرة إلى سباق مع الآخرين: «أختي تسافر أكثر مني»، «صديقتي اشترى لها زوجها سيارة أفضل». هذه المقارنات غير عادلة؛ لأننا نقارن ما نراه من حياة الآخرين بما نعرفه كاملًا من حياتنا: نرى الرحلة ولا نرى القرض، ونرى الصورة الجميلة ولا نرى الخلافات خلفها.",
+      "الذكاء العاطفي هنا أن أتعرف على الشعور الحقيقي خلف طلبي: هل أنا بحاجة فعلًا إلى هذا الشيء، أم شعرت بالنقص عندما رأيته عند غيري؟ الزواج لا ينبغي أن يعيش وفق ميزانية بيت آخر."
+     ]
+    },
+    {
+     "heading": "القرض: عندما نستهلك دخل المستقبل",
+     "paragraphs": [
+      "القرض لا يزيد ثروة الأسرة في حد ذاته، بل يسمح للأسرة باستخدام جزء من دخلها المستقبلي الآن مقابل التزام يستمر شهورًا أو سنوات. والخطر يبدأ عندما تُستخدم الديون للمحافظة على صورة اجتماعية: تغيير الأثاث قبل زيارة الأقارب، أو سيارة أكبر لمجاراة الآخرين.",
+      "قبل أي التزام طويل، على الزوجين أن يسألا: هل نحتاجه أم نرغب فيه؟ ماذا سيأخذ القسط من دخلنا الشهري؟ وهل نحن نتخذ هذا القرار لأننا نحتاجه، أم لأننا نخشى نظرة الناس إلينا؟"
+     ]
+    },
+    {
+     "heading": "تحدث عن المال دون أن تجرح شريك حياتك",
+     "paragraphs": [
+      "هناك فرق كبير بين أن يقول الزوج: «لاحظت أن مصروفاتنا هذا الشهر تجاوزت الخطة، دعينا نراجعها معًا»، وبين أن يقول: «أنت لا تعرفين قيمة المال». الجملة الأولى تناقش مشكلة، أما الثانية فتهاجم إنسانًا.",
+      "ومن أفضل الممارسات أن يتفق الزوجان على تصور مالي واضح يشمل: احتياجات الأسرة الأساسية، والادخار للمستقبل، والديون والالتزامات، ومساعدة الوالدين، والترفيه، ومساحة مالية شخصية لكل طرف."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "المال وسيلة لخدمة الأسرة، وليس وسيلة للسيطرة عليها أو قياس الحب داخلها.",
+    "لا تسألا: من المنتصر؟ بل: أي قرار يحمي أسرتنا اليوم ويحفظ مستقبلها غدًا؟"
+   ],
+   "reflection": [
+    "أناقش القرارات المالية الكبيرة مع شريكي قبل اتخاذها، لا بعدها.",
+    "لا أقارن حياتنا المالية بحياة أسرة أخرى."
+   ],
+   "quiz": [
+    {
+     "q": "ما المشكلة الأساسية في خلاف راشد ومها حول المصروفات؟",
+     "choices": [
+      "أحدهما بخيل والآخر ليس كذلك.",
+      "أحدهما مسرف فقط.",
+      "عدم وجود اتفاق واضح مسبق على طريقة إدارة المال.",
+      "يجب أن يتولى إدارة المال شخص واحد فقط دون الآخر."
+     ],
+     "correct": 2,
+     "explain": "الخلاف حول المال في ظاهره خلاف حول مبلغ، لكنه غالبًا أعمق: الأمان، والاستقلال، والعدل، والتقدير، والثقة. نجاح الأسرة ماليًا يعني أن تتعلم كيف تتحدث عن المال دون أن يتحول إلى معركة."
+    },
+    {
+     "q": "إذا كان قرار مالي كبير سيؤثر على التزامات الأسرة، فما الأنسب؟",
+     "choices": [
+      "لا يحتاج إلى نقاش إذا كان المال من راتب أحد الطرفين فقط.",
+      "يجب مناقشة كل مبلغ صغير مهما كان بسيطًا.",
+      "تتم مناقشته معًا إذا كان سيؤثر على خطة الأسرة وميزانيتها.",
+      "يقرر من يملك الراتب الأعلى وحده."
+     ],
+     "correct": 2,
+     "explain": "القرارات المالية الكبيرة تؤثر على الأسرة كلها، فينبغي أن تقوم على التشاور لا على فرض رأي طرف على الآخر بحجة من يملك المال."
+    },
+    {
+     "q": "قالت مها لراشد: «زوج أختي يسافر بها مرتين كل سنة، لماذا لا تفعل مثله؟» ما المشكلة في هذه المقارنة؟",
+     "choices": [
+      "من حق الزوجة أن تعيش تمامًا كما تعيش أختها دون اعتبار آخر.",
+      "المقارنة بين الأسر قد تتجاهل اختلاف الدخل والالتزامات والظروف الخاصة بكل أسرة.",
+      "على راشد أن يقترض فورًا حتى يسافر بمها كزوج أختها.",
+      "السفر الكثير دليل على نجاح الزواج."
+     ],
+     "correct": 1,
+     "explain": "نقارن عادة ما نراه من حياة الآخرين بما نعرفه كاملًا من حياتنا: نرى الرحلة ولا نرى القرض. الذكاء العاطفي هنا أن نسأل: هل أحتاج فعلًا إلى هذا الشيء، أم شعرت بالنقص عندما رأيته عند غيري؟"
+    },
+    {
+     "q": "قال راشد لمها: «بما أنك تعملين وراتبك جيد، فأنت مسؤولة عن نصف مصاريف المنزل». ما التصور الأدق؟",
+     "choices": [
+      "يصبح دخل الزوجة جزءًا من دخل الأسرة تلقائيًا بمجرد عملها.",
+      "يبقى دخل الزوجة حقًا خاصًا بها، وتكون مساهمتها في مصاريف المنزل باتفاق الطرفين ورضاهما.",
+      "يحق للزوج أن يحدد نسبة معينة من راتب زوجته للمنزل دون اتفاق.",
+      "يجب أن يتحمل كل من الزوجين نصف المصروفات بالتساوي حتمًا."
+     ],
+     "correct": 1,
+     "explain": "إذا كانت الزوجة موظفة فراتبها في الأصل مالها، ولا يصبح تلقائيًا جزءًا من دخل الزوج؛ والنفقة في الأصل مسؤولية الزوج بالمعروف وحسب قدرته."
+    },
+    {
+     "q": "أرادت مها تغيير أثاث المنزل لمناسبة عائلية، لكن دخل الأسرة لا يسمح حاليًا، فاقترحت الحصول على قرض. ما التصرف الأنسب؟",
+     "choices": [
+      "يأخذان القرض ما داما قادرين على دفع القسط شهريًا.",
+      "يؤجلان الرغبة حتى تتحسن قدرتهما المالية.",
+      "يأخذان القرض لأن أصدقاءهما يفعلون ذلك.",
+      "يختاران القرض حتى لا تتأثر صورتهما الاجتماعية."
+     ],
+     "correct": 1,
+     "explain": "القرض لا يزيد ثروة الأسرة في ذاته، والخطر يبدأ عندما تُستخدم الديون للمحافظة على صورة اجتماعية. اسألا: هل نحتاجه أم نرغب فيه؟"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "title": "الأهل والحدود والخصوصية",
+   "purpose": "السكن والزيارات والأسرار وحدود تدخل الأسرة.",
+   "story": [
+    "فيصل قريب جدًا من والدته ويخبرها بتفاصيل حياته. بعد خلاف بسيط مع سارة، تفاجأت بأن والدته تعرف كل ما حدث بينهما. تصالح فيصل وسارة بعد ذلك، لكن والدته بقيت غاضبة منها."
+   ],
+   "reading": [
+    {
+     "heading": "بر الوالدين لا ينتهي بالزواج",
+     "paragraphs": [
+      "جعل الإسلام للوالدين منزلة عظيمة، قال تعالى: «وقضى ربك ألا تعبدوا إلا إياه وبالوالدين إحسانا». فالزواج لا يسقط حق الوالدين في البر والصلة والإحسان. لكن البر شيء، وإدارة الحياة الزوجية شيء آخر؛ فليس من مقتضى البر أن يعرف الوالدان كل تفاصيل العلاقة الزوجية أو يقررا مكان السكن والإنفاق دون اعتبار لرأي الزوجين. والتوازن الناضج: بر بلا ذوبان، واستقلال بلا قطيعة."
+     ]
+    },
+    {
+     "heading": "بعد الزواج تتكوّن أسرة جديدة",
+     "paragraphs": [
+      "عند الزواج لا يفقد الإنسان أسرته الأولى، لكنه يصبح مسؤولًا أيضًا عن وحدة أسرية جديدة لها حقوقها وخصوصيتها. والأصح أن تكون القرارات التي تمس حياة الزوجين قائمة على التشاور بينهما أولًا، ثم الاستفادة من رأي الأهل عند الحاجة. احترام رأي الوالدين لا يعني تنفيذ كل ما يرونه."
+     ]
+    },
+    {
+     "heading": "الخصوصية ليست سرية",
+     "paragraphs": [
+      "يحتاج كل زواج إلى مساحة آمنة لا يدخلها الآخرون دون حاجة؛ فهناك فرق بين الحديث عن حياته عمومًا وبين نقل تفاصيل الخلافات العابرة والأسرار الخاصة. ولا يعني ذلك أن الزواج يجب أن يكون مغلقًا مهما حدث؛ فإذا كان هناك عنف أو تهديد أو خوف على أحد الزوجين، فإن طلب المساعدة يصبح أمرًا مهمًا. القاعدة ليست: لا تخبر أحدًا أبدًا، بل: لا تحول كل خلاف عابر إلى قضية عائلية، ولا تخفِ خطرًا حقيقيًا بحجة الخصوصية."
+     ]
+    },
+    {
+     "heading": "لماذا قد يزيد نقل الخلافات إلى الأهل من حدّتها؟",
+     "paragraphs": [
+      "قد يختلف الزوجان ثم يتصالحان بعد ساعات، لكن من سمع المشكلة من الأهل في لحظة الغضب قد لا ينساها بالسرعة نفسها. فالزوج قد ينسى كلمة قالتها زوجته، لكن والدته قد تتذكرها طويلًا. وهكذا يتجاوز الزوجان المشكلة بينما لا تتجاوزها الأسرة الممتدة.",
+      "وليس كل تدخل من الأهل سيئًا؛ فالشريعة أقرت الاستعانة بالحكماء عند تعقد الخلاف: «وإن خفتم شقاق بينهما فابعثوا حكما من أهله وحكما من أهلها». لكن هناك فرقًا بين التحكيم الحكيم وبين دخول الجميع في كل خلاف صغير."
+     ]
+    },
+    {
+     "heading": "السفر والزيارات والسكن بالقرب من الأهل",
+     "paragraphs": [
+      "كثير من المشكلات لا تكون حول الزيارة نفسها، بل حول طريقة اتخاذ القرار. فليس من المناسب أن يرتب أحد الزوجين سفرًا مع أهله ثم يبلغ الطرف الآخر بعد اكتمال الترتيبات. الأفضل أن يتفق الزوجان مسبقًا على مواعيد الزيارات والإجازات ومدة البقاء عند الأهل.",
+      "وقد يرغب الوالدان أن يسكن الابن قريبًا منهم، وقد يكون ذلك مفيدًا، لكن مكان السكن قرار يؤثر على العمل والخصوصية والأطفال، فينبغي أن يناقشه الزوجان وفق مصلحة أسرتهما مع مراعاة حاجة الوالدين، لا أن يتحول إلى اختبار للطاعة أو الحب."
+     ]
+    },
+    {
+     "heading": "لا تستخدم أهلك سلاحًا في الخلاف",
+     "paragraphs": [
+      "من العبارات الخطرة: «سأخبر أبي بما فعلت»، أو «أمي كانت محقة عندما حذرتني منك». هذه العبارات تنقل الخلاف من شخصين إلى عائلتين، ويصبح التراجع أصعب لأن الإنسان يشعر أنه يدافع عن كرامة أسرته كاملة.",
+      "وضع الحدود لا يحتاج إلى قسوة؛ فبدل أن يقول الزوج لوالدته: «لا تتدخلي في حياتي»، يمكن أن يقول: «رأيك مهم عندي وسأفكر فيه، لكن أحب أن أتفق مع زوجتي أولًا». بهذه الطريقة نحفظ الاحترام دون أن نفتح كل أبواب الحياة الخاصة."
+     ]
+    },
+    {
+     "heading": "خمس قواعد تحفظ الأسرة",
+     "paragraphs": [
+      "لا تنقل كل خلاف إلى الأهل. لا تتخذ قرارًا يؤثر على الأسرة ثم تبلغ شريكك به بعد وقوعه. لا تستخدم والديك أو إخوتك وسيلة ضغط في الخلاف. ضع الحدود بأدب لا بعدوانية. وإذا أصبح الخلاف خطرًا أو مستمرًا، فاطلب المساعدة من شخص حكيم أو مختص."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "بر والديك، واحفظ زوجك، وصل رحمك، واحمِ خصوصية بيتك.",
+    "الزواج لا يطلب منك أن تختار بين زوجك وأهلك، بل يطلب منك أن تصبح أكثر نضجًا في إعطاء كل ذي حق حقه."
+   ],
+   "reflection": [
+    "أتشاور مع شريكي أولًا في القرارات التي تخص بيتنا، قبل الرجوع لرأي الأهل.",
+    "لا أنقل تفاصيل الخلافات العابرة بيني وبين شريكي إلى والديّ."
+   ],
+   "quiz": [
+    {
+     "q": "ما المشكلة الأساسية في خلاف فيصل وسارة؟",
+     "choices": [
+      "قرب فيصل من والدته في ذاته.",
+      "غيرة سارة بلا سبب.",
+      "عدم الاتفاق المسبق على حدود الخصوصية بينهما.",
+      "تكرار زيارات والدة فيصل لهما."
+     ],
+     "correct": 2,
+     "explain": "المشكلة ليست في قرب الزوج من أمه، بل تبدأ عندما تصبح الحدود غير واضحة: من يعرف تفاصيل حياتنا؟ الحدود الأسرية الصحية لا تعني الجفاء، بل أن يعرف كل شخص موقعه وحقه."
+    },
+    {
+     "q": "إذا حدث خلاف بسيط بين الزوجين وتم حله، فما التصرف الأنسب؟",
+     "choices": [
+      "إخبار الأسرة بتفاصيله كاملة.",
+      "إبقاؤه بين الزوجين ما دام لا توجد خطورة فيه.",
+      "إخبار الأصدقاء المقربين به.",
+      "طلب حكم من الأقارب فيه."
+     ],
+     "correct": 1,
+     "explain": "قد يتصالح الزوجان بعد ساعات، لكن من سمع المشكلة من الأهل في لحظة الغضب قد لا ينساها بالسرعة نفسها؛ فنقل الانفعال المؤقت قد يحوّل خلافًا قصيرًا إلى موقف عائلي طويل."
+    },
+    {
+     "q": "اعتادت سارة الذهاب إلى بيت أسرتها والبقاء أيامًا طويلة دون اتفاق واضح مع فيصل. ما الخطر في هذا السلوك؟",
+     "choices": [
+      "زيارة الأسرة أمر غير مقبول دائمًا.",
+      "طول الابتعاد المتكرر دون اتفاق قد يؤدي إلى برود العلاقة الزوجية.",
+      "بقاء الزوجة عند أهلها يحل كل المشاكل.",
+      "تدخل الأسرة هو الحل الأفضل لأي خلاف."
+     ],
+     "correct": 1,
+     "explain": "الزيارة لا تعني إلغاء خصوصية المنزل؛ الزواج يحتاج إلى خصوصية لا إلى عزلة. الأفضل أن يتفق الزوجان مسبقًا على مدة البقاء عند الأهل والأوقات الخاصة بهما."
+    },
+    {
+     "q": "قال فيصل لوالدته بعد مشكلة بسيطة: «سارة لا تقدرني ولا تحترمني»، ثم تصالح مع سارة لاحقًا، لكن والدته بقيت غاضبة منها. ما الذي حدث؟",
+     "choices": [
+      "الأم تتحمل كامل المسؤولية عن استمرار غضبها.",
+      "نقل الانفعال المؤقت صنع انطباعًا سلبيًا طويل الأمد لدى الأسرة.",
+      "يجب إخبار الوالدين بكل خلاف منذ لحظته الأولى.",
+      "الأفضل أن ينقل كل طرف روايته لأسرته فورًا دائمًا."
+     ],
+     "correct": 1,
+     "explain": "قد ينسى الزوج كلمة قالتها زوجته، لكن والدته قد تتذكر أنه جاء يومًا غاضبًا وقال كلامًا سلبيًا عنها. وهكذا يتجاوز الزوجان المشكلة بينما لا تتجاوزها الأسرة الممتدة."
+    },
+    {
+     "q": "وافق فيصل على رحلة عائلية مع أهله دون التشاور مع سارة، ثم أخبرها بعد اكتمال الترتيبات، رغم وجود التزامات أسرية في نفس الفترة. ما المشكلة الأساسية؟",
+     "choices": [
+      "السفر مع الأهل غير مناسب أبدًا بعد الزواج.",
+      "قبول القرار الذي يؤثر على الأسرة دون تشاور مسبق مع الزوجة.",
+      "يجب على سارة أن ترفض كل الرحلات العائلية مستقبلًا.",
+      "الأولوية دائمًا للأسرة الممتدة في الإجازات."
+     ],
+     "correct": 1,
+     "explain": "ليس من المناسب أن يرتب أحد الزوجين أمرًا يؤثر على الأسرة الجديدة ثم يُبلغ الطرف الآخر بعد اكتمال الترتيبات وكأنه واقع لا يمكن تغييره."
+    },
+    {
+     "q": "طلب والد فيصل منه أن يسكن قريبًا جدًا من منزل العائلة، بينما ترى سارة أن ذلك سيؤثر على عملها وخصوصيتها. ما التصرف الأنسب؟",
+     "choices": [
+      "ينفذ فيصل رغبة والده دون أي نقاش مع سارة.",
+      "ترفض سارة الطلب مباشرة لمجرد أنه من أهل زوجها.",
+      "يناقش الزوجان مصلحة أسرتهما الجديدة، مع احترام رغبة الوالدين.",
+      "يترك القرار لوالد فيصل وحده لأنه الأكبر سنًا."
+     ],
+     "correct": 2,
+     "explain": "مكان السكن قرار يؤثر على العمل والخصوصية والأطفال والالتزامات المالية، فينبغي أن يناقشه الزوجان وفق مصلحة أسرتهما مع مراعاة حاجة الوالدين، لا أن يتحول إلى اختبار للطاعة."
+    },
+    {
+     "q": "اعتاد أهل سارة زيارة المنزل في أوقات مختلفة دون تنسيق، وشعر فيصل أن خصوصية البيت تتأثر. ما الحل الأفضل؟",
+     "choices": [
+      "منع زيارات أهلها نهائيًا.",
+      "أن تضع سارة جدولًا للزيارات دون الرجوع إلى فيصل.",
+      "أن يتفق الزوجان معًا على طريقة للزيارات تحفظ الصلة والخصوصية.",
+      "أن يتقبل فيصل الوضع كما هو حتى لا تغضب أسرتها."
+     ],
+     "correct": 2,
+     "explain": "تنظيم الزيارة لا يعني رفض الأهل. يمكن أن يقول الزوجان: «نسعد بزيارتكم، فقط أخبرونا قبل الحضور». هذه ليست قطيعة، بل حدود تحفظ راحة الجميع."
+    },
+    {
+     "q": "قالت والدة فيصل له: «منذ أن تزوجت أصبحت زوجتك أهم منا». شعر فيصل أنه يجب أن يثبت العكس بإعطائها الأولوية في كل موقف. ما التفكير الأكثر نضجًا؟",
+     "choices": [
+      "أن يثبت لأمه أن زوجته تأتي دائمًا بعد العائلة.",
+      "أن يبتعد عن والدته كليًا حتى لا تحدث مشكلات.",
+      "أن يفهم أن بر الوالدين والوفاء للزوجة لا يتعارضان إذا وُزنت الحقوق بعدل.",
+      "أن يطلب من زوجته أن تتنازل في كل مرة لإرضاء أمه."
+     ],
+     "correct": 2,
+     "explain": "الحياة ليست سؤالًا من نوع: من أهم، أمك أم زوجتك؟ فلكل علاقة طبيعتها وحقوقها. النضج أن يقول لوالديه بأدب: «هذا القرار يخص حياتنا الزوجية»، ولزوجه: «بر والديّ جزء من ديني وقيمي»."
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "title": "العلاقة الحميمية والحياة الزوجية",
+   "purpose": "معرفة شرعية وصحية محترمة وواقعية.",
+   "story": [
+    "حنان، فقدت والدتها في صغرها، وتشعر قرب موعد زواجها بخوف وخجل وتوقعات غير واقعية عن الليلة الأولى من الزواج، لأنها لم تجد من تسألها بارتياح."
+   ],
+   "reading": [
+    {
+     "heading": "العلاقة الحميمية ليست اختبارًا في الليلة الأولى",
+     "paragraphs": [
+      "لا توجد صورة واحدة يجب أن تسير عليها البداية. قد يحتاج أحد الزوجين إلى وقت أطول حتى يشعر بالأمان والراحة؛ فالتدرج والطمأنة أهم من الاستعجال، وتأجيل العلاقة عند التعب أو الخوف ليس فشلًا في الزواج. والأمان النفسي يسبق القرب الجسدي: كلما شعر الإنسان بالقبول والاحترام أصبح أقدر على التعبير عن احتياجاته.",
+      "ولا تُستخدم علامة النزف دليلًا على العفة؛ فاختلاف طبيعة غشاء البكارة ومرونته أمر طبيعي بين النساء، وقد يحدث النزف في أول علاقة وقد لا يحدث، ولا يدل غيابه على سلوك سابق."
+     ]
+    },
+    {
+     "heading": "لا تتجاهلوا الخوف أو الألم",
+     "paragraphs": [
+      "الألم الشديد أو المتكرر ليس شيئًا يُحتمل بصمت؛ قد يكون سببه جفافًا أو التهابًا أو خوفًا أو تشنجًا عضليًا أو سببًا طبيًا آخر، وعند استمراره ينبغي التوقف وطلب التقييم الطبي أو النفسي المناسب. والضغط أو اللوم أو الاستعجال عند وجود خوف أو ألم يزيد المشكلة ولا يحلها؛ العلاج يبدأ بالأمان والتدرج والفهم.",
+      "وصعوبة الأداء أو الألم أو انخفاض الرغبة قد ترتبط بالقلق أو الإرهاق أو المرض أو الأدوية، وليست حكمًا على الرجولة أو الأنوثة؛ وكثير من هذه المشكلات قابل للتقييم والعلاج، والصمت والخجل قد يطيلانها دون داعٍ. والنظافة مهمة، لكن الإفراط في المطهرات ليس بالضرورة أفضل وقد يخل بالتوازن الطبيعي."
+     ]
+    },
+    {
+     "heading": "اختلاف الرغبة أمر شائع",
+     "paragraphs": [
+      "ليس من الضروري أن تكون رغبة الزوجين متساوية في كل وقت؛ فالرغبة تتأثر بالإرهاق والنوم والمرض والحالة النفسية والهرمونات، ولا ينبغي تفسير انخفاضها تلقائيًا على أنه نقص في الحب. الأفضل الحديث عن الاحتياجات والظروف دون لوم أو إهانة.",
+      "وقد تعاني بعض النساء ألمًا أو تعبًا أو تغيرًا في المزاج قبل الدورة الشهرية وأثناءها، والمطلوب التفهم والدعم، لكن من غير الصحيح أيضًا تفسير كل رأي أو انفعال للمرأة بأنه مجرد تأثير هرموني."
+     ]
+    },
+    {
+     "heading": "حدود شرعية مع مساحة واسعة من الألفة",
+     "paragraphs": [
+      "وجود عقد الزواج لا يلغي الحدود الشرعية أو الصحية؛ فللعلاقة مساحة واسعة من الألفة والاستمتاع المباح، مع الالتزام بما أحله الله واجتناب ما حرّمه، ومنها حرمة الجماع المهبلي أثناء الحيض، وهذا لا يعني انقطاع المودة أو القرب أو صور الألفة المباحة الأخرى.",
+      "ومن المعاني التربوية المهمة في قوله تعالى: «وقدّموا لأنفسكم»، أن يسبق القرب تقارب نفسي وملاطفة وتهيؤ جسدي ونفسي، بما ينسجم مع كون الزواج قائمًا على المعروف وحسن العشرة. والعلاقة الحميمية جزء من منظومة أكبر هي «لتسكنوا إليها»: السكن والمودة والرحمة، ونجاحها لا ينفصل عن طريقة الكلام والثقة واللطف خلال بقية اليوم."
+     ]
+    },
+    {
+     "heading": "لا تجعلوا الشك يهدم الثقة",
+     "paragraphs": [
+      "تغير السلوك لا يعني تلقائيًا وجود خيانة. عند وجود مخاوف، يناقش الزوجان الأمر بهدوء ويبحثان عن الحقائق قبل الاتهام أو نشر الشك بين الأسرة والأصدقاء. فإن ثبتت الخيانة، فإن تجاهلها لا يعيد العلاقة تلقائيًا إلى طبيعتها، واستعادة الثقة تحتاج إلى صدق ووقف السلوك المؤذي وتحمل المسؤولية ووقت، وقد تحتاج إلى مساعدة متخصصة.",
+      "وأسرار العلاقة الحميمية ملك للزوجين؛ وكشفها للآخرين قد يجرح الكرامة ويهدم الثقة، فالخصوصية جزء من الأمان داخل الزواج."
+     ]
+    },
+    {
+     "heading": "لا تتعلموا العلاقة من مصادر عشوائية ولا تقارنوا علاقتكم بغيركم",
+     "paragraphs": [
+      "تجارب الآخرين ليست معيارًا لعلاقتكم، والمحتوى المنتشر عشوائيًا قد يحمل معلومات غير صحيحة أو توقعات غير واقعية؛ والمصدر الأفضل هو المعرفة الطبية الموثوقة والتعليم الشرعي الصحيح. فالأجساد والمشاعر والرغبات تختلف من إنسان لآخر، والمعيار الحقيقي هو شعور الزوجين بالأمان والرضا والاحترام والتفاهم، لا ما يُقارَن بعلاقات غيرهما."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "العلاقة الحميمية الصحية لا تقوم على القوة ولا على الخوف ولا على الأداء، وإنما على السكن والمودة والرحمة والقبول والاحترام والمعرفة الصحيحة.",
+    "الأمان قبل القرب، والمودة قبل المطالبة، والحوار قبل الاتهام، والتدرج قبل الاستعجال، والعلاج قبل الصمت، والخصوصية قبل الحديث مع الآخرين."
+   ],
+   "reflection": [
+    "أعرف أن التدرج والطمأنة أهم من الاستعجال، وأن تأجيل العلاقة عند التعب أو الخوف ليس فشلًا.",
+    "لن أتجاهل ألمًا متكررًا أو خوفًا مستمرًا، بل سأطلب تقييمًا طبيًا أو نفسيًا عند الحاجة."
+   ],
+   "quiz": [
+    {
+     "q": "إذا كان أحد الزوجين متوترًا أو خائفًا في بداية الحياة الزوجية، فما الأنسب؟",
+     "choices": [
+      "الإصرار حتى يعتاد الطرف الآخر على الأمر بسرعة.",
+      "تجاهل الخوف وعدم الحديث عنه.",
+      "التدرج والطمأنة وترك وقت كاف للشعور بالأمان.",
+      "اعتبار الخوف مشكلة مرضية فورًا."
+     ],
+     "correct": 2,
+     "explain": "لا توجد صورة واحدة يجب أن تسير عليها البداية. الأمان النفسي يسبق القرب الجسدي؛ كلما شعر الإنسان بالقبول والاحترام أصبح أقدر على التعبير عن احتياجاته."
+    },
+    {
+     "q": "هل يجب أن يحدث نزف في أول علاقة زوجية؟",
+     "choices": [
+      "نعم، يحدث دائمًا في كل الحالات.",
+      "غالبًا يحدث ويُعدّ دليلًا على العفة.",
+      "لا؛ قد يحدث وقد لا يحدث، ولا يدل غيابه على سلوك سابق.",
+      "يحدث فقط في حال وجود مرض."
+     ],
+     "correct": 2,
+     "explain": "اختلاف طبيعة غشاء البكارة ومرونته أمر طبيعي بين النساء، وغياب النزف لا يثبت شيئًا عن سلوك المرأة السابق. لا تُستخدم هذه العلامة دليلًا على العفة."
+    },
+    {
+     "q": "وصل الزوجان إلى مكان إقامتهما بعد يوم طويل من حفل الزفاف، وكانت الزوجة متعبة ومتوترة. ما التصرف الأنسب؟",
+     "choices": [
+      "يجب إتمام العلاقة في الليلة الأولى حتمًا.",
+      "يؤجلان الأمر حتى يشعر كلاهما بالراحة.",
+      "يعتبر الزوج تردّدها رفضًا له.",
+      "تطلب منها الأسرة أن تتجاوز خوفها بسرعة."
+     ],
+     "correct": 1,
+     "explain": "لا ينبغي اختزال العلاقة الزوجية في فعل جسدي منفصل عن بقية الحياة. تأجيل العلاقة عند التعب أو الخوف ليس فشلًا في الزواج، والتدرج والطمأنة أهم من الاستعجال."
+    },
+    {
+     "q": "شعرت الزوجة بألم شديد عند العلاقة الحميمية في أكثر من محاولة، وأصبحت تخاف من الاقتراب من زوجها. ما الأفضل؟",
+     "choices": [
+      "الاستمرار على أمل أن يختفي الألم تدريجيًا من تلقاء نفسه.",
+      "استخدام القوة لتجاوز توترها.",
+      "التوقف وتقييم السبب طبيًا ونفسيًا عند الحاجة.",
+      "اعتبار الألم أمرًا طبيعيًا تعيشه كل النساء دون استثناء."
+     ],
+     "correct": 2,
+     "explain": "الألم الشديد أو المتكرر ليس شيئًا يُحتمل بصمت؛ قد يكون سببه جفافًا أو التهابًا أو خوفًا أو تشنجًا عضليًا، والضغط أو اللوم يزيد المشكلة ولا يحلها."
+    },
+    {
+     "q": "يرغب أحد الزوجين في العلاقة الحميمية أكثر من الآخر، وبدأ كل منهما يفسر اختلاف الرغبة على أنه نقص في الحب. ما الأنسب؟",
+     "choices": [
+      "اعتبار رغبة الطرف الآخر واجبة التلبية دائمًا دون مراعاة ظروفه.",
+      "تجنب الحديث عن الموضوع تمامًا خجلًا.",
+      "مناقشة الاحتياجات والظروف بصراحة دون لوم أو إهانة.",
+      "مقارنة علاقتهما بعلاقات أزواج آخرين."
+     ],
+     "correct": 2,
+     "explain": "الرغبة تتأثر بالإرهاق والنوم والمرض والحالة النفسية والهرمونات، وليس من الضروري أن تكون متساوية في كل وقت. لا ينبغي تفسير انخفاضها تلقائيًا على أنه نقص في الحب."
+    },
+    {
+     "q": "لاحظ الزوج أن مزاج زوجته وطاقتها يتغيران قبل الدورة الشهرية وأثناءها. ما التصرف الأنسب؟",
+     "choices": [
+      "وصفها بالمبالغة كل مرة يتغير فيها مزاجها.",
+      "تفهم هذه التغيرات ودعمها، دون إلغاء مسؤوليتها عن سلوكها.",
+      "تجنب الحديث معها طوال هذه الفترة تمامًا.",
+      "اعتبار كل خلاف بينهما سببه الدورة الشهرية."
+     ],
+     "correct": 1,
+     "explain": "قد تعاني بعض النساء ألمًا أو تعبًا أو تغيرًا في المزاج قبل الدورة وأثناءها، والمطلوب التفهم والدعم، لكن من غير الصحيح أيضًا تفسير كل رأي أو انفعال للمرأة بأنه مجرد تأثير هرموني."
+    },
+    {
+     "q": "قال أحد الزوجين: «ما دمنا متزوجين فكل ممارسة بيننا جائزة». ما التصور الأدق؟",
+     "choices": [
+      "الزواج يجعل كل الممارسات جائزة بلا استثناء.",
+      "رضا الطرفين وحده هو المعيار الوحيد.",
+      "للعلاقة الزوجية حدود شرعية وصحية واضحة، رغم وجود عقد الزواج.",
+      "لا حاجة لمعرفة أي أحكام بعد الزواج."
+     ],
+     "correct": 2,
+     "explain": "وجود عقد الزواج لا يلغي الحدود الشرعية أو الصحية؛ فللعلاقة مساحة واسعة من الألفة والاستمتاع المباح، مع الالتزام بما أحله الله واجتناب ما حرّمه، ومنها حرمة الجماع المهبلي أثناء الحيض."
+    },
+    {
+     "q": "ما المعنى التربوي الذي يمكن أن يستفيده الزوجان من قوله تعالى: «وقدّموا لأنفسكم»؟",
+     "choices": [
+      "أن يبدأ القرب مباشرة في أي وقت يكون الطرفان متاحين فيه.",
+      "أن يسبق القرب تقارب نفسي وملاطفة وتهيؤ جسدي ونفسي.",
+      "أن يحدد أحد الزوجين وحده الوقت والطريقة المناسبة.",
+      "أن يكون التهيؤ الجسدي أهم من التهيؤ النفسي."
+     ],
+     "correct": 1,
+     "explain": "من المعاني التربوية المهمة أن يسبق القرب مودة وكلمة طيبة وملاطفة وطمأنينة ومراعاة لشعور الطرف الآخر، بما ينسجم مع كون الزواج قائمًا على المعروف وحسن العشرة."
+    },
+    {
+     "q": "ما الغاية الأوسع للعلاقة بين الزوجين كما يصفها القرآن؟",
+     "choices": [
+      "الإشباع الجسدي مع أداء الواجبات الزوجية فقط.",
+      "الإنجاب والمحافظة على استمرار الأسرة فقط.",
+      "السكن والمودة والرحمة مع الحقوق المتبادلة.",
+      "الاستقرار الأسري دون أهمية كبيرة للمشاعر."
+     ],
+     "correct": 2,
+     "explain": "العلاقة الحميمية جزء من منظومة أكبر: السكن والمودة والرحمة، كما وصفها الله تعالى: «ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها وجعل بينكم مودة ورحمة»."
+    },
+    {
+     "q": "وجد أحد الزوجين تغيرًا في سلوك الطرف الآخر وبدأ يشك في وجود خيانة. ما التصرف الأكثر نضجًا؟",
+     "choices": [
+      "نشر الشك بين أفراد الأسرة فورًا.",
+      "مراقبة الطرف الآخر سرًا باستمرار.",
+      "مناقشة المخاوف بهدوء والبحث عن الحقائق قبل الاتهام.",
+      "اعتبار أي تغير في السلوك دليلًا قاطعًا على الخيانة."
+     ],
+     "correct": 2,
+     "explain": "تغير السلوك لا يعني تلقائيًا وجود خيانة. عند وجود مخاوف، يناقش الزوجان الأمر بهدوء ويبحثان عن الحقائق قبل الاتهام أو نشر الشك بين الأسرة والأصدقاء."
+    },
+    {
+     "q": "يعاني الزوج من مشكلة متكررة في الأداء وأصبح يتجنب زوجته خجلًا منها. ما التصرف الأفضل؟",
+     "choices": [
+      "إخفاء المشكلة لأطول فترة ممكنة.",
+      "تفسيرها بأنها ضعف في الرجولة.",
+      "الحوار معها بصراحة وطلب تقييم طبي إذا استمرت المشكلة.",
+      "تجنب العلاقة الزوجية تمامًا حتى تختفي المشكلة من تلقاء نفسها."
+     ],
+     "correct": 2,
+     "explain": "صعوبة الأداء قد ترتبط بالقلق أو الإرهاق أو المرض أو الأدوية، وكثير من هذه المشكلات قابل للتقييم والعلاج، والصمت والخجل قد يطيلان المشكلة دون داعٍ."
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "title": "الأبناء والأسرة المستقبلية",
+   "purpose": "الإنجاب والأدوار والتربية وما بعد الولادة.",
+   "story": [
+    "بعد أشهر من الزواج، اكتشف عبدالله ومنى أن كليهما يريد الأطفال، لكن عبدالله كان يتوقع الإنجاب مباشرة، بينما تفضل منى تأجيلًا قصيرًا حتى تستقر في عملها. فنشأ خلاف بينهما."
+   ],
+   "reading": [
+    {
+     "heading": "قرار الإنجاب يحتاج إلى حوار مسبق",
+     "paragraphs": [
+      "من المهم أن يناقش الزوجان قبل الإنجاب: متى نرغب في الأطفال؟ هل نرغب في الإنجاب مباشرة أم بعد فترة؟ ما تصور كل منا لعدد الأطفال؟ وكيف قد يؤثر الحمل والولادة على العمل والوضع المالي؟ الاختلاف في توقيت الإنجاب لا يعني أن أحد الطرفين لا يريد الأسرة، بل قد يعكس اختلافًا في الأولويات، والحل بالحوار لا بالضغط.",
+      "الحمل يحدث في جسد المرأة ويؤثر فيها صحيًا ونفسيًا، لكنه في الوقت نفسه يغير حياة الزوج والأسرة كاملة؛ لذلك ينبغي أن تقوم قرارات توقيت الحمل على التشاور، لا على فرض رغبة طرف على الآخر."
+     ]
+    },
+    {
+     "heading": "تأخر الحمل ليس ذنبًا لأحد",
+     "paragraphs": [
+      "إذا تأخر الحمل، فلا يبدأ الزوجان بالسؤال: من السبب؟ بل الأفضل أن يسألا: ما الخطوة الطبية الصحيحة؟ فأسباب تأخر الحمل قد تكون عند الزوج أو الزوجة أو كليهما، وقد لا يظهر سبب واضح أحيانًا؛ واللوم والاتهام لا يفيدان، بل يضيفان ألمًا نفسيًا إلى مشكلة طبية.",
+      "والأسئلة المتكررة من الأقارب مثل «متى ستنجبون؟» قد تكون مؤلمة حتى لو قيلت بحسن نية؛ وليس من حق الأقارب معرفة تفاصيل الفحوصات، ومن حق الزوجين أن يضعا حدودًا محترمة لهذه الأسئلة، ويحمي كل طرف الآخر من الإحراج بدل أن يتركه يواجهه وحده."
+     ]
+    },
+    {
+     "heading": "الطفل الأول يغير الزواج",
+     "paragraphs": [
+      "الحمل قد يصاحبه تعب وغثيان واضطراب في النوم، فقد تحتاج مسؤوليات المنزل والعمل إلى إعادة توزيع خلال هذه المرحلة. ودعم الزوج لا يقتصر على المصروف، بل يشمل التفهم والمساندة والحضور في المتابعة الطبية.",
+      "بعد الولادة قد يقل النوم ويزداد الإرهاق، وهذه التغيرات لا تعني أن الزواج أصبح أسوأ، بل أن الأسرة تمر بمرحلة تكيف جديدة. من المهم ألا يشعر أحد الزوجين أن الطفل أصبح منافسًا له على اهتمام الآخر؛ فحماية العلاقة الزوجية ليست أنانية، بل جزء من بناء بيئة مستقرة للأبناء. ورعاية الطفل مسؤولية مشتركة بين الأب والأم، لا تقع على الأم وحدها، ولا يقتصر دور الأب على توفير المال."
+     ]
+    },
+    {
+     "heading": "اتفقوا على فلسفة التربية قبل أن يختلف الطفل أمامكم",
+     "paragraphs": [
+      "استمرار الزوجة في العمل أو التفرغ ليس قرارًا له إجابة واحدة تناسب جميع الأسر؛ ينبغي أن يناقش الزوجان حاجة الأسرة إلى الدخل، ورغبة الزوجة المهنية، واحتياجات الطفل، والرعاية المتاحة، دون إثبات أن نموذجًا واحدًا هو الصحيح.",
+      "ولا يشترط أن يتطابق الزوجان في كل أسلوب تربوي، لكن يجب الاتفاق على المبادئ الأساسية: ما السلوك المقبول وغير المقبول؟ كيف نضع الحدود؟ كيف نتعامل مع الخطأ؟ فإذا كان أحد الوالدين يمنع والآخر يسمح باستمرار، سيتعلم الطفل البحث عن الطرف الذي يعطيه ما يريد بدل تعلم القاعدة نفسها. وإذا اختلف الأب والأم في قرار تربوي، فالأفضل مناقشة الاختلاف بعيدًا عن الطفل؛ فالرسالة التي يحتاج إلى رؤيتها: «أبي وأمي قد يختلفان، لكنهما يستطيعان الاتفاق والتحدث باحترام». ولا تقارنوا أبناءكم بغيرهم؛ الأفضل أن نقارن الطفل بنفسه: هل تحسن؟ ماذا تعلم؟"
+     ]
+    },
+    {
+     "heading": "العاملة المنزلية مساعدة، لا بديلًا عن الوالدين",
+     "paragraphs": [
+      "إذا أصبحت الأعباء فوق قدرة الأسرة وكانت القدرة المالية تسمح، فقد تكون الاستعانة بعاملة منزلية خيارًا مناسبًا. لكن وجودها لا يعني انتقال التربية إليها؛ يمكنها المساعدة في أعمال المنزل وبعض جوانب الرعاية، بينما يبقى على الوالدين دور لا يمكن تفويضه بالكامل: الحب، والارتباط، والقيم، والتوجيه. والطفل قد يحتاج من والديه عشرين دقيقة من حضور حقيقي أكثر من ساعات طويلة بلا انتباه فعلي."
+     ]
+    },
+    {
+     "heading": "لا تجعلوا الطفل ميدانًا للخلاف الزوجي، ولا علاجًا لمشكلة زوجية",
+     "paragraphs": [
+      "لا تطلب من الطفل أن ينقل رسائل إلى الطرف الآخر، ولا تسأله: «من تحب أكثر؟»، ولا تحاول كسبه إلى صفك أثناء الخلاف؛ فالطفل يحتاج إلى الشعور بأن من حقه أن يحب أمه وأباه دون أن يختار بينهما.",
+      "والإنجاب لا يعالج تلقائيًا البرود أو الخلاف بين الزوجين، بل إن قدوم طفل جديد يزيد المسؤوليات والضغوط؛ إذا كانت العلاقة تعاني مشكلة حقيقية، فالأفضل التعامل معها بدل توقع أن الطفل سيصلحها. وإذا جاء طفل يحتاج إلى رعاية خاصة، فالمطلوب أن يكون الوالدان فريقًا واحدًا: الحصول على معلومات صحيحة، وطلب الرعاية المتخصصة، وتقسيم المسؤوليات، وحماية العلاقة الزوجية من أن تتحول كلها إلى محور واحد."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الأبناء ثمرة الزواج، لكنهم ليسوا بديلًا عن العلاقة بين الزوجين.",
+    "التربية الناجحة لا تحتاج إلى والدين مثاليين، بل إلى والدين متعاونين حاضرين يتعلمان من أخطائهما."
+   ],
+   "reflection": [
+    "ناقشت مع شريكي تصورنا لتوقيت الإنجاب وعدد الأبناء بصراحة.",
+    "أتفق مع شريكي على خط تربوي مشترك قبل أن نختلف أمام طفلنا."
+   ],
+   "quiz": [
+    {
+     "q": "ما المشكلة الأساسية بين عبدالله ومنى؟",
+     "choices": [
+      "أحدهما لا يريد الأطفال إطلاقًا.",
+      "أحدهما مخطئ والآخر محق في هذا الخلاف.",
+      "لم يناقشا توقيت الإنجاب بوضوح قبل الزواج أو بعده مباشرة.",
+      "لا حاجة لمناقشة هذا الموضوع قبل الزواج."
+     ],
+     "correct": 2,
+     "explain": "الاختلاف في توقيت الإنجاب لا يعني أن أحد الطرفين لا يريد الأسرة، بل قد يعكس اختلافًا في الأولويات أو الاستعداد. الحل ليس بالضغط، بل بالحوار والتفاهم."
+    },
+    {
+     "q": "إذا تأخر الحمل، فما التصرف الأنسب؟",
+     "choices": [
+      "لوم الزوجة على تأخر الحمل.",
+      "لوم الزوج لأنه قد يكون السبب.",
+      "حماية الخصوصية وطلب تقييم طبي للطرفين عند الحاجة.",
+      "عدم الحديث عن الموضوع أبدًا حفاظًا على المشاعر."
+     ],
+     "correct": 2,
+     "explain": "أسباب تأخر الحمل قد تكون عند الزوج أو الزوجة أو كليهما، وقد لا يظهر سبب واضح أحيانًا. اللوم لا يفيد؛ فالأفضل أن يسألا: ما الخطوة الطبية الصحيحة؟"
+    },
+    {
+     "q": "أثناء الحمل أصبحت الزوجة أكثر تعبًا واحتاجت إلى المساعدة في بعض أعمال المنزل. ما التصرف الأنسب؟",
+     "choices": [
+      "تستمر في كل مسؤولياتها دون أي تغيير.",
+      "يعيد الزوجان توزيع المسؤوليات بما يناسب قدرتها في هذه المرحلة.",
+      "تنتقل كل المسؤوليات إلى أسرة الزوجة.",
+      "يتركان جميع الأعمال حتى انتهاء فترة الحمل كاملة."
+     ],
+     "correct": 1,
+     "explain": "دعم الزوج لا يقتصر على المصروف، بل يشمل التفهم والمساندة والحضور في المتابعة الطبية والمساعدة العملية عند الحاجة."
+    },
+    {
+     "q": "ترغب الزوجة في الاستمرار في عملها بعد الإنجاب، بينما يرى زوجها أن الأفضل أن تتفرغ للطفل. ما التصرف الأنسب؟",
+     "choices": [
+      "يقرر الزوج وحده باعتباره رب الأسرة.",
+      "تقرر الزوجة وحدها دون مناقشة أثر القرار على الأسرة.",
+      "يناقشان معًا مصلحة الأسرة والطفل والعمل.",
+      "يترك القرار لرأي والديهما."
+     ],
+     "correct": 2,
+     "explain": "استمرار الزوجة في العمل أو التفرغ ليس قرارًا له إجابة واحدة تناسب كل الأسر؛ ينبغي أن يناقش الزوجان حاجة الأسرة إلى الدخل، ورغبة الزوجة المهنية، واحتياجات الطفل معًا."
+    },
+    {
+     "q": "بعد ولادة الطفل شعرت الأم أن مسؤوليات المنزل والرعاية أصبحت فوق قدرتها، وكانت الأسرة قادرة ماليًا على الاستعانة بعاملة منزلية. ما التصرف الأنسب؟",
+     "choices": [
+      "الاستعانة بها متى طلبت الزوجة ذلك دون تحديد دور واضح لها.",
+      "رفض الفكرة كليًا لأن رعاية الأبناء مسؤولية الوالدين وحدهما.",
+      "الاستعانة بها عند الحاجة والقدرة، مع بقاء التربية والارتباط العاطفي بالطفل مسؤولية الوالدين.",
+      "ترك معظم شؤون الطفل للعاملة ما دامت الأسرة قادرة على تكلفتها."
+     ],
+     "correct": 2,
+     "explain": "يمكن للعاملة المساعدة في أعمال المنزل وبعض جوانب الرعاية، لكن يبقى على الوالدين دور لا يمكن تفويضه بالكامل: الحب والارتباط والقيم والتوجيه."
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "title": "القيم والدين والحقوق والمسؤوليات",
+   "purpose": "المعروف والعدل والأمانة والإحسان.",
+   "story": [
+    "يوسف وهند يعرفان كثيرًا من الحقوق الشرعية، لكنهما بدآ يستخدمان عبارة «هذا من حقي» في كل خلاف يقع بينهما."
+   ],
+   "reading": [
+    {
+     "heading": "المعاشرة بالمعروف",
+     "paragraphs": [
+      "قال تعالى: «وعاشروهن بالمعروف». والمعروف ليس مفهومًا نظريًا، بل يظهر في تفاصيل الحياة اليومية: في طريقة الكلام، واحترام الكرامة، والإنفاق، وتحمل المسؤولية، والتسامح، والعدل. وقد يكون الإنسان ملتزمًا بحقوقه الظاهرة لكنه قاس في كلماته أو مهمل في مشاعر الطرف الآخر؛ فحسن العشرة لا يقاس فقط بما يقدمه الزوجان ماديًا، بل أيضًا بما يشعر به كل منهما من احترام وأمان وتقدير.",
+      "الحقوق مهمة لأنها تمنع الظلم، والمسؤوليات مهمة لأنها تحفظ النظام، لكن الإحسان هو الذي يجعل الحياة الزوجية قابلة للاستمرار بمحبة ورضا. ومن المهم أن يسأل كل زوج نفسه سؤالين معًا: ما حقي؟ وما مسؤوليتي تجاه الطرف الآخر؟"
+     ]
+    },
+    {
+     "heading": "العدل لا يعني أن نفعل كل شيء بالنصف",
+     "paragraphs": [
+      "قد يتحمل الزوج قدرًا أكبر من المسؤوليات خارج المنزل، بينما تتحمل الزوجة قدرًا أكبر من إدارة المنزل ومتابعة الأبناء. هذا التوزيع ليس خطأ في ذاته إذا كان متفقًا عليه ومناسبًا لظروفهما ويشعر كلاهما بأنه منصف. فالعدل لا يعني أن يقسم الزوجان كل مهمة بالتساوي الحرفي، بل أن يتوازن العبء الكلي بحسب الوقت والقدرة والظروف، مع وجود التنسيق والتقدير والاستعداد لمساندة الطرف الآخر عند تغير الظروف."
+     ]
+    },
+    {
+     "heading": "الشورى في القرارات",
+     "paragraphs": [
+      "القرارات التي تؤثر على حياة الأسرة - العمل، والسكن، والانتقال إلى مدينة أخرى، والديون، وتعليم الأبناء - لا ينبغي أن يتخذها أحد الزوجين وكأنه يعيش وحده. والشورى لا تعني أن يتفق الزوجان منذ البداية، بل أن يسمع كل منهما الآخر، ويفهما المعلومات والآثار المحتملة، ثم يبحثا عن القرار الأكثر حماية لمصلحة الأسرة كلها."
+     ]
+    },
+    {
+     "heading": "الأمانة والشفافية، وحفظ السر",
+     "paragraphs": [
+      "الثقة لا تبنى بالكلام فقط، بل بالسلوك المتكرر. إخفاء دين كبير أو مشكلة صحية مؤثرة يضعف الأمانة حتى لو كان الهدف تجنب الخلاف؛ والأمانة لا تعني أن يعرف الزوجان كل تفصيلة صغيرة، بل أن لا يخفي أحدهما ما يؤثر فعليًا على حياة الآخر.",
+      "ومن أهم صور الأمانة الزوجية حفظ أسرار الطرف الآخر وعدم استخدام المعلومات الخاصة ضده وقت الخلاف؛ فالخلاف لا يبرر كشف الخصوصيات أو نقل التفاصيل للأهل أو الأصدقاء."
+     ]
+    },
+    {
+     "heading": "الدين مصدر إصلاح لا وسيلة للسيطرة",
+     "paragraphs": [
+      "القيم الدينية ينبغي أن تزيد الرحمة والعدل وحسن الخلق داخل البيت. ومن الخطأ أن يستخدم أحد الزوجين الدين لإسكات الآخر أو فرض رأيه، مثل قول: «لو كنت تخاف الله لما خالفتني». التذكير بالله ينبغي أن يدفع الإنسان أولًا إلى مراجعة نفسه: هل أنا عادل؟ هل أنا رحيم؟ هل حفظت حق شريكي؟"
+     ]
+    },
+    {
+     "heading": "الرحمة عند تغير الظروف، والوفاء بالاتفاقات",
+     "paragraphs": [
+      "الحياة الزوجية ليست ثابتة؛ فقد يأتي المرض أو الحمل أو فقدان العمل. وفي هذه المراحل تظهر قيمة الرحمة: أن نعيد توزيع المسؤوليات عندما تتغير القدرة، فالمرونة ليست ضعفًا في النظام، بل جزء من نضج الأسرة.",
+      "والاتفاقات الصغيرة بين الزوجين تبني الثقة بمرور الوقت؛ فعندما يتفق الزوجان على ميزانية أو موعد، فإن الالتزام به يرسل رسالة: «كلامنا له قيمة». أما تكرار نقض الاتفاقات دون نقاش فيضعف الثقة حتى لو كانت الأمور نفسها بسيطة."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الحقوق تمنع الظلم، والمسؤوليات تحفظ النظام، والإحسان هو الذي يجعل الحياة الزوجية قابلة للاستمرار بمحبة ورضا.",
+    "من غير المتوازن أن يطالب الإنسان بالاحترام وهو يهين، أو يطلب الصدق وهو يخفي معلومات مؤثرة."
+   ],
+   "reflection": [
+    "أسأل نفسي ما مسؤوليتي تجاه شريكي، لا ما حقي فقط، في كل خلاف.",
+    "لا أستخدم الدين لإسكات شريكي أو فرض رأيي عليه."
+   ],
+   "quiz": [
+    {
+     "q": "قال يوسف لهند: «أنا أعرف حقي ولن أتنازل عنه أبدًا»، وقالت هند الشيء نفسه. ما المشكلة في هذا الأسلوب؟",
+     "choices": [
+      "معرفة الحقوق تضر بالحياة الزوجية في كل حال.",
+      "الحقوق لا مكان لها بين الزوجين أصلًا.",
+      "تحويل كل خلاف إلى مطالبة متبادلة بالحقوق فقط دون إحسان أو تنازل.",
+      "يجب أن يتنازل أحد الطرفين دائمًا عن حقه كاملًا."
+     ],
+     "correct": 2,
+     "explain": "عندما تصبح كلمة «حقي» هي اللغة الأساسية في كل خلاف، يتحول الزواج تدريجيًا إلى حساب مستمر، بينما الزواج في جوهره أوسع من ذلك؛ فهو علاقة تقوم على المعروف والرحمة والتعاون."
+    },
+    {
+     "q": "عُرض على الزوج عمل يتطلب انتقال الأسرة إلى مدينة أخرى. ما التصرف الأنسب؟",
+     "choices": [
+      "يوافق الزوج مباشرة دون أي نقاش مع زوجته.",
+      "ترفض الزوجة مباشرة لمجرد أنها ستبتعد عن أهلها.",
+      "يناقشان معًا أثر القرار على الأسرة والعمل والدخل، ثم يتخذان قرارًا واعيًا.",
+      "تقرر الأسرة الممتدة بدلًا عنهما لأن القرار كبير."
+     ],
+     "correct": 2,
+     "explain": "القرارات التي تؤثر على حياة الأسرة لا ينبغي أن يتخذها أحد الزوجين وكأنه يعيش وحده. الشورى تعني أن يسمع كل منهما الآخر ويبحثا عن القرار الأكثر حماية لمصلحة الأسرة."
+    },
+    {
+     "q": "ارتكب أحد الزوجين خطأ بسيطًا واعتذر عنه، لكن الآخر استمر في تذكيره به عند كل خلاف لاحق. ما الأنسب؟",
+     "choices": [
+      "الاحتفاظ بالخطأ واستدعاؤه دائمًا حتى لا يتكرر.",
+      "إعادة فتح الموضوع كل مرة يحتاج فيها الطرف إلى الانتصار في نقاش.",
+      "قبول الاعتذار وعدم استخدام الماضي سلاحًا في الخلافات القادمة.",
+      "تجاهل جميع الأخطاء مهما بلغت خطورتها."
+     ],
+     "correct": 2,
+     "explain": "الوفاء بالاتفاقات والاعتذارات يبني الثقة بمرور الوقت. أما تكرار استدعاء خطأ اعتُذر عنه فيضعف الثقة ويحول كل خلاف جديد إلى محاكمة للماضي."
+    },
+    {
+     "q": "اكتشف الزوجان بعد الزواج اختلافًا في أولوياتهما؛ أحدهما يعطي الأسرة والوقت المشترك الأولوية، والآخر يركّز على العمل والإنجاز. ما الأنسب؟",
+     "choices": [
+      "اعتبار اختلاف القيم علامة على فشل الزواج حتمًا.",
+      "أن يفرض أحدهما أولوياته على الآخر دون نقاش.",
+      "مناقشة القيم بصراحة والاتفاق على أولويات مشتركة تحفظ التوازن.",
+      "تجنب الحديث عن هذا الاختلاف حتى لا يتصاعد."
+     ],
+     "correct": 2,
+     "explain": "اختلاف الأولويات أمر وارد بين شخصين مختلفين في التنشئة والطموح، والمهم ليس إلغاء الفرق بل الاتفاق على توازن يحفظ حق الأسرة وحق العمل معًا."
+    },
+    {
+     "q": "يعمل الزوج ساعات طويلة خارج المنزل ويتولى معظم الالتزامات الخارجية، بينما تتحمل الزوجة الجزء الأكبر من شؤون المنزل ومتابعة الأبناء. مع الوقت شعر كل منهما أن الآخر لا يقدّر ما يقوم به. ما التصور الأنسب؟",
+     "choices": [
+      "العدل يعني أن يتقاسما كل الأعمال المنزلية والخارجية بالتساوي الحرفي.",
+      "يمكن أن تختلف الأدوار بينهما، مع التنسيق والتقدير المتبادل وتوازن العبء الكلي.",
+      "مسؤوليات المنزل تقع على الزوجة فقط ومسؤوليات الخارج على الزوج فقط دون مراجعة.",
+      "الأفضل أن يلتزم كل طرف بمهامه دون أي حديث عن مجهود الآخر."
+     ],
+     "correct": 1,
+     "explain": "العدل لا يعني أن يقسم الزوجان كل مهمة بالتساوي الحرفي، بل أن يتوازن العبء الكلي بحسب الوقت والقدرة والظروف، مع تقدير كل طرف لما يقوم به الآخر."
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "title": "العلامات الخطرة وخطة الأمان",
+   "purpose": "العنف والتحكم والإدمان والإكراه ومسار السلامة.",
+   "isSafetyChapter": true,
+   "story": [
+    "ظهر على خالد قبل الزواج سلوك متدرج من الغيرة إلى المراقبة والمنع والتهديد. تتعلم أمل أن الحب لا يبرر التحكم، وأن الخوف داخل العلاقة ليس اختلافًا عاديًا."
+   ],
+   "reading": [
+    {
+     "heading": "أين ينتهي الاختلاف الطبيعي ويبدأ القلق؟",
+     "paragraphs": [
+      "ليست الحياة الزوجية خالية من الغيرة أو الغضب أو الاختلاف. في العلاقات الصحية قد يغضب أحد الطرفين أو يشعر بالغيرة، ثم يستطيع الطرفان الحوار والاعتذار والوصول إلى تفاهم. لذلك لا يُحكم على سلامة العلاقة من موقف واحد، بل من النمط المتكرر وطريقة التعامل مع الخلاف.",
+      "هناك فرق بين الاهتمام والسيطرة، وبين السؤال والتحقيق، وبين الغيرة العابرة والمراقبة المستمرة. فالزوج قد يسأل: أين كنت؟ وهذا في ذاته لا يعني وجود مشكلة. لكن الصورة تختلف عندما يتحول السؤال إلى اشتراط معرفة المكان في كل لحظة، أو تفتيش الهاتف، أو منع التواصل مع بعض الأشخاص. السؤال الأهم ليس: هل حدث خلاف؟ بل: هل ما زلت أستطيع أن أقول لا، أو أختلف، أو أعبّر عن رأيي دون أن أخاف؟"
+     ]
+    },
+    {
+     "heading": "ثلاث مناطق تساعد على تقييم العلاقة",
+     "paragraphs": [
+      "المنطقة الآمنة: اختلاف في الرأي، غيرة محدودة، غضب عابر، مع بقاء الاحترام والقدرة على الحوار والاعتذار وتغيير السلوك، ودون تهديد أو مراقبة أو إذلال.",
+      "منطقة تستحق الانتباه: تزايد الغيرة، كثرة الاتصالات للتحقق من المكان، الشك المتكرر، الإهانة أثناء الغضب. وجود أحد هذه التصرفات لا يكفي وحده للحكم، لكنه يستدعي حوارًا واضحًا ووضع حدود ومراقبة هل السلوك يتحسن أم يتصاعد.",
+      "منطقة الخطر: الضرب أو الدفع أو الخنق، التهديد بالأذى، كسر الأشياء للتخويف، إجبار الطرف الآخر على سلوك لا يريده، المراقبة السرية المتكررة، العزل عن الأسرة، أو التهديد بالنفس لإجبار الطرف الآخر. هذه السلوكيات لا تعد مجرد «خلاف زوجي شديد»، بل تستوجب تقييم السلامة والتدخل المناسب."
+     ]
+    },
+    {
+     "heading": "الحل يبدأ مبكرًا قبل أن يتصاعد الخلاف",
+     "paragraphs": [
+      "عند ظهور مؤشرات بسيطة، تكون البداية بالحوار الواضح. يصف كل طرف السلوك نفسه بدل مهاجمة شخصية الآخر: «تكرار تفتيش هاتفي يزعجني، وأحتاج أن نتفق على حدود للخصوصية». ثم يتفق الطرفان على حدود واضحة: لا إهانة، لا تهديد، لا تجسس، ولا استخدام الأسرار أو الأهل كسلاح أثناء الخلاف.",
+      "ومن الوسائل الوقائية المهمة المحافظة على التواصل مع الأسرة والمحيط الاجتماعي، وعدم جعل الزواج علاقة معزولة؛ فالعلاقات الصحية لا تحتاج إلى قطع الناس الموثوقين حتى تستمر."
+     ]
+    },
+    {
+     "heading": "متى نحتاج إلى مساعدة متخصصة؟ وما خطة الأمان؟",
+     "paragraphs": [
+      "إذا كان الخلاف متكررًا لكنه لا يتضمن خوفًا أو تهديدًا أو عنفًا، فقد تكون الاستشارة الزوجية مفيدة. أما إذا كان هناك تهديد أو عنف أو سيطرة شديدة، فإن الأولوية تصبح السلامة لا تحسين الحوار؛ يجب تقييم الخطر وطلب المساعدة من شخص موثوق أو جهة مختصة، وعدم الدخول في مواجهة قد تزيد الخطر.",
+      "خطة الأمان لا تعني بالضرورة إنهاء الزواج، بل الاستعداد المنظم إذا كان هناك احتمال حقيقي لحدوث أذى: وجود شخص موثوق يعرف ما يحدث، ومعرفة مكان يمكن الوصول إليه، والاحتفاظ بوسيلة اتصال متاحة، ومعرفة الخدمات الصحية والاجتماعية المناسبة، وطلب المساعدة العاجلة عند وجود تهديد مباشر.",
+      "الزواج الآمن ليس الزواج الذي لا يحدث فيه خلاف، وإنما الزواج الذي يستطيع فيه الطرفان الاختلاف دون خوف، والحديث دون إذلال، والرفض دون تهديد، والاحتفاظ بكرامتهما وخصوصيتهما دون سيطرة."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الزواج الآمن ليس الزواج الذي لا يحدث فيه خلاف، بل الزواج الذي يستطيع فيه الطرفان الاختلاف دون خوف، والحديث دون إذلال، والرفض دون تهديد.",
+    "طلب المساعدة عند وجود خطر حقيقي ليس إفشاءً لسر البيت، بل حفاظًا على السلامة."
+   ],
+   "safetyNotice": {
+    "title": "إذا شعرت أنك في خطر حقيقي",
+    "body": "هذا الفصل لا يُحتسب ضمن درجة الإتقان أبدًا؛ فالأمان لا يُقاس، بل يُصان. إذا شعرت بخطر فعلي على نفسك أو على أحد في بيتك:",
+    "points": [
+     "في حالة الخطر الفوري: الطوارئ الموحد 911 (الرياض ومكة المدينة) أو 999.",
+     "للعنف الأسري والحماية الاجتماعية: الخط الموحد 1919 التابع لوزارة الموارد البشرية والتنمية الاجتماعية، متاح على مدار الساعة، ويمكن أيضًا التواصل عبر البريد 1919@hrsd.gov.sa."
+    ],
+    "footer": "طلب المساعدة ليس إفشاءً لسر البيت، بل حفاظًا على السلامة. (المصدر: وزارة الموارد البشرية والتنمية الاجتماعية - hrsd.gov.sa)"
+   },
+   "reflection": [
+    "أستطيع أن أقول لا أو أختلف مع شريكي دون أن أخاف من رد فعله.",
+    "لا أعتبر الغيرة الشديدة أو منع التواصل مع أسرتي وأصدقائي دليلًا على الحب."
+   ],
+   "quiz": [
+    {
+     "q": "ما التفسير الأنسب لتطور الغيرة الشديدة إلى الرغبة في معرفة كل تفصيل ومنع التواصل مع الآخرين؟",
+     "choices": [
+      "غيرة طبيعية لا تستدعي القلق.",
+      "اهتمام زائد لكنه مقبول تمامًا.",
+      "انتقال من الغيرة إلى السيطرة على حياة الطرف الآخر.",
+      "سلوك طبيعي ومتوقع قبل الزواج دائمًا."
+     ],
+     "correct": 2,
+     "danger": true,
+     "explain": "هناك فرق بين الاهتمام والسيطرة. الاهتمام يسأل، والسيطرة تمنع وتراقب وتعزل. إذا تحول السؤال عن المكان إلى تفتيش دائم أو منع من رؤية الأصدقاء والأهل، فهذه إشارة تستحق التوقف والتقييم."
+    },
+    {
+     "q": "إذا تكرر العنف ثم تبعه اعتذار في كل مرة، فما التصرف الأنسب؟",
+     "choices": [
+      "اعتبار الاعتذار كافيًا لإغلاق الموضوع كل مرة.",
+      "تجاهل الأمر حفاظًا على العلاقة واستمرارها.",
+      "التعامل معه كنمط خطر متكرر يحتاج إلى تدخل جاد وتقييم للسلامة.",
+      "الانتظار حتى يتكرر الأمر أكثر قبل اتخاذ أي قرار."
+     ],
+     "correct": 2,
+     "danger": true,
+     "explain": "تعرّف الجهات الصحية عنف الشريك بأنه قد يشمل الأذى النفسي والتهديد والمراقبة إلى جانب العنف الجسدي. دورة (عنف ثم اعتذار) المتكررة لا تُعامل كخلاف زوجي عادي، بل تستوجب تقييم السلامة."
+    },
+    {
+     "q": "يقول خالد لأمل: «إذا كنت تحبينني فعلًا فأعطيني كلمات مرور هاتفك وحساباتك». ما التفسير الأنسب؟",
+     "choices": [
+      "دليل ثقة طبيعي بين الطرفين.",
+      "اختبار طبيعي ومقبول للحب قبل الزواج.",
+      "ضغط يمس الخصوصية وقد يكون علامة مبكرة على التحكم.",
+      "من حقوق أحد الطرفين على الآخر دون نقاش."
+     ],
+     "correct": 2,
+     "danger": true,
+     "explain": "الثقة تُبنى بالصدق والوضوح والاتفاق، لا بالمراقبة أو اختبار الولاء المستمر. اشتراط كلمات المرور كدليل حب هو ضغط يمس الخصوصية، وقد يكون بداية لنمط من التحكم."
+    },
+    {
+     "q": "بدأ خالد يطلب من أمل تقليل زياراتها لصديقاتها وأقاربها لأنه «لا يرتاح لهم». ما العلامة التي ينبغي الانتباه إليها؟",
+     "choices": [
+      "الحرص الطبيعي على العلاقة.",
+      "بداية محتملة للعزل الاجتماعي عن الأهل والأصدقاء.",
+      "اختلاف عادي في الطباع لا يستدعي القلق.",
+      "دليل على قوة الارتباط بينهما."
+     ],
+     "correct": 1,
+     "danger": true,
+     "explain": "من السلوكيات المسيطرة التي تحذر منها الجهات الصحية العزل عن الأهل والأصدقاء. العلاقة الآمنة لا تحتاج إلى قطع الناس الموثوقين حتى تستمر."
+    },
+    {
+     "q": "قال خالد: «إذا تركتني فسأؤذي نفسي، وستكونين السبب». ما التصرف الأنسب؟",
+     "choices": [
+      "البقاء معه حتى يهدأ تمامًا مهما طال الأمر.",
+      "اعتبار هذا التهديد دليلًا على عمق حبه.",
+      "طلب المساعدة المتخصصة دون الخضوع لهذا التهديد.",
+      "تجاهل كلامه تمامًا وعدم مناقشته مع أي شخص."
+     ],
+     "correct": 2,
+     "danger": true,
+     "explain": "التهديد بإيذاء النفس لإجبار الطرف الآخر على البقاء شكل من أشكال الضغط والإكراه، وليس دليل حب. المسؤولية الصحيحة طلب المساعدة المتخصصة لمن يهدد، دون أن يتحمل الطرف الآخر مسؤولية تهديده."
+    },
+    {
+     "q": "اكتشفت أمل أن خالد يتابع موقع هاتفها دون علمها. ما التفسير الأنسب؟",
+     "choices": [
+      "اهتمام زائد بسلامتها الشخصية لا أكثر.",
+      "طريقة حديثة ومقبولة للاطمئنان عليها.",
+      "مراقبة سرية تنتهك خصوصية الطرف الآخر.",
+      "تصرف معتاد ومقبول في بداية كل علاقة."
+     ],
+     "correct": 2,
+     "danger": true,
+     "explain": "المراقبة السرية للموقع أو الهاتف أو الحسابات تنتهك الخصوصية، وتُعدّ من السلوكيات التي تندرج تحت المراقبة والتحكم، لا الحرص الطبيعي."
+    },
+    {
+     "q": "إذا أصبحت أمل تخاف من ردة فعل خالد كل مرة ترفض فيها أحد طلباته، فما التصرف الأنسب؟",
+     "choices": [
+      "تنفيذ طلباته دائمًا لتجنب أي مشكلة.",
+      "إخفاء هذا الخوف عن كل من حولها حتى يتم الزواج.",
+      "التوقف والتقييم الصادق للعلاقة، وطلب الدعم من شخص موثوق.",
+      "تأجيل التفكير في الأمر إلى ما بعد الزواج."
+     ],
+     "correct": 2,
+     "danger": true,
+     "explain": "السؤال الأهم ليس: هل حدث خلاف؟ بل: هل ما زلت أستطيع أن أقول لا، أو أختلف، أو أعبّر عن رأيي دون أن أخاف؟ العلاقة الآمنة تسمح بالاختلاف دون تهديد."
+    },
+    {
+     "q": "ما المقصود بخطة الأمان عند وجود تهديد حقيقي؟",
+     "choices": [
+      "مواجهة الطرف الآخر مباشرة وبشكل فوري.",
+      "إبقاء المشكلة بين الطرفين فقط دون أي طرف ثالث.",
+      "تحديد شخص موثوق، ومكان آمن، ووسيلة تواصل متاحة مسبقًا.",
+      "الانتظار حتى يتكرر التهديد مرة أخرى قبل أي تصرف."
+     ],
+     "correct": 2,
+     "explain": "خطة الأمان لا تعني بالضرورة إنهاء الزواج، بل الاستعداد المنظم عند وجود احتمال حقيقي للأذى: وجود شخص موثوق، ومعرفة مكان يمكن الوصول إليه، والاحتفاظ بوسيلة اتصال متاحة."
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "title": "خطتنا للحياة الزوجية",
+   "purpose": "تحويل التعلم إلى اتفاقات عملية قابلة للمراجعة.",
+   "isFinalChapter": true,
+   "story": [
+    "الفصل الختامي لا يقدم معرفة جديدة، بل يحوّل ما تعلمته خلال الفصول الماضية إلى خطة عملية لحياتك الزوجية. اختر من كل محور العبارة الأقرب إلى تصورك، ليتشكل لديك في النهاية ملخص شخصي لخطتك."
+   ],
+   "reading": [
+    {
+     "heading": "الزواج الآمن ليس زواجًا بلا خلاف",
+     "paragraphs": [
+      "الزواج الآمن لا يعني زواجًا بلا خلاف، بل علاقة يستطيع فيها الطرفان أن يختلفا دون خوف، وأن يتحدثا دون إهانة، وأن يعيدا التفاوض عندما تتغير ظروف الحياة. لذلك فإن التخطيط للزواج لا يبدأ من سؤال: «هل نحن متوافقان تمامًا؟» بل من سؤال أكثر واقعية: هل نستطيع أن نتحدث بوضوح عن حياتنا المقبلة؟"
+     ]
+    },
+    {
+     "heading": "حوّل التوقعات الصامتة إلى موضوعات معلنة",
+     "paragraphs": [
+      "المال، والسكن، والعمل، وأعمال المنزل، والعلاقة مع الأهل، والأطفال، والخصوصية، والوقت، ليست تفاصيل صغيرة، بل من أكثر الموضوعات التي قد تسبب خلافًا إذا دخل كل طرف الزواج وهو يفترض أن الآخر يفكر بالطريقة نفسها. لذلك من الأفضل مناقشتها مبكرًا، لا بهدف الوصول إلى تطابق كامل، بل لفهم رؤية كل طرف والبحث عن حلول يمكن للطرفين قبولها."
+     ]
+    },
+    {
+     "heading": "اتفق، ثم جرّب، ثم راجع، ثم عدّل",
+     "paragraphs": [
+      "الخطة الجيدة ليست عقدًا جامدًا. قد يتفق الزوجان اليوم على توزيع معين للمسؤوليات، ثم يتغير العمل، أو يولد طفل، أو تتغير الظروف. ولهذا فإن الزواج الصحي يحتاج إلى مبدأ مستمر: نتفق، ثم نجرب، ثم نراجع، ثم نعدل عند الحاجة. القدرة على إعادة التفاوض علامة نضج، وليست دليلًا على فشل الاتفاق الأول.",
+      "كما يحتاج الزوجان إلى الاتفاق على طريقة إدارة الخلاف قبل وقوعه، والاتفاق على حدود واضحة للخصوصية؛ فالثقة تبنى بالصدق والوضوح والاتفاق، لا بالمراقبة أو الاختبار المستمر."
+     ]
+    },
+    {
+     "heading": "السلامة هي الحد الذي لا يخضع للمساومة",
+     "paragraphs": [
+      "تشير الدراسات في برامج التهيئة الزوجية إلى أن التدريب على التواصل وحل الخلافات والتخطيط المشترك يمكن أن يحسن مهارات العلاقة وجودتها، وإن كان لا يضمن نجاح كل زواج؛ فقيمة الخطة ليست في إعطاء «نسبة نجاح» للزواج، بل في كشف الموضوعات التي تحتاج إلى نقاش قبل أن تتحول إلى مشكلات.",
+      "أما السلامة فهي الحد الذي لا ينبغي أن يخضع للمساومة؛ فالعنف والتهديد والإكراه والعزل والسيطرة الشديدة ليست مجرد اختلافات تحتاج إلى تفاوض، بل مؤشرات تستدعي التوقف وتقييم الأمان وطلب المساعدة المناسبة."
+     ]
+    }
+   ],
+   "keyMessages": [
+    "الزواج الناجح لا يقوم على توقع حياة بلا مشكلات، بل على امتلاك لغة للحوار، وحدود للأمان، ومرونة للمراجعة، واستعداد دائم للتعلم معًا.",
+    "سأخبرك بما أتوقع، وسأسمع ما تتوقع، ولن أفترض أنك تعرف ما في ذهني."
+   ],
+   "reflection": [
+    "أنا مستعد لأن أتفق مع شريكي، ثم نجرب، ثم نراجع، ثم نعدل عند الحاجة.",
+    "أعرف أن السلامة والكرامة خط لا يخضع للتفاوض أو المساومة."
+   ],
+   "quiz": [
+    {
+     "q": "ما الهدف الأساسي من خطة الحياة الزوجية في نهاية البرنامج؟",
+     "choices": [
+      "ضمان عدم حدوث أي خلاف بين الزوجين مستقبلًا.",
+      "تحديد من يملك القرار النهائي في كل أمر.",
+      "تحويل التوقعات غير المعلنة إلى موضوعات واضحة واتفاقات قابلة للمراجعة.",
+      "التنبؤ بنجاح الزواج بشكل نهائي."
+     ],
+     "correct": 2,
+     "explain": "قيمة الخطة ليست في إعطاء نسبة نجاح للزواج، بل في كشف الموضوعات التي تحتاج إلى نقاش قبل أن تتحول إلى مشكلات، وتحويل التوقعات الصامتة إلى اتفاقات واضحة يمكن مراجعتها لاحقًا."
+    },
+    {
+     "q": "إذا اختلف الزوجان في موضوع مهم ولم يتوصلا إلى اتفاق فوري، فما الأفضل؟",
+     "choices": [
+      "إنهاء النقاش تمامًا وعدم فتحه مرة أخرى أبدًا.",
+      "إصرار كل طرف على موقفه دون مرونة.",
+      "تأجيله ثم العودة إليه بحوار منظم بعد الهدوء.",
+      "إشراك الأقارب في الموضوع منذ البداية."
+     ],
+     "correct": 2,
+     "explain": "القدرة على إعادة التفاوض علامة نضج، لا دليل فشل للاتفاق الأول. الزواج الصحي يحتاج إلى مبدأ مستمر: نتفق، ثم نجرب، ثم نراجع، ثم نعدّل عند الحاجة."
+    }
+   ],
+   "plan": [
+    {
+     "topic": "المال",
+     "prompt": "ما الأسلوب الذي تفضل اعتماده في إدارة المال؟",
+     "options": [
+      "ميزانية مشتركة لكل مصروفات البيت، مع مساحة مالية شخصية لكل طرف.",
+      "دخل كل طرف يبقى مستقلًا، مع اتفاق على المساهمة في الاحتياجات المشتركة.",
+      "نراجع الأسلوب الأنسب لنا بعد فترة تجربة قصيرة من الزواج."
+     ]
+    },
+    {
+     "topic": "الأهل والزيارات",
+     "prompt": "ما الترتيب الأقرب لتصورك لزيارة الأسرتين؟",
+     "options": [
+      "جدول منتظم ومتفق عليه لزيارة كل أسرة بالتناوب.",
+      "زيارات مرنة حسب الظروف مع إخبار الطرف الآخر مسبقًا.",
+      "نتفق على تفاصيل الزيارات بعد الاستقرار في بيتنا الجديد."
+     ]
+    },
+    {
+     "topic": "التواصل والخلاف",
+     "prompt": "ما القاعدة التي تريد الالتزام بها عند الخلاف؟",
+     "options": [
+      "نتفق على وقف النقاش مؤقتًا عند اشتداد الغضب، ثم نعود إليه بهدوء.",
+      "نناقش المشكلة فور حدوثها دون تأجيل، بأسلوب هادئ.",
+      "نستعين برأي شخص حكيم محايد إذا تكرر الخلاف دون حل."
+     ]
+    },
+    {
+     "topic": "الأبناء",
+     "prompt": "ما تصورك لتوقيت الإنجاب وتربية الأبناء؟",
+     "options": [
+      "الرغبة في الإنجاب بعد فترة استقرار أولى في الزواج.",
+      "الانفتاح على الإنجاب في أي وقت يتفق عليه الطرفان.",
+      "تأجيل القرار النهائي حتى تتضح ظروفنا المهنية والصحية."
+     ]
+    },
+    {
+     "topic": "الخصوصية والأمان",
+     "prompt": "ما حدود الخصوصية التي تريد الاتفاق عليها؟",
+     "options": [
+      "ما يخص علاقتنا الخاصة وخلافاتنا العابرة يبقى بيننا، إلا عند الحاجة لمساعدة حقيقية.",
+      "لا مراقبة متبادلة للهاتف أو الحسابات؛ الثقة تُبنى بالصدق لا بالتحقق المستمر.",
+      "نتفق على طلب المساعدة فورًا دون تردد إذا ظهر أي تهديد أو شعور بالخطر."
+     ]
+    },
+    {
+     "topic": "الوقت المشترك",
+     "prompt": "كيف تريد حماية وقتكما كزوجين وسط التزامات الحياة؟",
+     "options": [
+      "نخصص وقتًا منتظمًا للحديث والاهتمام ببعضنا رغم انشغال الحياة.",
+      "نراجع توزيع المسؤوليات بيننا كل فترة بما يناسب تغير ظروفنا.",
+      "نهتم بتوازن علاقتنا الزوجية حتى بعد قدوم الأبناء."
+     ]
+    }
+   ]
+  }
+ ]
+};
+  if(state.registered){ syncLocks(); if(state.route.name==="intro") state.route={name:"map"}; }
+  render();
+}
+boot();
+})();
+</script>
+
+</body></html>
